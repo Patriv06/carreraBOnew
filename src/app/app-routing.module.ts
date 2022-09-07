@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:'autodromos', component:AutodromosComponent},
   {path:'home', component:HomeComponent},
   {path: '**', component:PageNotFoundComponent},
-  {path:'', redirectTo:'Home', pathMatch:'full'}
+  //{path:'', redirectTo:'Home', pathMatch:'full'}
 ];
 
 @NgModule({
