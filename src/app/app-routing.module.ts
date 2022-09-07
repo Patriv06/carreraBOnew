@@ -9,7 +9,7 @@ import { SponsorsComponent } from './sponsors/sponsors.component';
 
 
 const routes: Routes = [
-   {path:'categorias', component:CategoriasComponent},
+  {path:'categorias', component:CategoriasComponent},
   {path:'sponsors', component:SponsorsComponent},
   {path:'autodromos', component:AutodromosComponent},
   {path:'home', component:HomeComponent},
