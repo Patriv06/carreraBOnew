@@ -1,6 +1,8 @@
 export class Categorias {
-  id!: number;
-  nombreCategoria!: string;
-  ponderadorCategoria!: number;
-  linkCategoria!: string
+    id!: number;
+    idCategoria!:string;
+    nombreCategoria!: string;
+    ponderadorCategoria!: number;
+    linkCategoria!: string
 }
+

@@ -8,34 +8,58 @@ import { Categorias } from './categorias';
 })
 export class CategoriasService {
 
+  /* private baseURL="https://back-ranking.azurewebsites.net/ver/categorias";
+  private modifURL ="https://back-ranking.azurewebsites.net/modif/categorias";
+  private delURL="https://back-ranking.azurewebsites.net/delete/categorias/";
+  private altaURL="https://back-ranking.azurewebsites.net/categorias"; */
+
   private baseURL="http://localhost:8080/ver/categorias";
   private modifURL ="http://localhost:8080/modif/categorias";
   private delURL="http://localhost:8080/delete/categorias/";
   private altaURL="http://localhost:8080/categorias"
+
+
+
   cat = {
     id:1,
+    idCategoria:" ",
     nombreCategoria:" ",
     ponderadorCategoria:0.5,
     linkCategoria:" ",
-
+   
   }
 
-  constructor(private httpClient:HttpClient) { }
-
+  constructor(private httpClient :HttpClient) { }
+  
   obtenerCategorias():Observable<Categorias[]>{
+   
+    
     return this.httpClient.get<Categorias[]>(`${this.baseURL}`);
+    
+       
   }
 
-  modificarCategorias( categorias:Categorias) {
-    return this.httpClient.put<Categorias>(`${this.modifURL}`, categorias)
+  modificarCategorias( categorias:Categorias) { 
+   
+   return this.httpClient.put<Categorias>(`${this.modifURL}`, categorias)
+
+  
   }
 
   borrarCategorias(categorias:Categorias){
-    return this.httpClient.delete<Categorias>(this.delURL+ categorias.id)
-  }
+   
+   return this.httpClient.delete<Categorias>(this.delURL+ categorias.id)
 
+
+
+   
+  }
   crearCategorias(categorias:Categorias){
+   
     return this.httpClient.post<Categorias>(`${this.altaURL}`, categorias)
+  
   }
 
 }
+
+

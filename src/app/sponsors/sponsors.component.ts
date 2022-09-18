@@ -1,105 +1,98 @@
 import { Component, OnInit } from '@angular/core';
 import { Sponsors } from './sponsors';
 import { SponsorsService } from './sponsors.service';
-import { HttpClient, HttpEventType } from '@angular/common/http';
+
+import { Storage, ref, uploadBytes, listAll, getDownloadURL } from '@angular/fire/storage';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 @Component({
   selector: 'app-sponsors',
   templateUrl: './sponsors.component.html',
-  styleUrls: ['./sponsors.component.scss']
+  styleUrls: ['./sponsors.component.scss'],
 })
-
-export class SponsorsComponent {
-// export class SponsorsComponent implements OnInit {
-
-  /* pages: number = 1;
+export class SponsorsComponent  {
+ 
+  pages: number = 1;
   spo!: Sponsors[];
   spon = {
-    id:1,
-    logoSponsor:"",
+    sponsorsid:1, 
+    nombreSponsor:" ",
     linkSponsor:" ",
     espacioSponsor:" ",
+    urlimgSponsor:" "
     }
-
-  constructor(private sponsorsServicio:SponsorsService) { }
-
-  ngOnInit(): void {
-     this.traerSponsors();
-
+  images: string[];
+  constructor(private storage: Storage, private sponsorsServicio:SponsorsService) {
+    this.images = [];
   }
-
+  ngOnInit(){
+    this.getImages()
+  }
   private traerSponsors(){
-   this.sponsorsServicio.obtenerSponsors().subscribe(dato =>{this.spo = dato})
-
-    console.log(this.spo);
-    }
-    public modifSponsors(spo:Sponsors){
-
-        this.sponsorsServicio.modificarSponsors(spo).subscribe(()=>this.traerSponsors());
-      }
-
-      public delSponsors(sponsors:Sponsors):void{
-       this.sponsorsServicio.borrarSponsors(sponsors).subscribe(()=>this.traerSponsors());
-
-
+    this.sponsorsServicio.obtenerSponsors().subscribe(dato =>{this.spo = dato});
+    
+     console.log(this.spo);
      }
-     public altaSponsor(sponso:Sponsors){
-
-      this.sponsorsServicio.crearSponsors(sponso).subscribe((dato: { id: number; logoSponsor:Blob; linkSponsor:string; espacioSponsor: string}) =>{sponso = dato});
-
-     }
-    recargar(): void {
-      window.location.reload();
+     public modifSponsors(spo:Sponsors){
+       if (spo.nombreSponsor != " "){
+         this.sponsorsServicio.modificarSponsors(spo).subscribe(()=>this.traerSponsors());
+       }
+       else{  alert("El nombre no puede estar en blanco")}
+       }
+     
+       public delSponsors(sponsors:Sponsors):void{
+        this.sponsorsServicio.borrarSponsors(sponsors).subscribe(()=>this.traerSponsors());
+       
+        
+      }
+    
+     public altaSponsors(spon:Sponsors){
+      if (spon.nombreSponsor != " "){
+        console.log(spon.urlimgSponsor)
+      this.sponsorsServicio.crearSponsors(spon).subscribe((dato: { sponsorsid:number; nombreSponsor: string; linkSponsor : string; 
+        espacioSponsor: string ;urlimgSponsor :string}) =>this.traerSponsors());
+     
+      }
+      else{  alert("El nombre no puede estar en blanco")}
     }
 
-     */
-    constructor(private httpClient: HttpClient) { }
 
-  selectedFile!: File;
-  retrievedImage: any;
-  base64Data: any;
-  retrieveResonse: any;
-  message!: string;
-  imageName: any;
+     recargar(): void {
+       window.location.reload();
+     } 
+    
+  
+  uploadImage($event: any) {
+    const file = $event.target.files[0];
+    console.log(file);
 
-  //Gets called when the user selects an image
-  public  onFileChanged(event:any) {
-    //Select File
-    this.selectedFile = event.target.files[0];
+    const imgRef = ref(this.storage, `images/${file.name}`);
+    this.spon.urlimgSponsor = `images/${file.name}`;
+    console.log(this.spon.urlimgSponsor);
+
+    uploadBytes(imgRef, file)
+      .then(response => {
+        console.log(response)
+    //    this.getImages();
+      })
+      .catch(error => console.log(error));
+
   }
 
-
-  //Gets called when the user clicks on submit to upload the image
-  onUpload() {
-    console.log(this.selectedFile);
-
-    //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
-    const uploadImageData = new FormData();
-    uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
-
-    //Make a call to the Spring Boot Application to save the image
-    this.httpClient.post('http://localhost:8080/image/upload', uploadImageData, { observe: 'response' })
-      .subscribe((response) => {
-        if (response.status === 200) {
-          this.message = 'Image uploaded successfully';
-        } else {
-          this.message = 'Image not uploaded successfully';
+  getImages() {
+    const imagesRef = ref(this.storage, 'images');
+    console.log(this.storage)
+    
+    listAll(imagesRef)
+      .then(async response => {
+        console.log(response);
+        this.images = [];
+        for (let item of response.items) {
+          const url = await getDownloadURL(item);
+          this.images.push(url);
         }
-      }
-      );
-
-
+      })
+      .catch(error => console.log(error));
   }
 
-    //Gets called when the user clicks on retieve image button to get the image from back end
-    getImage() {
-    //Make a call to Sprinf Boot to get the Image Bytes.
-    this.httpClient.get('http://localhost:8080/image/get/' + this.imageName)
-      .subscribe(
-        res => {
-          this.retrieveResonse = res;
-          this.base64Data = this.retrieveResonse.picByte;
-          this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-        }
-      );
-  }
 }

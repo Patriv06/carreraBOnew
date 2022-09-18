@@ -1,6 +1,10 @@
+import { FileHandle } from "./file-handle";
+
 export class Sponsors {
-  id!: number;
-  logoSponsor!: Blob;
-  linkSponsor!: string;
-  espacioSponsor!: string
+    sponsorsid!: number;
+    nombreSponsor!: string;
+    linkSponsor!: string;
+    espacioSponsor!: string;
+    urlimgSponsor!: string;
+
 }

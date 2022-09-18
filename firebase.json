@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist\\ranking-back-office",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

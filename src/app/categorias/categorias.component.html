@@ -1,61 +1,55 @@
 
-
+<app-menu></app-menu>
 <div class="div1">
-  <app-menu></app-menu>
   <div class="div2">
     <br>
-    <h3>Rankig Nacional de Pilotos / ABM Categorias</h3>
+    <h3>Ranking Nacional de Pilotos / ABM Categorías</h3>
     <br>
-      <p><mark class="col text-danger"><strong>Complete datos para alta</strong></mark></p>
+    <p  ><mark class="col text-danger"><strong>Complete datos para alta</strong></mark></p>
     <br>
-      <p> Nombre  * : <input type="string" [(ngModel)]="categ.nombreCategoria">
-          Ponderador : <input type ="string" [(ngModel)] = "categ.ponderadorCategoria">
-          Link : <input type="string" [(ngModel)]="categ.linkCategoria"></p>
+    <p> &nbsp; &nbsp; &nbsp; &nbsp; Id Cat. *  : <input type="string" [(ngModel)]="cat.idCategoria">
+      Nombre  : <input type="string" [(ngModel)]="cat.nombreCategoria">
+    
+     Ponderador : <input type ="string" [(ngModel)] = "cat.ponderadorCategoria"> 
+    
+     Link : <input type="string" [(ngModel)]="cat.linkCategoria"></p>
 
-      <p><button (click)="altaCategorias(categ); recargar()" class="btn btn-outline-success">Confirmar alta</button>
-      </p>
+    <p><button (click)="altaCategorias(cat)" class="btn btn-outline-success">Confirmar alta</button>
+          
+    </p>
      <br>
+  
+   
 
-      <p><mark class="col text-danger"><strong>Complete datos a modificar o presione borrar para quitar dato </strong></mark></p>
+    <p  ><mark class="col text-danger"><strong>Complete datos a modificar o presione borrar para quitar dato </strong></mark></p>
     <br>
     </div>
-
+    
     <div class="div2"
-    ><tr *ngFor="let cate of cat  | paginate: { itemsPerPage: 3, currentPage: pages }">
+    ><tr *ngFor="let cate of categ  | paginate: { itemsPerPage: 3, currentPage: pages }">
+   
+        
+    
+  
+     <p>  &nbsp;  Id Categ *: <input type="string" [(ngModel)]="cate.idCategoria">  Nombre  : <input type="string" [(ngModel)]="cate.nombreCategoria">
+        Ponderador         : <input type ="string" [(ngModel)] = "cate.ponderadorCategoria"> 
+         Link : <input type="string" [(ngModel)]="cate.linkCategoria">&nbsp;
 
-     <p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Nombre  *: <input type="string" [(ngModel)]="cate.nombreCategoria">
-          Ponderador         : <input type ="string" [(ngModel)] = "cate.ponderadorCategoria">
-          Link : <input type="string" [(ngModel)]="cate.linkCategoria">&nbsp;
+        <button (click)="modifCategorias(cate)" class="btn btn-outline-primary">Confirmar modificación</button> &nbsp;
+          <button (click)="delCategorias(cate)"  class="btn btn-outline-danger">Borrar dato </button></p>
+       
+          <br>
+    
 
-        <button (click)="modifCategorias(cate); recargar()" class="btn btn-outline-primary">Confirmar modificación</button> &nbsp;
-        <button (click)="delCategorias(cate); recargar()"  class="btn btn-outline-danger">Borrar dato </button></p>
-      <br>
     </tr>
+
+   
+
 </div>
 <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+   
 
 
 
 
-
- <!-- <div class="div2">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Nombre *:</th>
-            <th>Ponderador:</th>
-            <th>Link</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let cate of cat">
-            <td><input type ="string" [(ngModel)] = "cate.nombreCategoria"></td>
-            <td><input type ="string" [(ngModel)] = "cate.ponderadorCategoria"> </td>
-            <td> <input type="string" [(ngModel)]="cate.linkCategoria"></td>
-            <td> <button (click)="modifCategorias(cate); recargar()" class="btn btn-outline-primary">Confirmar modificación</button> &nbsp;
-          <button (click)="delCategorias(cate); recargar()"  class="btn btn-outline-danger">Borrar dato </button></td>
-          </tr>
-
-      </tbody>
-    </table>
-</div> -->
+ 
