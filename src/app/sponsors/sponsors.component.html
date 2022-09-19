@@ -1,6 +1,9 @@
-<app-menu></app-menu>
+
+
+
 <div class="div1">
   <div class="div2">
+    <app-menu></app-menu>
     <br>
     <h3>Rankig Nacional de Pilotos / ABM Sponsors</h3>
     <br>
@@ -12,48 +15,48 @@
   <img [src]="image" *ngFor="let image of images" width="200">
 </div>
     <p>  Nombre  * : <input type="string" [(ngModel)]="spon.nombreSponsor">
-    
-     URL : <input type ="string" [(ngModel)] = "spon.linkSponsor"> 
-    
+
+     URL : <input type ="string" [(ngModel)] = "spon.linkSponsor">
+
      Espacio para publicidad : <input type="string" [(ngModel)]="spon.espacioSponsor"></p>
 
     <p><button (click)="altaSponsors(spon)" class="btn btn-outline-success">Confirmar alta</button>
-          
+
     </p>
      <br>
-  
-   
+
+
 
     <p  ><mark class="col text-danger"><strong>Complete datos a modificar o presione borrar para quitar dato </strong></mark></p>
     <br>
     </div>
-    
+
     <div class="div2"
     ><tr *ngFor="let sp of spo  | paginate: { itemsPerPage: 3, currentPage: pages }">
-   
-        
-    
-  
+
+
+
+
       <p  ><mark class="col text-danger"><strong>Complete datos para alta</strong></mark></p>
       <br>
       <p>  Nombre  * : <input type="string" [(ngModel)]="sp.nombreSponsor">
-      
-       URL : <input type ="string" [(ngModel)] = "sp.linkSponsor"> 
-      
+
+       URL : <input type ="string" [(ngModel)] = "sp.linkSponsor">
+
        Espacio para publicidad : <input type="string" [(ngModel)]="sp.espacioSponsor"></p>
        Imágen :
-  
+
 
        <p> <button (click)="modifSponsors(sp)" class="btn btn-outline-primary">Confirmar modificación</button> &nbsp;
           <button (click)="delSponsors(sp)"  class="btn btn-outline-danger">Borrar dato </button></p>
-       
+
           <br>
-    
+
 
     </tr>
 
-   
+
 
 </div>
 <pagination-controls (pageChange)="pages = $event"></pagination-controls>
-   
+
