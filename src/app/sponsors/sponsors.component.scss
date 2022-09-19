@@ -2,47 +2,42 @@ body{
   background-color: black;
 }
 
+h2{
+  border: 1px solid black;
+  padding: 10px;
+}
+
+div{
+  text-align: center;
+  padding: 10px;
+  color: white;
+}
+
+.div2 {
+  color: white;
+  text-align: center;
+}
+
+.div1 {
+  overflow: hidden;
+  height: 98vh;
+  width: 95vw;
+  margin: 1vh 2.5vw;
+  border: 2px solid #e87867;
+  border-radius: 10px;
+  background-color: #3e3d3d;
+  background-repeat: no-repeat;
+  background-attachment:inherit;
+  position: relative;
+  background-image: url("/assets/imagenes/Pilotos_Carreras.jpg");
+  background-repeat: no-repeat;
+  background-attachment:inherit;
+  z-index: 0;
+}
+
 .my-pagination ::ng-deep .ngx-pagination .current {
-    background: red;
-    color: white;
-  }
-  .div2 {
-      color: white;
-
-        text-align: center;}
+  background: red;
+  color: white;
+}
 
 
-
-
-     .div1 {
-      border: 2px solid #e87867;
-      border-radius: 10px;
-      background-color: #3e3d3d;
-
-
-      background-image: url("/assets/imagenes/Pilotos_Carreras.jpg");
-      background-repeat: no-repeat;
-
-      background-attachment:inherit;
-
-      margin-left: 20px;
-
-      width: 1440px;
-      height: 688px;
-
-      margin: 50px auto;
-      position: relative;
-      z-index: 0;}
-
-
-  div{
-    text-align: center;
-    padding: 10px;
-    color: white;
-  }
-  h2{
-
-
-    border: 1px solid black;
-    padding: 10px;
-  }
