@@ -1,7 +1,6 @@
 
 
 <div class="div1">
-
     <div class="div2">
       <app-menu></app-menu>
       <br>
@@ -9,43 +8,40 @@
       <br>
       <p  ><mark class="col text-danger"><strong>Complete datos para alta</strong></mark></p>
       <br>
-      <p> Nombre Autódromo* : <input type="string" [(ngModel)]="autod.nombreAutodromo">
-
-
-
-      <p><button (click)="altaAutodromos(autod); recargar()" class="btn btn-outline-success">Confirmar alta</button>
-
+     
+        Nombre * : <input type="string" [(ngModel)]="aut.nombreAutodromo">
+  
+     
+  
+      <p><button (click)="altaAutodromos(aut)" class="btn btn-outline-success">Confirmar alta</button>
+  
       </p>
        <br>
-
-
-
+  
+  
+  
       <p  ><mark class="col text-danger"><strong>Complete datos a modificar o presione borrar para quitar dato </strong></mark></p>
       <br>
       </div>
-
+  
       <div class="div2"
-      ><tr *ngFor="let auto of aut  | paginate: { itemsPerPage: 3, currentPage: pages }">
-
-
-
-
-       <p>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Nombre Autódromo *: <input type="string" [(ngModel)]="auto.nombreAutodromo">
-
-
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <button (click)="modifAutodromos(auto); recargar()" class="btn btn-outline-primary">Confirmar modificación</button> &nbsp;
-            <button (click)="delAutodromos(auto); recargar()"  class="btn btn-outline-danger">Borrar dato </button></p>
-
+      ><tr *ngFor="let aut of auto  | paginate: { itemsPerPage: 3, currentPage: pages }">
+  
+  
+  
+  
+       <p>   Nombre  : <input type="string" [(ngModel)]="aut.nombreAutodromo">
+         
+          <button (click)="modifAutodromo(aut)" class="btn btn-outline-primary">Confirmar modificación</button> &nbsp;
+            <button (click)="delAutodromo(aut)"  class="btn btn-outline-danger">Borrar dato </button></p>
+  
             <br>
-
-
+  
+  
       </tr>
-
-
-
+  
+  
+  
   </div>
   <pagination-controls (pageChange)="pages = $event"></pagination-controls>
-
-
-
-
+  

@@ -1,7 +1,7 @@
 import { FileHandle } from "./file-handle";
 
 export class Sponsors {
-    sponsorsid!: number;
+    id!: number;
     nombreSponsor!: string;
     linkSponsor!: string;
     espacioSponsor!: string;

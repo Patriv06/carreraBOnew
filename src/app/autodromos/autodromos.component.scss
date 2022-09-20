@@ -1,31 +1,16 @@
-.container{
-  padding: 18px;
-  margin: 10px;
-  border-style: solid;
-  border-width: 2px;
-  border-color:  #E87867;
-  border-radius: 10px;
-  height: 93vh;
-}
-
-
 .my-pagination ::ng-deep .ngx-pagination .current {
   background: red;
   color: white;
 }
 .div2 {
     color: white;
-
-      text-align: center;}
-
-
-
+    text-align: center;}
 
    .div1 {
+
     border: 2px solid #e87867;
     border-radius: 10px;
     background-color: #3e3d3d;
-
 
     background-image: url("/assets/imagenes/Pilotos_Carreras.jpg");
     background-repeat: no-repeat;
@@ -34,7 +19,7 @@
 
     margin-left: 20px;
 
-    width: 1440px;
+    width: 1200px;
     height: 688px;
 
     margin: 50px auto;

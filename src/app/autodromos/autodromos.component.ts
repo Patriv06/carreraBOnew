@@ -10,52 +10,56 @@ import { AutodromosService } from './autodromos.service';
 export class AutodromosComponent implements OnInit {
 
   pages: number = 1;
-  aut!: Autodromos[];
-  autod = {
-    id:1,
-    nombreAutodromo:" ",
-   
-    }
+  auto!: Autodromos[];
 
-   
+  constructor(private autServicio:AutodromosService ) { }
+
+ ngOnInit(): void {
+   this.traerAutodromo();}
 
 
-  constructor(private autodromosServicio:AutodromosService) { }
-  
-  ngOnInit(): void {
-     this.traerAutodromos();
-  
-  }
-  
-  private traerAutodromos(){
-   this.autodromosServicio.obtenerAutodromos().subscribe(dato =>{this.aut = dato})
-   
-    console.log(this.aut);
-    }
-    public modifAutodromos(aut:Autodromos){
-      if (aut.nombreAutodromo != " "){
-        this.autodromosServicio.modificarAutodromos(aut).subscribe(()=>this.traerAutodromos());
-      }
-      else{  alert("El nombre no puede estar en blanco")}
-      }
-    
-      public delAutodromos(autodromos:Autodromos):void{
-       this.autodromosServicio.borrarAutodromos(autodromos).subscribe(()=>this.traerAutodromos());
-      
-       
-     }
-     public altaAutodromos(autod:Autodromos){
-      if (autod.nombreAutodromo != " "){
-      this.autodromosServicio.crearAutodromos(autod).subscribe((dato: { id: number; nombreAutodromo: string}) =>{autod = dato});
-    
-      }
-      else{  alert("El nombre no puede estar en blanco")}
-    }
-    recargar(): void {
-      window.location.reload();
-    }
-  
-    
-    
+
+
+aut = {
+  id:1,
+  nombreAutodromo:" ",
+}
+
+
+
+public traerAutodromo(){
+this.autServicio.obtenerAutodromos().subscribe(dato =>{this.auto = dato});
 
 }
+public modifAutodromo(aut:Autodromos){
+if (aut.nombreAutodromo != " "){
+ 
+ this.autServicio.modificarAutodromos(aut).subscribe(()=>this.traerAutodromo())
+}
+
+
+else{  alert("El nombre no puede estar en blanco")}
+
+}
+public delAutodromo(autodromos:Autodromos):void{
+ this.autServicio.borrarAutodromos(autodromos).subscribe(()=>this.traerAutodromo());
+ 
+ 
+}
+public altaAutodromos(aut:Autodromos){
+if (aut.nombreAutodromo != " "){ 
+  
+this.autServicio.crearAutodromos(aut).subscribe((dato: {id:number;nombreAutodromo: string}) =>this.traerAutodromo());
+}
+ else{  alert("El nombre no puede estar en blanco")}
+
+}
+recargar(): void {
+window.location.reload();
+}
+
+ngOnChange(){
+window.location.reload();
+}
+}
+
