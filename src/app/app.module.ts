@@ -16,6 +16,8 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { MenuComponent } from './menu/menu.component';
+import { NoticiasComponent } from './noticias/noticias.component';
+import { PilotosComponent } from './pilotos/pilotos.component';
 
 
 const routes: Routes = [
@@ -23,6 +25,8 @@ const routes: Routes = [
   {path:'categorias', component:CategoriasComponent},
   {path:'sponsors', component:SponsorsComponent},
   {path:'autodromos', component:AutodromosComponent},
+  {path:'noticias', component:NoticiasComponent},
+  {path:'pilotos', component:PilotosComponent},
   {path:'home', component:HomeComponent},
   {path:'', redirectTo:'Home', pathMatch:'full'}
 ];
@@ -33,7 +37,9 @@ const routes: Routes = [
     CategoriasComponent,
     SponsorsComponent,
     AutodromosComponent,
-    MenuComponent
+    MenuComponent,
+    NoticiasComponent,
+    PilotosComponent
   ],
   imports: [
     BrowserModule,

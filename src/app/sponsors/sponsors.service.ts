@@ -8,17 +8,16 @@ import { Sponsors } from './sponsors';
   providedIn: 'root'
 })
 export class SponsorsService {
+  private baseURL="https://back-ranking.herokuapp.com/ver/sponsors";
+  private modifURL ="https://back-ranking.herokuapp.com/modif/sponsors";
+  private delURL="https://back-ranking.herokuapp.com/delete/sponsors/";
+  private altaURL="https://back-ranking.herokuapp.com/sponsors";  
 
- /*  private baseURL="https://back-ranking.azurewebsites.net/ver/sponsors";
-  private modifURL ="https://back-ranking.azurewebsites.net/modif/sponsors";
-  private delURL="https://back-ranking.azurewebsites.net/delete/sponsors/";
-  private altaURL="https://back-ranking.azurewebsites.net/Sponsors" */
 
-
-  private baseURL="http://localhost:8080/ver/sponsors";
+  /* private baseURL="http://localhost:8080/ver/sponsors";
   private modifURL ="http://localhost:8080/modif/sponsors";
   private delURL="http://localhost:8080/delete/sponsors/";
-  private altaURL="http://localhost:8080/sponsors"
+  private altaURL="http://localhost:8080/sponsors" */
  
 
   spo = {

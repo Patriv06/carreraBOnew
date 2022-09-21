@@ -4,6 +4,8 @@ import { AutodromosComponent } from './autodromos/autodromos.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
+import { NoticiasComponent } from './noticias/noticias.component';
+import { PilotosComponent } from './pilotos/pilotos.component';
 import { SponsorsComponent } from './sponsors/sponsors.component';
 
 const routes: Routes = [
@@ -11,6 +13,8 @@ const routes: Routes = [
   {path:'categorias', component:CategoriasComponent},
   {path:'sponsors', component:SponsorsComponent},
   {path:'autodromos', component:AutodromosComponent},
+  {path:'noticias', component:NoticiasComponent},
+  {path:'pilotos', component:PilotosComponent},
   {path:'home', component:HomeComponent},
   {path:'', redirectTo:'home', pathMatch:'full'}
 ];

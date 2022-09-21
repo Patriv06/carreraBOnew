@@ -11,12 +11,12 @@ export class CategoriasService {
   private baseURL="https://back-ranking.herokuapp.com/ver/categorias";
   private modifURL ="https://back-ranking.herokuapp.com/modif/categorias";
   private delURL="https://back-ranking.herokuapp.com/delete/categorias/";
-  private altaURL="https://back-ranking.herokuapp.com/categorias"; 
+  private altaURL="https://back-ranking.herokuapp.com/categorias";  
 
-  /* private baseURL="http://localhost:8080/ver/categorias";
+ /*   private baseURL="http://localhost:8080/ver/categorias";
   private modifURL ="http://localhost:8080/modif/categorias";
   private delURL="http://localhost:8080/delete/categorias/";
-  private altaURL="http://localhost:8080/categorias" */
+  private altaURL="http://localhost:8080/categorias"  */
 
 
 
