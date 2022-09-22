@@ -21,7 +21,6 @@ export class CategoriasComponent implements OnInit {
    this.traerCategorias();}
 
 
-public permiso:any;
 
 cat = {
   id:1,
@@ -63,13 +62,7 @@ this.categServicio.crearCategorias(cate).subscribe((dato: {id:number; idCategori
 recargar(): void {
 window.location.reload();
 }
-ngAfterViewChecked() {   
 
-this.permiso = window.localStorage.getItem('permiso');
-
-return this.permiso;
-
-}
 ngOnChange(){
 window.location.reload();
 }

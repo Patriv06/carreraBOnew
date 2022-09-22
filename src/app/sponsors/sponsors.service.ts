@@ -8,15 +8,31 @@ import { Sponsors } from './sponsors';
   providedIn: 'root'
 })
 export class SponsorsService {
+  private baseURL="https://back-ranking.herokuapp.com/ver/sponsors";
+  private modifURL ="https://back-ranking.herokuapp.com/modif/sponsors";
+  private delURL="https://back-ranking.herokuapp.com/delete/sponsors/";
+  private altaURL="https://back-ranking.herokuapp.com/sponsors";  
 
-  private baseURL="https://back-ranking.azurewebsites.net/ver/sponsors";
-  private modifURL ="https://back-ranking.azurewebsites.net/modif/sponsors";
-  private delURL="https://back-ranking.azurewebsites.net/delete/sponsors/";
-  private altaURL="https://back-ranking.azurewebsites.net/Sponsors"
+
+  /* private baseURL="http://localhost:8080/ver/sponsors";
+  private modifURL ="http://localhost:8080/modif/sponsors";
+  private delURL="http://localhost:8080/delete/sponsors/";
+  private altaURL="http://localhost:8080/sponsors" */
  
-  spo=[];
-  images: string;
-  constructor(private httpClient:HttpClient, private storage:Storage) {this.images = " "; }
+
+  spo = {
+    id:1, 
+    nombreSponsor:" ",
+    linkSponsor:" ",
+    espacioSponsor:" ",
+    urlimgSponsor:" "
+  }
+
+ // images: string;
+constructor(private httpClient:HttpClient) 
+{
+  //this.images = " ";
+ }
   
   obtenerSponsors():Observable<Sponsors[]>{
    
@@ -34,7 +50,7 @@ export class SponsorsService {
 
   borrarSponsors(sponsors:Sponsors){
    
-   return this.httpClient.delete<Sponsors>(this.delURL+ sponsors.sponsorsid)
+   return this.httpClient.delete<Sponsors>(this.delURL+ sponsors.id)
 
 
 
@@ -46,7 +62,7 @@ export class SponsorsService {
   
   }
  
-  getImages() {
+  /* getImages() {
     const imagesRef = ref(this.storage, 'images');
     console.log(this.storage)
     
@@ -60,5 +76,5 @@ export class SponsorsService {
         }
       })
       .catch(error => console.log(error));
-  }
+  } */
 }

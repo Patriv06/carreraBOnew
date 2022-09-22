@@ -9,12 +9,13 @@
     <br>
     <p  ><mark class="col text-danger"><strong>Complete datos para alta</strong></mark></p>
     <br>
-    <input type="file" (change)="uploadImage($event)">
+  <!--   <input type="file" (change)="uploadImage($event)">
 
 <div class="images">
   <img [src]="image" *ngFor="let image of images" width="200">
-</div>
+</div> -->
     <p>  Nombre  * : <input type="string" [(ngModel)]="spon.nombreSponsor">
+      URL Imagen : <input type ="string" [(ngModel)] = "spon.urlimgSponsor">
 
      URL : <input type ="string" [(ngModel)] = "spon.linkSponsor">
 

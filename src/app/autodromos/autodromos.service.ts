@@ -8,14 +8,14 @@ import { Autodromos } from './autodromos';
 })
 export class AutodromosService {
 
-  private baseURL="https://back-ranking.azurewebsites.net/ver/autodromo";
-  private modifURL ="https://back-ranking.azurewebsites.net/modif/autodromo";
- private delURL="https://back-ranking.azurewebsites.net/delete/autodromo/";
-  private altaURL="https://back-ranking.azurewebsites.net/autodromo"
-  //private baseURL="http://localhost:8080/ver/autodromo";
- // private modifURL ="http://locahost:8080/modif/autodromo";
-  //private delURL="http://locahost:8080/delete/autodromo/";
- // private altaURL="http://localhost:8080/autodromo"
+  private baseURL="https://back-ranking.herokuapp.com/ver/autodromos";
+  private modifURL ="https://back-ranking.herokuapp.com/modif/autodromos";
+  private delURL="https://back-ranking.herokuapp.com/delete/autodromos/";
+  private altaURL="https://back-ranking.herokuapp.com/autodromos";  
+ /*  private baseURL="http://localhost:8080/ver/autodromos";
+  private modifURL ="http://locahost:8080/modif/autodromos";
+  private delURL="http://locahost:8080/delete/autodromos/";
+  private altaURL="http://localhost:8080/autodromos" */
   aut = {
     id:1,
     nombreAutodromo:" ",
