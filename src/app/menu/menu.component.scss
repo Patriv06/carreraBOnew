@@ -118,15 +118,13 @@ body
  * Make this absolute positioned
  * at the top left of the screen
  */
-#menu
-{
+#menu{
   position: absolute;
   left: 135px;
   width: 300px;
   margin: -100px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
-
   background: #ededed;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;

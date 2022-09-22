@@ -12,26 +12,30 @@
   color: white;
 }
 .div2 {
-    color: white;
-      text-align: center;}
-    .div1 {
-        border: 2px solid #E87867;
-        border-radius: 10px;
-        background-color: #3E3D3D;
-        height: 98vh;
-        width: 95vw;
-        margin:1vh 2.5vw;
-        overflow: hidden;
-        position: relative;
-        z-index: 0;
-        background-image: url("/assets/imagenes/Pilotos_Carreras.jpg");
-        background-repeat: no-repeat;
-       }
+  color: white;
+  text-align: center;
+}
+
+.div1 {
+  border: 2px solid #E87867;
+  border-radius: 10px;
+  background-color: #3E3D3D;
+  height: 98vh;
+  width: 95vw;
+  margin:1vh 2.5vw;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  background-image: url("/assets/imagenes/Pilotos_Carreras.jpg");
+  background-repeat: no-repeat;
+}
+
 div{
   text-align: center;
   padding: 10px;
   color: white;
 }
+
 h2{
   border: 1px solid black;
   padding: 10px;
