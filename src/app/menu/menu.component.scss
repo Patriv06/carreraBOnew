@@ -12,7 +12,7 @@ body
 {
   display: block;
   position: absolute;
-  top: 50%;
+  // top: 50%;
   right: 50px;
 
   z-index: 1;
@@ -121,10 +121,11 @@ body
 #menu{
   position: absolute;
   left: 135px;
-  width: 300px;
+  width: 240px; //ancho menú
   margin: -100px 0 0 -50px;
   padding: 50px;
-  padding-top: 125px;
+  padding-top: 100PX;
+  text-align: left;
   background: #ededed;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;

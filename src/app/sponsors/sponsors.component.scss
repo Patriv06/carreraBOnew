@@ -13,11 +13,6 @@ div{
   color: white;
 }
 
-.div2 {
-  color: white;
-  text-align: center;
-}
-
 .div1 {
   overflow: hidden;
   height: 98vh;
@@ -35,6 +30,10 @@ div{
   z-index: 0;
 }
 
+.div2 {
+  color: white;
+  text-align: center;
+}
 .my-pagination ::ng-deep .ngx-pagination .current {
   background: red;
   color: white;

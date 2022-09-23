@@ -4,47 +4,61 @@
       <br>
       <h3>Ranking Nacional de Pilotos / ABM Pilotos</h3>
       <br>
-      <p  ><mark class="col text-danger"><strong>Complete datos para alta</strong></mark></p>
+      <p>
+        <mark class="col text-danger">
+          <strong>Complete datos para alta</strong>
+        </mark>
+      </p>
       <br>
-      <p> &nbsp; &nbsp; &nbsp; &nbsp; Nombre   : <input type="string" [(ngModel)]="pil.nombrePiloto">
-        Apellido * : <input type="string" [(ngModel)]="pil.apellidoPiloto">
-  
-       URL Imagen : <input type ="string" [(ngModel)] = "pil.urlImgPiloto">
-  </p>
-  
-      <p><button (click)="altaPilotos(pil)" class="btn btn-outline-success">Confirmar alta</button>
-  
+      <p>
+        Nombre:<input type="string" [(ngModel)]="pil.nombrePiloto">
+        Apellido: <input type="string" [(ngModel)]="pil.apellidoPiloto">
+        URL Imagen:<input type="string" [(ngModel)]="pil.urlImgPiloto">
+      </p>
+
+      <p>
+        <button (click)="altaPilotos(pil)" class="btn btn-outline-success">
+          Confirmar alta
+        </button>
       </p>
        <br>
-  
-  
-  
-      <p  ><mark class="col text-danger"><strong>Complete datos a modificar o presione borrar para quitar dato </strong></mark></p>
+
+      <p>
+        <mark class="col text-danger">
+          <strong>
+            Complete datos a modificar o presione borrar para quitar dato
+          </strong>
+        </mark>
+      </p>
       <br>
       </div>
-  
-      <div class="div2"
-      ><tr *ngFor="let pilo of pilot  | paginate: { itemsPerPage: 3, currentPage: pages }">
-  
-  
-  
-  
-        <p> &nbsp; &nbsp; &nbsp; &nbsp; <img src="gs://ranking-backoffice.appspot.com/images/{{pilo.urlImgPiloto}}" width="50"> Nombre   : <input type="string" [(ngModel)]="pilo.nombrePiloto">
-            Apellido * : <input type="string" [(ngModel)]="pilo.apellidoPiloto">
-      
-           URL Imagen : <input type ="string" [(ngModel)] = "pilo.urlImgPiloto">
-      
-  
-          <button (click)="modifPilotos(pilo)" class="btn btn-outline-primary">Confirmar modificación</button> &nbsp;
-            <button (click)="delPilotos(pilo)"  class="btn btn-outline-danger">Borrar dato </button></p>
-  
+
+      <div class="div2">
+      <tr *ngFor="let pilo of pilot  | paginate: { itemsPerPage: 3, currentPage: pages }">
+
+      <p>
+        <img src="gs://ranking-backoffice.appspot.com/images/{{pilo.urlImgPiloto}}" width="50">
+          Nombre:<input type="string" [(ngModel)]="pilo.nombrePiloto">
+          Apellido: <input type="string" [(ngModel)]="pilo.apellidoPiloto">
+          URL Imagen:<input type ="string" [(ngModel)]="pilo.urlImgPiloto">
+
+
+          <button (click)="modifPilotos(pilo)" class="btn btn-outline-primary">
+            Confirmar modificación
+          </button> &nbsp;
+
+          <button (click)="delPilotos(pilo)"  class="btn btn-outline-danger">
+            Borrar dato
+          </button>
+        </p>
+
             <br>
-  
-  
+
+
       </tr>
-  
-  
-  
+
+
+
   </div>
   <pagination-controls (pageChange)="pages = $event"></pagination-controls>
-  
+
