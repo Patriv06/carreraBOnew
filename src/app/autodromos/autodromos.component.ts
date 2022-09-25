@@ -9,11 +9,7 @@ import { AutodromosService } from './autodromos.service';
 })
 export class AutodromosComponent implements OnInit {
   pages: number = 1;
-  auto!: Autodromos[] = [
-    {
-      nombre: 'Ciudad de Rafaela',
-    },
-  ];
+  auto!: Autodromos[];
 
   constructor(private autServicio:AutodromosService ) { }
 
