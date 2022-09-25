@@ -1,3 +1,4 @@
+
 .container{
   padding: 18px;
   margin: 10px;
@@ -7,13 +8,11 @@
   border-radius: 10px;
   height: 93vh;
 }
-.my-pagination ::ng-deep .ngx-pagination .current {
-  background: red;
-  color: white;
-}
-.div2 {
-  color: white;
+
+div{
   text-align: center;
+  padding: 10px;
+  color: white;
 }
 
 .div1 {
@@ -30,13 +29,105 @@
   background-repeat: no-repeat;
 }
 
-div{
-  text-align: center;
-  padding: 10px;
+.div2 {
   color: white;
+  text-align: center;
 }
 
 h2{
-  border: 1px solid black;
   padding: 10px;
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background: red;
+  color: white;
+}
+
+.carga_datos{
+  // display: block;
+  // margin-left: 45vh;
+  margin-top: 5vw;
+  font-size: 1.5em;
+}
+
+.row_cell{
+  // padding-left: 8px;
+  padding-right: 8px;
+}
+
+.row_cell-1{
+  flex: 0 0 20%;
+  font-size: 22px;
+  // margin-left: 1vh;
+}
+
+.alta:hover{
+  color: #E87867;
+  background-color: transparent;
+  border-color: #E87867;
+  border-radius: 10px;
+  padding: 0 8px;
+  font-size: 25px;
+}
+
+.alta{
+  color: #fff;
+  background-color: #E87867;
+  border-color: #E87867;
+  border-radius: 10px;
+  padding: 0 8px;
+  font-size: 25px;
+}
+
+input{
+  width: 400px;
+  border-radius: 5px;
+  border: solid 3px #E87867;
+  color: white;
+  margin-left: 1em;
+  margin-right: 1em;
+  background-color: transparent;
+}
+
+.listado{
+  margin-top: 5vh;
+  margin-bottom: 2vh;
+  display:flex;
+}
+
+.modif, .delete{
+  float: right;
+  color: #fff;
+  background-color: gray;
+  border: solid 3px #E87867;
+  border-radius: 10px;
+  padding: 0 8px;
+  font-size: 15px;
+  margin: 0 1em;
+}
+
+.modif, .delete{
+  float:right;
+  color: #fff;
+  background-color: gray;
+  border: solid 3px #E87867;
+  border-radius: 10px;
+  padding: 0px 8px;
+  font-size: 15px;
+  margin: 0 1em;
+}
+
+.nombre{
+  margin-left: 40vh;
+  border: solid 3px #E87867;
+  border-radius: 10px;
+  padding: 6px 8px;
+  font-size: 15px;
+  background-color: black;
+}
+
+.autodromos{
+  display: block;
+  margin-left: 1em;
+  width: 230px;
 }

@@ -1,47 +1,65 @@
-
 <div class="div1">
     <div class="div2">
       <app-menu></app-menu>
-      <br>
-      <h3>Ranking Nacional de Pilotos / ABM Autódromos</h3>
-      <br>
-      <p><mark class="col text-danger"><strong>Complete datos para alta</strong></mark></p>
-      <br>
 
-        Nombre * : <input type="string" [(ngModel)]="aut.nombreAutodromo">
+      <h2>Ranking Nacional de Pilotos / ABM Autódromos</h2>
 
-
-
-      <p><button (click)="altaAutodromos(aut)" class="btn btn-outline-success">Confirmar alta</button>
-
-      </p>
-       <br>
-
-
-
-      <p  ><mark class="col text-danger"><strong>Complete datos a modificar o presione borrar para quitar dato </strong></mark></p>
-      <br>
-
+      <div>
+        <h5>
+          <strong>
+            Información para el Alta de Autódromos
+          </strong>
+        </h5>
       </div>
 
-      <div class="div2"
-      ><tr *ngFor="let aut of auto  | paginate: { itemsPerPage: 3, currentPage: pages }">
+      <div class="carga_datos">
+          <label for="nombre_aut">Nombre:</label>
+          <input id="nombre_aut" type="string" [(ngModel)]="aut.nombreAutodromo">
+          <button (click)="altaAutodromos(aut)" class="alta">
+            Confirmar alta
+          </button>
+        </div>
 
+      <div class="div3">
+        <div *ngFor="let aut of auto  | paginate: { itemsPerPage: 3, currentPage: pages }">
+      </div>
 
+      <div class="listado">
+        <label class="nombre">Autódromo:</label>
+        <!-- <p class="autodromos">Cocho López</p> -->
+        <p [(ngModel)]="aut.nombreAutodromo">
+        <button (click)="modifAutodromo(aut)" class="modif">
+          Modificar
+        </button>
+        <button (click)="delAutodromo(aut)" class="delete">
+          Borrar
+        </button>
+      </div>
+      <div class="listado">
+        <label class="nombre">Autódromo:</label>
+        <p class="autodromos">Ciudad de Rafaela</p>
+        <!-- <input type="string" [(ngModel)]="aut.nombreAutodromo">
+        <button (click)="modifAutodromo(aut)" class="modif">
+          Modificar
+        </button>
+        <button (click)="delAutodromo(aut)" class="delete">
+          Borrar
+        </button>
+      </div>
 
-
-       <p>   Nombre  : <input type="string" [(ngModel)]="aut.nombreAutodromo">
-
-          <button (click)="modifAutodromo(aut)" class="btn btn-outline-primary">Confirmar modificación</button> &nbsp;
-            <button (click)="delAutodromo(aut)"  class="btn btn-outline-danger">Borrar dato </button></p>
-
-            <br>
-
-
-      </tr>
-
-
+      <div class="listado">
+        <label class="nombre">Autódromo:</label>
+        <p class="autodromos">Municipal Juan Manuel Fangio</p>
+        <!-- <input type="string" [(ngModel)]="aut.nombreAutodromo"> -->
+        <button (click)="modifAutodromo(aut)" class="modif">
+          Modificar
+        </button>
+        <button (click)="delAutodromo(aut)" class="delete">
+          Borrar
+        </button>
+        </div> -->
+      <pagination-controls (pageChange)="pages = $event"></pagination-controls>
 
   </div>
-  <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+
 
