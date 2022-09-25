@@ -26,30 +26,7 @@
 
       <div class="listado">
         <label class="nombre">Autódromo:</label>
-        <!-- <p class="autodromos">Cocho López</p> -->
-        <p [(ngModel)]="aut.nombreAutodromo">
-        <button (click)="modifAutodromo(aut)" class="modif">
-          Modificar
-        </button>
-        <button (click)="delAutodromo(aut)" class="delete">
-          Borrar
-        </button>
-      </div>
-      <div class="listado">
-        <label class="nombre">Autódromo:</label>
-        <p class="autodromos">Ciudad de Rafaela</p>
-        <!-- <input type="string" [(ngModel)]="aut.nombreAutodromo">
-        <button (click)="modifAutodromo(aut)" class="modif">
-          Modificar
-        </button>
-        <button (click)="delAutodromo(aut)" class="delete">
-          Borrar
-        </button>
-      </div>
-
-      <div class="listado">
-        <label class="nombre">Autódromo:</label>
-        <p class="autodromos">Municipal Juan Manuel Fangio</p>
+        <li class="autodromos">{{aut.nombreAutodromo}}</li>
         <!-- <input type="string" [(ngModel)]="aut.nombreAutodromo"> -->
         <button (click)="modifAutodromo(aut)" class="modif">
           Modificar
@@ -57,7 +34,7 @@
         <button (click)="delAutodromo(aut)" class="delete">
           Borrar
         </button>
-        </div> -->
+        </div>
       <pagination-controls (pageChange)="pages = $event"></pagination-controls>
 
   </div>
