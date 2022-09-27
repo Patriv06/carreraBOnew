@@ -7,51 +7,83 @@ import { AutodromosService } from './autodromos.service';
   templateUrl: './autodromos.component.html',
   styleUrls: ['./autodromos.component.scss']
 })
+
 export class AutodromosComponent implements OnInit {
   pages: number = 1;
-  auto!: Autodromos[];
+  auto: Autodromos[] = [
+    {
+    id:1,
+    nombreAutodromo:"Juan Manuel Fangio ",
+    },
+    {
+    id:2,
+    nombreAutodromo:"Pedro Goyeneche"
+    },
+    {
+    id:3,
+    nombreAutodromo:"Juan Manuel Fangio ",
+    },
+    {
+    id:4,
+    nombreAutodromo:"Pedro Goyeneche"
+    },
+    {
+    id:5,
+    nombreAutodromo:"Pedro Goyeneche"
+    },
+    {
+    id:6,
+    nombreAutodromo:"Juan Manuel Fangio ",
+    },
+    {
+    id:7,
+    nombreAutodromo:"Pedro Goyeneche"
+    }
+  ];
 
   constructor(private autServicio:AutodromosService ) { }
 
- ngOnInit(): void {
-   this.traerAutodromo();}
+  ngOnInit(): void {
+    this.traerAutodromo();
+  }
 
-aut = {
-  id:1,
-  nombreAutodromo:" ",
-}
+  aut = {
+    id:1,
+    nombreAutodromo:'',
+  }
 
-public traerAutodromo(){
-this.autServicio.obtenerAutodromos().subscribe(dato =>{this.auto = dato});
+  public traerAutodromo(){
+    this.autServicio.obtenerAutodromos().subscribe(dato =>{this.auto = dato});
+  }
 
-}
-public modifAutodromo(aut:Autodromos){
-if (aut.nombreAutodromo != " "){
+  public modifAutodromo(aut:Autodromos){
+    if (aut.nombreAutodromo != " ") {
+      this.autServicio.modificarAutodromos(aut).subscribe(
+        ()=>this.traerAutodromo()
+      )
+    }else{
+      alert("El nombre no puede estar en blanco")
+    }
+  }
 
- this.autServicio.modificarAutodromos(aut).subscribe(()=>this.traerAutodromo())
-}
+  public delAutodromo(autodromos:Autodromos):void{
+    this.autServicio.borrarAutodromos(autodromos).subscribe(()=>this.traerAutodromo());
+  }
 
-else{  alert("El nombre no puede estar en blanco")}
+  public altaAutodromos(aut:Autodromos){
+    if (aut.nombreAutodromo != " "){
+      this.autServicio.crearAutodromos(aut).subscribe((dato: {id:number;nombreAutodromo: string}) =>this.traerAutodromo());
+    }else{
+      alert("El nombre no puede estar en blanco")
+    }
+  }
 
-}
-public delAutodromo(autodromos:Autodromos):void{
- this.autServicio.borrarAutodromos(autodromos).subscribe(()=>this.traerAutodromo());
+  recargar(): void {
+    window.location.reload();
+  }
 
-}
-public altaAutodromos(aut:Autodromos){
-if (aut.nombreAutodromo != " "){
-
-this.autServicio.crearAutodromos(aut).subscribe((dato: {id:number;nombreAutodromo: string}) =>this.traerAutodromo());
-}
- else{  alert("El nombre no puede estar en blanco")}
-
-}
-recargar(): void {
-window.location.reload();
-}
-
-ngOnChange(){
-window.location.reload();
-}
+  ngOnChange(){
+    window.location.reload();
+  }
 }
 

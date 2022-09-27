@@ -20,20 +20,23 @@
           </button>
         </div>
 
-      <div class="div3">
-        <div *ngFor="let aut of auto  | paginate: { itemsPerPage: 3, currentPage: pages }">
-      </div>
 
       <div class="listado">
-        <label class="nombre">Autódromo:</label>
-        <li class="autodromos">{{aut.nombreAutodromo}}</li>
+        <legend>Autódromo</legend>
+        <ul class="autodromos">
+        <li *ngFor="let aut of auto | paginate: { itemsPerPage: 6, currentPage: pages }">
+          {{aut.nombreAutodromo}}
+          <button (click)="modifAutodromo(aut)" class="modif">
+            Modificar
+          </button>
+          <button (click)="delAutodromo(aut)" class="delete">
+            Borrar
+          </button>
+        </li>
+      </ul>
+
+
         <!-- <input type="string" [(ngModel)]="aut.nombreAutodromo"> -->
-        <button (click)="modifAutodromo(aut)" class="modif">
-          Modificar
-        </button>
-        <button (click)="delAutodromo(aut)" class="delete">
-          Borrar
-        </button>
         </div>
       <pagination-controls (pageChange)="pages = $event"></pagination-controls>
 
