@@ -10,36 +10,7 @@ import { AutodromosService } from './autodromos.service';
 
 export class AutodromosComponent implements OnInit {
   pages: number = 1;
-  auto: Autodromos[] = [
-    {
-    id:1,
-    nombreAutodromo:"Juan Manuel Fangio ",
-    },
-    {
-    id:2,
-    nombreAutodromo:"Pedro Goyeneche"
-    },
-    {
-    id:3,
-    nombreAutodromo:"Juan Manuel Fangio ",
-    },
-    {
-    id:4,
-    nombreAutodromo:"Pedro Goyeneche"
-    },
-    {
-    id:5,
-    nombreAutodromo:"Pedro Goyeneche"
-    },
-    {
-    id:6,
-    nombreAutodromo:"Juan Manuel Fangio ",
-    },
-    {
-    id:7,
-    nombreAutodromo:"Pedro Goyeneche"
-    }
-  ];
+  auto: Autodromos[] = [];
 
   constructor(private autServicio:AutodromosService ) { }
 

@@ -24,40 +24,25 @@ export class CategoriasService {
     nombreCategoria:" ",
     ponderadorCategoria: 0,
     linkCategoria:" ",
-
   }
 
   constructor(private httpClient :HttpClient) { }
 
   obtenerCategorias():Observable<Categorias[]>{
-
-
     return this.httpClient.get<Categorias[]>(`${this.baseURL}`);
-
-
   }
 
   modificarCategorias( categorias:Categorias) {
-
-   return this.httpClient.put<Categorias>(`${this.modifURL}`, categorias)
-
-
+    return this.httpClient.put<Categorias>(`${this.modifURL}`, categorias)
   }
 
   borrarCategorias(categorias:Categorias){
-
-   return this.httpClient.delete<Categorias>(this.delURL+ categorias.id)
-
-
-
-
+    return this.httpClient.delete<Categorias>(this.delURL+ categorias.id)
   }
+
   crearCategorias(categorias:Categorias){
-
     return this.httpClient.post<Categorias>(`${this.altaURL}`, categorias)
-
   }
-
 }
 
 
