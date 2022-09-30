@@ -50,17 +50,6 @@ h2{
   font-size: 1.5em;
 }
 
-.row_cell{
-  // padding-left: 8px;
-  padding-right: 8px;
-}
-
-.row_cell-1{
-  flex: 0 0 20%;
-  font-size: 22px;
-  // margin-left: 1vh;
-}
-
 .alta:hover{
   color: #E87867;
   background-color: transparent;
@@ -89,24 +78,6 @@ input{
   background-color: transparent;
 }
 
-// .listado{
-
-//   // margin-top: 1vh;
-//   // margin-bottom: 2vh;
-// }
-
-li, ul{
-  text-align: left;
-  text-decoration: none;
-  font-size: 18px;
-  margin-left: 50vh;
-}
-
-li{
-  padding-top: 15px;
-  width: 70%;
-}
-
 .modif, .delete{
   float:right;
   color: #fff;
@@ -131,4 +102,25 @@ li{
   display: block;
   margin-left: 1em;
   width: 600px;
+}
+
+table{
+  margin-left: 20em;
+}
+
+tr{
+  display: table-row;
+}
+
+td{
+  display: table-cell;
+  vertical-align: middle;
+  padding: 4px;
+  font-size: 18px;
+}
+
+.nomAut{
+  width: 30vw;
+  text-align: left;
+  border: solid #E87867 2px;
 }

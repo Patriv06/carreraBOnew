@@ -1,52 +1,98 @@
-
-
 <div class="div1">
   <div class="div2">
     <app-menu></app-menu>
-    <br>
-    <h3>Ranking Nacional de Pilotos / ABM Categorías</h3>
-    <br>
-    <p  ><mark class="col text-danger"><strong>Complete datos para alta</strong></mark></p>
-    <br>
-    <p> &nbsp; &nbsp; &nbsp; &nbsp; Id Cat. *  : <input type="string" [(ngModel)]="cat.idCategoria">
-      Nombre  : <input type="string" [(ngModel)]="cat.nombreCategoria">
 
-     Ponderador : <input type ="string" [(ngModel)] = "cat.ponderadorCategoria">
+    <h2>Ranking Nacional de Pilotos / ABM Categorías</h2>
 
-     Link : <input type="string" [(ngModel)]="cat.linkCategoria"></p>
-
-    <p><button (click)="altaCategorias(cat)" class="btn btn-outline-success">Confirmar alta</button>
-
-    </p>
-     <br>
-
-
-
-    <p  ><mark class="col text-danger"><strong>Complete datos a modificar o presione borrar para quitar dato </strong></mark></p>
-    <br>
+    <div>
+      <h5>
+        <strong>
+          Complete datos para alta
+        </strong>
+      </h5>
     </div>
 
-    <div class="div2"
-    ><tr *ngFor="let cate of categ  | paginate: { itemsPerPage: 3, currentPage: pages }">
+    <div class="carga_datos">
+      <table class="categoria">
+        <tr>
+          <td>
+          <label>
+            Id Categoría:
+          </label>
+          </td>
+          <td>
+            <input id="idCateg" type="string" [(ngModel)]="cat.idCategoria">
+          </td>
+          <td>
+            <label>
+              Nombre:
+            </label>
+          </td>
+          <td>
+            <input id="nombreCateg" type="string" [(ngModel)]="cat.nombreCategoria" class="nombreCateg">
+          </td>
+        <tr>
+          <td>
+            <label>
+              Ponderador:
+            </label>
+          </td>
+          <td>
+            <input id="ponderador" type ="string" [(ngModel)]="cat.ponderadorCategoria">
+          </td>
+          <td id="link1">
+            <label>
+              Link:
+            </label>
+          </td>
+          <td>
+            <input id="link" type="string" [(ngModel)]="cat.linkCategoria">
+          </td>
+        </table>
+          <div class="div3">
+            <button (click)="altaCategorias(cat)" class="alta">
+              Confirmar alta
+            </button>
+        </div>
+    </div>
+
+    <div class="listado">
+      <legend>Categorías</legend>
+
+      <table class="categorias1">
+        <tr *ngFor="let cat of cate  | paginate: { itemsPerPage: 6, currentPage: pages }">
+          <td class="idCateg1">
+            {{cat.idCategoria}}
+          </td>
+          <td class="nombreCateg1">
+            {{cat.nombreCategoria}}
+          </td>
+          <td class="pondera1">
+            {{cat.ponderadorCategoria}}
+          </td>
+          <td class="link1">
+            {{cat.linkCategoria}}
+          </td>
+          <td>
+            <button (click)="modifCategorias(cat)" class="modif">
+              Modificar
+            </button>
+          </td>
+          <td>
+            <button (click)="delCategorias(cat)"  class="delete">
+              Borrar
+            </button>
+          </td>
+
+      </table>
+    </div>
 
 
+  <!-- <p>Id Categ: <input type="string" [(ngModel)]="cate.idCategoria">
+  Nombre  : <input type="string" [(ngModel)]="cate.nombreCategoria">
+  Ponderador: <input type ="string" [(ngModel)] = "cate.ponderadorCategoria">
+         Link : <input type="string" [(ngModel)]="cate.linkCategoria"></p> -->
 
-
-     <p>  &nbsp;  Id Categ *: <input type="string" [(ngModel)]="cate.idCategoria">  Nombre  : <input type="string" [(ngModel)]="cate.nombreCategoria">
-        Ponderador         : <input type ="string" [(ngModel)] = "cate.ponderadorCategoria">
-         Link : <input type="string" [(ngModel)]="cate.linkCategoria">&nbsp;
-
-        <button (click)="modifCategorias(cate)" class="btn btn-outline-primary">Confirmar modificación</button> &nbsp;
-          <button (click)="delCategorias(cate)"  class="btn btn-outline-danger">Borrar dato </button></p>
-
-          <br>
-
-
-    </tr>
-
-
-
-</div>
 <pagination-controls (pageChange)="pages = $event"></pagination-controls>
 
 

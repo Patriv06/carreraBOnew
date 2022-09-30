@@ -36,6 +36,85 @@ div{
   }
 
   h2{
-    border: 1px solid black;
     padding: 10px;
   }
+
+.piloto{
+  margin-left: 20vw;
+  margin-top: 2vw;
+  font-size: 1.2em;
+}
+
+.pilotos1 {
+  margin-left: 20vw;
+  margin-top: 2vw;
+  font-size: 1.2em;
+}
+
+#nombrePiloto {
+  margin-left: 1em;
+  width: 25em;
+  background-color: transparent;
+  border: #e87867 solid 3px;
+  border-radius: 5px;
+  color: white
+}
+
+#url {
+  margin-left: 1em;
+  width: 25em;
+  background-color: transparent;
+  border: #e87867 solid 3px;
+  border-radius: 5px;
+  color: white;
+}
+
+#img {
+  text-align: right;
+  margin-bottom: 0;
+}
+
+input{
+  padding: 0 6px;
+}
+
+.alta:hover{
+  color: #E87867;
+  background-color: transparent;
+  border-color: #E87867;
+  border-radius: 10px;
+  padding: 0 8px;
+  font-size: 25px;
+}
+
+.alta{
+  color: #fff;
+  background-color: #E87867;
+  border-color: #E87867;
+  border-radius: 10px;
+  padding: 0 8px;
+  font-size: 25px;
+}
+
+.nombreApellido {
+  border: solid #E87867 1px;
+  text-align: left;
+  padding: 0 6px;
+  width: 15em;
+}
+
+.img1 {
+  border: solid #E87867 1px;
+  text-align: left;
+  padding: 0 6px;
+  width: 40%;
+}
+
+.modif, .delete{
+  float:right;
+  color: #fff;
+  background-color: gray;
+  border: solid 3px #E87867;
+  padding: 0px 8px;
+  margin: 0 1em;
+}
