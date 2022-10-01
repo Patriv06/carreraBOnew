@@ -11,15 +11,25 @@ import { NgxPaginationModule } from 'ngx-pagination';
   styleUrls: ['./sponsors.component.scss'],
 })
 export class SponsorsComponent implements OnInit {
- 
+
   pages: number = 1;
-  spo!: Sponsors[];
+  spo: Sponsors[] = [
+    {
+      id:1,
+      nombreSponsor:'la vaca atada al pasto',
+      linkSponsor:'http://lavacaenelpasto.com.ar',
+      espacioSponsor:'espacio medium',
+      urlimgSponsor:'www.lavacaenelpasto.com.ar'
+    },
+
+  ]
+
   spon = {
-    id:1, 
-    nombreSponsor:" ",
-    linkSponsor:" ",
-    espacioSponsor:" ",
-    urlimgSponsor:" "
+    id:1,
+    nombreSponsor:'',
+    linkSponsor:'',
+    espacioSponsor:'',
+    urlimgSponsor:''
   }
 
   constructor(private sponServicio:SponsorsService ) { }
@@ -34,7 +44,7 @@ this.sponServicio.obtenerSponsors().subscribe(dato =>{this.spo = dato});
 }
 public modifSponsors(spo:Sponsors){
 if (spo.nombreSponsor != " "){
- 
+
  this.sponServicio.modificarSponsors(spo).subscribe(()=>this.traerSponsors())
 }
 
@@ -44,12 +54,12 @@ else{  alert("El nombre no puede estar en blanco")}
 }
 public delSponsors(sponsors:Sponsors):void{
  this.sponServicio.borrarSponsors(sponsors).subscribe(()=>this.traerSponsors());
- 
- 
+
+
 }
 public altaSponsors(spo:Sponsors){
-if (spo.nombreSponsor != " "){ 
-  
+if (spo.nombreSponsor != " "){
+
 this.sponServicio.crearSponsors(spo).subscribe((dato: {id:number;nombreSponsor: string; linkSponsor: string; espacioSponsor:string; urlimgSponsor:string}) =>this.traerSponsors());
 
 

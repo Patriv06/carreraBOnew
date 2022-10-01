@@ -1,9 +1,13 @@
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background: red;
+  color: white;
+}
+
 body{
   background-color: black;
 }
 
 h2{
-  border: 1px solid black;
   padding: 10px;
 }
 
@@ -34,9 +38,85 @@ div{
   color: white;
   text-align: center;
 }
-.my-pagination ::ng-deep .ngx-pagination .current {
-  background: red;
+
+.div3{
+  margin-top: 8px;
+}
+
+.sponsors{
+  margin-left: 20vw;
+  margin-top: 3vw;
+  font-size: 1.2em;
+}
+
+.listado{
+  width: 100%;
+}
+
+.sponsors1{
+  margin-left: 15vw;
+  margin-top: 2vh;
+  width: 70vw;
+}
+
+label{
+  margin-top: 2px;
+}
+
+.alta:hover{
+  color: #E87867;
+  background-color: transparent;
+  border-color: #E87867;
+  border-radius: 10px;
+  padding: 0 8px;
+  font-size: 25px;
+}
+
+.alta{
+  color: #fff;
+  background-color: #E87867;
+  border-color: #E87867;
+  border-radius: 10px;
+  padding: 0 8px;
+  font-size: 25px;
+}
+
+.modif, .delete{
+  float:right;
+  color: #fff;
+  background-color: gray;
+  border: solid 3px #E87867;
+  padding: 0px 8px;
+
+}
+
+.nombreSponsor, .espacio {
+  border: solid #E87867 2px;
+  text-align: left;
+  padding: 0 6px;
+}
+
+.link, .url1 {
+  border: solid #E87867 2px;
+  padding-left: 0.8em;
+  text-align: left;
+  font-size: 15px;
+}
+
+#nombre, #espacio{
+  width: 10em;
+  background-color: transparent;
+  border: #e87867 solid 3px;
+  border-radius: 5px;
   color: white;
 }
 
+#urlImg, #url{
+  margin-left: 1em;
+  width: 25em;
+  background-color: transparent;
+  border: #e87867 solid 3px;
+  border-radius: 5px;
+  color: white
+}
 

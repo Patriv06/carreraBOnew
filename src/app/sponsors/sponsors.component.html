@@ -20,53 +20,95 @@
 
     <div class="carga_datos">
       <table class="sponsors">
+        <tr>
+          <td>
+            <label>
+              Nombre:
+            </label>
+          </td>
+          <td>
+            <input id="nombre" type="string" [(ngModel)]="spon.nombreSponsor">
+          </td>
+          <td>
+            <label>
+              URL:
+            </label>
+          </td>
+          <td>
+            <input id="url" type ="string" [(ngModel)] = "spon.linkSponsor">
+          </td>
+          <tr>
+            <td>
+              <label>
+                Espacio:
+              </label>
+            </td>
+            <td>
+              <input id="espacio" type="string" [(ngModel)]="spon.espacioSponsor">
+            </td>
+            <td>
+              <label>
+                URL Imagen:
+              </label>
+            </td>
+            <td>
+              <input id="urlImg" type ="string" [(ngModel)] = "spon.urlimgSponsor">
+            </td>
+          <tr>
 
+          </table>
+
+        <div class="div3">
+          <button (click)="altaSponsors(spon)" class="alta">
+            Confirmar alta
+          </button>
+        </div>
+
+    </div>
+
+    <div class="listado">
+      <legend>Sponsors</legend>
+
+      <table class="sponsors1">
+        <tr *ngFor="let spon of spo  | paginate: { itemsPerPage: 3, currentPage: pages }">
+        <td class="nombreSponsor">
+          {{spon.nombreSponsor}}
+        </td>
+        <td class="link">
+          {{spon.linkSponsor}}
+        </td>
+        <td class="espacio">
+          {{spon.espacioSponsor}}
+        </td>
+        <td class="url1">
+          {{spon.urlimgSponsor}}
+        </td>
+        <td>
+          <button (click)="modifSponsors(spon)" class="modif">
+            Modificar
+          </button>
+        </td>
+        <td>
+          <button (click)="delSponsors(spon)"  class="delete">
+            Borrar
+          </button>
+        </td>
       </table>
     </div>
-    <p>  Nombre  * : <input type="string" [(ngModel)]="spon.nombreSponsor">
-      URL Imagen : <input type ="string" [(ngModel)] = "spon.urlimgSponsor">
-
-     URL : <input type ="string" [(ngModel)] = "spon.linkSponsor">
-
-     Espacio para publicidad : <input type="string" [(ngModel)]="spon.espacioSponsor"></p>
-
-    <p><button (click)="altaSponsors(spon)" class="btn btn-outline-success">Confirmar alta</button>
-
-    </p>
-     <br>
-
-
-
-    <p  ><mark class="col text-danger"><strong>Complete datos a modificar o presione borrar para quitar dato </strong></mark></p>
-    <br>
-    </div>
-
-    <div class="div2"
-    ><tr *ngFor="let sp of spo  | paginate: { itemsPerPage: 3, currentPage: pages }">
+  </div>
 
 
 
 
-      <p  ><mark class="col text-danger"><strong>Complete datos para alta</strong></mark></p>
-      <br>
-      <p>  Nombre  * : <input type="string" [(ngModel)]="sp.nombreSponsor">
-
-       URL : <input type ="string" [(ngModel)] = "sp.linkSponsor">
-
-       Espacio para publicidad : <input type="string" [(ngModel)]="sp.espacioSponsor"></p>
-       Imágen :
-
-
-       <p> <button (click)="modifSponsors(sp)" class="btn btn-outline-primary">Confirmar modificación</button> &nbsp;
-          <button (click)="delSponsors(sp)"  class="btn btn-outline-danger">Borrar dato </button></p>
-
-          <br>
-
-
-    </tr>
 
 
 
-</div>
+
+
+
+
+
+
+
 <pagination-controls (pageChange)="pages = $event"></pagination-controls>
 
