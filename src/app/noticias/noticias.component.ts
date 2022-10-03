@@ -12,16 +12,16 @@ export class NoticiasComponent implements OnInit {
 
   pages: number = 1;
   notic: Noticias[]=[
-    {
-      id: 1,
-      fechaNoticia:new Date('01-12-2021'),
-      cuerpoNoticia:'Esta es la noticia numero 1 de este fin de semana alocado'
-    },
-    {
-      id: 2,
-      fechaNoticia:new Date('02-03-2022'),
-      cuerpoNoticia:'esta es la noticia numero dos donde bal bal bal aksfa sdfartqe faqerfar tadrgsf dg shs ghsf ghdfgt'
-    }
+    // {
+    //   id: 1,
+    //   fechaNoticia:new Date('01-12-2021'),
+    //   cuerpoNoticia:'Esta es la noticia numero 1 de este fin de semana alocado'
+    // },
+    // {
+    //   id: 2,
+    //   fechaNoticia:new Date('02-03-2022'),
+    //   cuerpoNoticia:'esta es la noticia numero dos donde bal bal bal aksfa sdfartqe faqerfar tadrgsf dg shs ghsf ghdfgt'
+    // }
   ]
 
   constructor(private notiServicio:NoticiasService, private router:Router ) { }
