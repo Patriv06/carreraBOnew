@@ -13,16 +13,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 export class SponsorsComponent implements OnInit {
 
   pages: number = 1;
-  spo: Sponsors[] = [
-    {
-      id:1,
-      nombreSponsor:'la vaca atada al pasto',
-      linkSponsor:'http://lavacaenelpasto.com.ar',
-      espacioSponsor:'espacio medium',
-      urlimgSponsor:'www.lavacaenelpasto.com.ar'
-    },
-
-  ]
+  spo: Sponsors[] = []
 
   spon = {
     id:1,
