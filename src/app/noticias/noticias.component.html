@@ -1,64 +1,86 @@
-
 <div class="div1">
     <div class="div2">
       <app-menu></app-menu>
-      <br>
-      <h3>Ranking Nacional de Pilotos / ABM Noticias</h3>
-      <br>
-      <p>
-        <mark class="col text-danger">
-          <strong>Complete datos para alta</strong>
-        </mark>
-      </p>
-      <br>
-      <p>
-        Fecha:<input type="date" [(ngModel)] ="not.fechaNoticia">
-        Noticia :<textarea class="form-control"
-        name="message"
-        rows="4"
-        [(ngModel)]="not.cuerpoNoticia"
-        #message='ngModel'></textarea>
-      </p>
 
-      <p>
-        <button (click)="altaNoticias(not)" class="btn btn-outline-success">
-          Confirmar alta
-        </button>
-      </p>
+      <h2>Ranking Nacional de Pilotos / ABM Noticias</h2>
 
-      <p>
-        <mark class="col text-danger">
+      <div>
+        <h5>
           <strong>
-            Complete datos a modificar o presione borrar para quitar dato
+            Complete datos para alta
           </strong>
-        </mark>
-      </p>
-      <br>
+        </h5>
       </div>
 
-      <div class="div2">
-        <tr *ngFor="let noti of notic | paginate: { itemsPerPage: 3, currentPage: pages }">
+      <div class="carga_datos">
+        <table class="noticias">
+          <tr>
+            <td>
+              <label>
+                Fecha:
+              </label>
+            </td>
+            <td>
+              <input class="date" type="date" [(ngModel)] ="not.fechaNoticia">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>
+                Noticia:
+              </label>
+            </td>
+            <td>
+              <textarea id="area" class="form-control"
+                name="message"
+                rows="4"
+                [(ngModel)]="not.cuerpoNoticia"
+                #message='ngModel'>
+            </textarea>
+            </td>
+          </tr>
+        </table>
+      </div>
 
-       <p>
-        Fecha:<input type="date" [(ngModel)]="noti.fechaNoticia">
-        Noticia:<textarea class="form-control"
-        name="message"
-        rows="4"
-        [(ngModel)]="noti.cuerpoNoticia"
-        #message='ngModel'></textarea>
-
-        <button (click)="modifNoticias(noti)" class="btn btn-outline-primary">
-          Confirmar modificación
+      <div class="div3">
+        <button (click)="altaNoticias(not)" class="alta">
+          Confirmar alta
         </button>
-        <button (click)="delNoticias(noti)" class="btn btn-outline-danger">
-          Borrar dato
-        </button>
-      </p>
+      </div>
+    </div>
 
-            <br>
+    <div class="listado">
+      <legend>Noticias</legend>
+
+      <table class="noticias1">
+        <tr *ngFor="let not of notic | paginate: { itemsPerPage: 3, currentPage: pages }">
+          <td class="fecha">
+            {{not.fechaNoticia}}
+          </td>
+          <td class="cuerpoNoticia">
+            {{not.cuerpoNoticia}}
+          </td>
+          <td>
+            <button (click)="modifNoticias(not)" class="modif">
+              Modificar
+            </button>
+          </td>
+          <td>
+            <button (click)="delNoticias(not)" class="delete">
+              Borrar
+            </button>
+          </td>
+        </tr>
+      </table>
 
 
-      </tr>
+
+
+
+
+
+
+
 
 
   </div>

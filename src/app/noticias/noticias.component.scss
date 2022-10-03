@@ -28,12 +28,80 @@ div{
   z-index: 0;
 }
 
-  h2{
-  border: 1px solid black;
-  padding: 10px;
-  }
+h2{
+padding: 10px;
+}
 
-  .my-pagination ::ng-deep .ngx-pagination .current {
-    background: red;
-    color: white;
-  }
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background: red;
+  color: white;
+}
+
+.noticias {
+  margin-left: 20vw;
+  margin-top: 2vw;
+  font-size: 1.2em;
+}
+
+.noticias1 {
+  margin-left: 18vw;
+  margin-top: 1vw;
+  width: 70vw;
+}
+
+.date {
+  background-color: white;
+  margin-left: -440px;
+  border: #e87867 solid 3px;
+  border-radius: 5px;
+  width: 150px;
+}
+
+#area {
+  margin-left: 2vw;
+  margin-top: 8px;
+  width: 90vh;
+  background-color: transparent;
+  border: #e87867 solid 3px;
+  border-radius: 8px;
+  color: white
+}
+
+.alta:hover{
+  color: #E87867;
+  background-color: transparent;
+  border-color: #E87867;
+  border-radius: 10px;
+  padding: 0 8px;
+  font-size: 25px;
+}
+
+.alta{
+  color: #fff;
+  background-color: #E87867;
+  border-color: #E87867;
+  border-radius: 10px;
+  padding: 0 8px;
+  font-size: 25px;
+}
+
+.modif, .delete{
+  float:right;
+  color: #fff;
+  background-color: gray;
+  border: solid 3px #E87867;
+  padding: 0px 8px;
+  margin: 0 0.5em;
+}
+
+.fecha {
+  border: solid #E87867 1px;
+  text-align: left;
+  padding: 0 6px;
+}
+
+.cuerpoNoticia {
+  border: solid #E87867 1px;
+  text-align: left;
+  padding: 0 6px;
+}
