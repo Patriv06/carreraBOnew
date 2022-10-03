@@ -55,7 +55,7 @@
       <table class="noticias1">
         <tr *ngFor="let not of notic | paginate: { itemsPerPage: 3, currentPage: pages }">
           <td class="fecha">
-            {{not.fechaNoticia}}
+            {{not.fechaNoticia | date: "dd/MM/yyyy"}}
           </td>
           <td class="cuerpoNoticia">
             {{not.cuerpoNoticia}}
