@@ -16,12 +16,20 @@
         <table class="piloto">
           <tr>
             <td>
-              <label>
-                Nombre y Apellido:
+              <label class="nombrePiloto">
+                Nombre:
               </label>
             </td>
             <td>
               <input id="nombrePiloto" type="string" [(ngModel)]="pil.nombrePiloto">
+            </td>
+            <td>
+              <label class="apellidoPiloto">
+                Apellido:
+              </label>
+            </td>
+            <td>
+              <input id="apellidoPiloto" type="string" [(ngModel)]="pil.apellidoPiloto">
             </td>
             <tr>
               <td id="img">
@@ -38,7 +46,7 @@
 
       <div class="div3">
         <button (click)="altaPilotos(pil)" class="alta">
-          Confirmar alta
+          Confirmar Alta
         </button>
       </div>
     </div>
@@ -48,8 +56,11 @@
 
       <table class="pilotos1">
         <tr *ngFor="let pil of pilot  | paginate: { itemsPerPage: 6, currentPage: pages }">
-          <td class="nombreApellido">
+          <td class="nombre">
             {{pil.nombrePiloto}} {{pil.apellidoPiloto}}
+          </td>
+          <td class="apellido">
+            {{pil.apellidoPiloto}}
           </td>
           <td class="img1">
             {{pil.urlImgPiloto}}
@@ -66,10 +77,12 @@
           </td>
         </tr>
       </table>
+    </div>
 
+    <div class="div10">
+      <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+    </div>
 
+</div>
 
-
-  </div>
-  <pagination-controls (pageChange)="pages = $event"></pagination-controls>
 

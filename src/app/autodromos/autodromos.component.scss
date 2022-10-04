@@ -1,14 +1,4 @@
 
-.container{
-  padding: 18px;
-  margin: 10px;
-  border-style: solid;
-  border-width: 2px;
-  border-color:  #E87867;
-  border-radius: 10px;
-  height: 93vh;
-}
-
 div{
   text-align: center;
   padding: 10px;
@@ -26,6 +16,7 @@ div{
   position: relative;
   z-index: 0;
   background-image: url("/assets/imagenes/Pilotos_Carreras.jpg");
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
@@ -44,19 +35,21 @@ h2{
 }
 
 .carga_datos{
-  // display: block;
-  // margin-left: 45vh;
+  margin-left: 3em;
   margin-top: 5vw;
-  font-size: 1.5em;
+}
+
+.carga_datos label{
+  font-size: 1.2em;
 }
 
 .alta:hover{
-  color: #E87867;
-  background-color: transparent;
+  color: white;
+  background-color: #9C4335;
   border-color: #E87867;
   border-radius: 10px;
-  padding: 0 8px;
-  font-size: 25px;
+  padding: 8px 15px;
+  font-size: 1.1em;
 }
 
 .alta{
@@ -64,8 +57,9 @@ h2{
   background-color: #E87867;
   border-color: #E87867;
   border-radius: 10px;
-  padding: 0 8px;
-  font-size: 25px;
+  padding: 8px 15px;
+  font-size: 1.1em;
+  cursor: pointer;
 }
 
 input{
@@ -123,4 +117,9 @@ td{
   width: 30vw;
   text-align: left;
   border: solid #E87867 2px;
+}
+
+.div10 {
+  text-align: center;
+  margin-top: 26.4vh;
 }

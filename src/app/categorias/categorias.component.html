@@ -38,7 +38,7 @@
             </label>
           </td>
           <td>
-            <input id="ponderador" type ="string" [(ngModel)]="cat.ponderadorCategoria">
+            <input id="ponderador" type ="float" [(ngModel)]="cat.ponderadorCategoria">
           </td>
           <td id="link1">
             <label>
@@ -51,7 +51,7 @@
         </table>
           <div class="div3">
             <button (click)="altaCategorias(cat)" class="alta">
-              Confirmar alta
+              Confirmar Alta
             </button>
         </div>
     </div>
@@ -79,7 +79,7 @@
             </button>
           </td>
           <td>
-            <button (click)="delCategorias(cat)"  class="delete">
+            <button (click)="delCategorias(cat)" class="delete">
               Borrar
             </button>
           </td>
@@ -88,12 +88,15 @@
     </div>
 
 
-  <!-- <p>Id Categ: <input type="string" [(ngModel)]="cate.idCategoria">
-  Nombre  : <input type="string" [(ngModel)]="cate.nombreCategoria">
-  Ponderador: <input type ="string" [(ngModel)] = "cate.ponderadorCategoria">
-         Link : <input type="string" [(ngModel)]="cate.linkCategoria"></p> -->
-
-<pagination-controls (pageChange)="pages = $event"></pagination-controls>
+    <!-- <p>Id Categ: <input type="string" [(ngModel)]="cate.idCategoria">
+    Nombre  : <input type="string" [(ngModel)]="cate.nombreCategoria">
+    Ponderador: <input type ="string" [(ngModel)] = "cate.ponderadorCategoria">
+          Link : <input type="string" [(ngModel)]="cate.linkCategoria"></p> -->
+  </div>
+  <div class="div10">
+    <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+  </div>
+</div>
 
 
 

@@ -20,6 +20,7 @@ import { NoticiasComponent } from './noticias/noticias.component';
 import { PilotosComponent } from './pilotos/pilotos.component';
 
 
+
 const routes: Routes = [
   {path:'menu', component:MenuComponent},
   {path:'categorias', component:CategoriasComponent},
@@ -39,7 +40,7 @@ const routes: Routes = [
     AutodromosComponent,
     MenuComponent,
     NoticiasComponent,
-    PilotosComponent
+    PilotosComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +50,7 @@ const routes: Routes = [
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    
+
     CommonModule,
          provideFirebaseApp(() => initializeApp(environment.firebase)),
          provideStorage(() => getStorage()),

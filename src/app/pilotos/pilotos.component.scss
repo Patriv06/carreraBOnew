@@ -16,7 +16,7 @@ div{
   border: 2px solid #e87867;
   border-radius: 10px;
   background-color: #3e3d3d;
-
+  background-size: cover;
   background-image: url("/assets/imagenes/Pilotos_Carreras.jpg");
   background-repeat: no-repeat;
   background-attachment:inherit;
@@ -51,18 +51,18 @@ div{
   font-size: 1.2em;
 }
 
-#nombrePiloto {
-  margin-left: 1em;
-  width: 25em;
+.nombrePiloto, .apellidoPiloto{
+  text-align: right;
+}
+
+#nombrePiloto, #apellidoPiloto {
   background-color: transparent;
   border: #e87867 solid 3px;
   border-radius: 5px;
-  color: white
+  color: white;
 }
 
 #url {
-  margin-left: 1em;
-  width: 25em;
   background-color: transparent;
   border: #e87867 solid 3px;
   border-radius: 5px;
@@ -79,12 +79,12 @@ input{
 }
 
 .alta:hover{
-  color: #E87867;
-  background-color: transparent;
+  color: white;
+  background-color: #9C4335;
   border-color: #E87867;
   border-radius: 10px;
-  padding: 0 8px;
-  font-size: 25px;
+  padding: 8px 15px;
+  font-size: 1.1em;
 }
 
 .alta{
@@ -92,11 +92,12 @@ input{
   background-color: #E87867;
   border-color: #E87867;
   border-radius: 10px;
-  padding: 0 8px;
-  font-size: 25px;
+  padding: 8px 15px;
+  font-size: 1.1em;
+  cursor: pointer;
 }
 
-.nombreApellido {
+.nombre, .apellido {
   border: solid #E87867 1px;
   text-align: left;
   padding: 0 6px;
@@ -117,4 +118,9 @@ input{
   border: solid 3px #E87867;
   padding: 0px 8px;
   margin: 0 1em;
+}
+
+.div10 {
+  text-align: center;
+  margin-top: 14vh;
 }
