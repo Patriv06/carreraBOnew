@@ -1,5 +1,5 @@
 export class Autodromos {
-    id!: number;
+    idAutodromo!: number;
     nombreAutodromo!: string;
    
 }

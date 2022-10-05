@@ -8,18 +8,18 @@ import { Categorias } from './categorias';
 })
 export class CategoriasService {
 
-  private baseURL="https://back-ranking.herokuapp.com/ver/categorias";
+   private baseURL="https://back-ranking.herokuapp.com/ver/categorias";
   private modifURL ="https://back-ranking.herokuapp.com/modif/categorias";
   private delURL="https://back-ranking.herokuapp.com/delete/categorias/";
   private altaURL="https://back-ranking.herokuapp.com/categorias";
 
- /*   private baseURL="http://localhost:8080/ver/categorias";
+/*    private baseURL="http://localhost:8080/ver/categorias";
   private modifURL ="http://localhost:8080/modif/categorias";
   private delURL="http://localhost:8080/delete/categorias/";
-  private altaURL="http://localhost:8080/categorias"  */
+  private altaURL="http://localhost:8080/categorias"   */
 
   cat = {
-    id:1,
+    idCat:1,
     idCategoria:" ",
     nombreCategoria:" ",
     ponderadorCategoria: 0,
@@ -37,7 +37,7 @@ export class CategoriasService {
   }
 
   borrarCategorias(categorias:Categorias){
-    return this.httpClient.delete<Categorias>(this.delURL+ categorias.id)
+    return this.httpClient.delete<Categorias>(this.delURL+ categorias.idCat)
   }
 
   crearCategorias(categorias:Categorias){

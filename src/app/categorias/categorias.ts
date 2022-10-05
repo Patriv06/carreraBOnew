@@ -1,5 +1,5 @@
 export class Categorias {
-    id!: number;
+    idCat!: number;
     idCategoria!:string;
     nombreCategoria!: string;
     ponderadorCategoria!: number;

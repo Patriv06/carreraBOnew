@@ -18,6 +18,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { MenuComponent } from './menu/menu.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { PilotosComponent } from './pilotos/pilotos.component';
+import { CarrerasComponent } from './carreras/carreras.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path:'autodromos', component:AutodromosComponent},
   {path:'noticias', component:NoticiasComponent},
   {path:'pilotos', component:PilotosComponent},
+  {path:'carreras', component:CarrerasComponent},
   {path:'home', component:HomeComponent},
   {path:'', redirectTo:'Home', pathMatch:'full'}
 ];
@@ -39,7 +41,8 @@ const routes: Routes = [
     AutodromosComponent,
     MenuComponent,
     NoticiasComponent,
-    PilotosComponent
+    PilotosComponent,
+    CarrerasComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,10 @@ export class AutodromosService {
   private delURL="https://back-ranking.herokuapp.com/delete/autodromos/";
   private altaURL="https://back-ranking.herokuapp.com/autodromos";
 
+/*   private baseURL="http://localhost:8080/ver/autodromos";
+  private modifURL ="http://localhost:8080/modif/autodromos";
+  private delURL="http://localhost:8080/delete/autodromos/";
+  private altaURL="http://localhost:8080/autodromos"; */
   aut = {
     id:1,
     nombreAutodromo:" ",
@@ -27,7 +31,7 @@ export class AutodromosService {
   }
 
   borrarAutodromos(autodromos:Autodromos){
-   return this.httpClient.delete<Autodromos>(this.delURL+ autodromos.id)
+   return this.httpClient.delete<Autodromos>(this.delURL+ autodromos.idAutodromo)
   }
   crearAutodromos(autodromos:Autodromos){
     return this.httpClient.post<Autodromos>(`${this.altaURL}`, autodromos)
