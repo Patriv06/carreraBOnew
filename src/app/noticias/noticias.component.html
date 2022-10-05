@@ -44,9 +44,10 @@
 
       <div class="div3">
         <button (click)="altaNoticias(not)" class="alta">
-          Confirmar alta
+          Confirmar Alta
         </button>
       </div>
+
     </div>
 
     <div class="listado">
@@ -72,18 +73,10 @@
           </td>
         </tr>
       </table>
-
-
-
-
-
-
-
-
-
-
-
+    </div>
+  <div class="div10">
+    <pagination-controls (pageChange)="pages = $event"></pagination-controls>
   </div>
-  <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+
 
 </div>

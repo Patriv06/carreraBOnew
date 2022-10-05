@@ -23,6 +23,7 @@ div{
   background-color: #3e3d3d;
   position: relative;
   background-image: url("/assets/imagenes/Pilotos_Carreras.jpg");
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment:inherit;
   z-index: 0;
@@ -51,7 +52,7 @@ padding: 10px;
 
 .date {
   background-color: white;
-  margin-left: -440px;
+  margin-left: -380px;
   border: #e87867 solid 3px;
   border-radius: 5px;
   width: 150px;
@@ -66,14 +67,13 @@ padding: 10px;
   border-radius: 8px;
   color: white
 }
-
 .alta:hover{
-  color: #E87867;
-  background-color: transparent;
+  color: white;
+  background-color: #9C4335;
   border-color: #E87867;
   border-radius: 10px;
-  padding: 0 8px;
-  font-size: 25px;
+  padding: 8px 15px;
+  font-size: 1.1em;
 }
 
 .alta{
@@ -81,10 +81,10 @@ padding: 10px;
   background-color: #E87867;
   border-color: #E87867;
   border-radius: 10px;
-  padding: 0 8px;
-  font-size: 25px;
+  padding: 8px 15px;
+  font-size: 1.1em;
+  cursor: pointer;
 }
-
 .modif, .delete{
   float:right;
   color: #fff;
@@ -106,4 +106,9 @@ padding: 10px;
   text-align: left;
   padding: 0 6px;
   width: 650px;
+}
+
+.div10 {
+  text-align: center;
+  margin-top: 4vh;
 }

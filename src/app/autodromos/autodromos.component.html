@@ -16,9 +16,9 @@
           <label for="nombre_aut">Nombre:</label>
           <input id="nombre_aut" type="string" [(ngModel)]="aut.nombreAutodromo">
           <button (click)="altaAutodromos(aut)" class="alta">
-            Confirmar alta
+            Confirmar Alta
           </button>
-        </div>
+      </div>
 
 
       <div class="listado">
@@ -47,9 +47,10 @@
 
 
         <!-- <input type="string" [(ngModel)]="aut.nombreAutodromo"> -->
-
-      <pagination-controls (pageChange)="pages = $event"></pagination-controls>
-
+    </div>
+  <div class="div10">
+    <pagination-controls (pageChange)="pages = $event"></pagination-controls>
   </div>
+</div>
 
 

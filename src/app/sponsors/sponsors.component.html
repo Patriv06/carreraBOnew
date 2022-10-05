@@ -13,7 +13,7 @@
     </div>
 
 
-  <!--   <input type="file" (change)="uploadImage($event)">
+    <!--   <input type="file" (change)="uploadImage($event)">
     <div class="images">
       <img [src]="image" *ngFor="let image of images" width="200">
     </div> -->
@@ -60,7 +60,7 @@
 
         <div class="div3">
           <button (click)="altaSponsors(spon)" class="alta">
-            Confirmar alta
+            Confirmar Alta
           </button>
         </div>
 
@@ -97,18 +97,16 @@
     </div>
   </div>
 
+  <div class="div10">
+    <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+  </div>
+
+</div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-<pagination-controls (pageChange)="pages = $event"></pagination-controls>
-
+<!-- <footer>
+  <h4>
+    Footer aquí
+  </h4>
+</footer> -->

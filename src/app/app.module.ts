@@ -21,6 +21,7 @@ import { PilotosComponent } from './pilotos/pilotos.component';
 import { CarrerasComponent } from './carreras/carreras.component';
 
 
+
 const routes: Routes = [
   {path:'menu', component:MenuComponent},
   {path:'categorias', component:CategoriasComponent},
@@ -42,7 +43,10 @@ const routes: Routes = [
     MenuComponent,
     NoticiasComponent,
     PilotosComponent,
+<<<<<<< HEAD
     CarrerasComponent
+=======
+>>>>>>> b7f423756b18a51aad96b399ba4b6fd8c98b48a2
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,7 @@ const routes: Routes = [
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    
+
     CommonModule,
          provideFirebaseApp(() => initializeApp(environment.firebase)),
          provideStorage(() => getStorage()),
