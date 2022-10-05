@@ -19,7 +19,7 @@ export class CategoriasService {
   private altaURL="http://localhost:8080/categorias"  */
 
   cat = {
-    id:1,
+    idCat:1,
     idCategoria:" ",
     nombreCategoria:" ",
     ponderadorCategoria: 0,
@@ -37,7 +37,7 @@ export class CategoriasService {
   }
 
   borrarCategorias(categorias:Categorias){
-    return this.httpClient.delete<Categorias>(this.delURL+ categorias.id)
+    return this.httpClient.delete<Categorias>(this.delURL+ categorias.idCat)
   }
 
   crearCategorias(categorias:Categorias){

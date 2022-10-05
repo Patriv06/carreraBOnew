@@ -10,7 +10,16 @@ import { AutodromosService } from './autodromos.service';
 
 export class AutodromosComponent implements OnInit {
   pages: number = 1;
-  auto: Autodromos[] = [];
+  auto: Autodromos[] = [
+    {
+      idAutodromo:1,
+      nombreAutodromo: 'cocho lopez'
+    },
+    {
+      idAutodromo:2,
+      nombreAutodromo: 'juan de los palotes'
+    }
+  ];
 
   constructor(private autServicio:AutodromosService ) { }
 
@@ -19,7 +28,7 @@ export class AutodromosComponent implements OnInit {
   }
 
   aut = {
-    id:1,
+    idAutodromo:1,
     nombreAutodromo:'',
   }
 
@@ -43,7 +52,7 @@ export class AutodromosComponent implements OnInit {
 
   public altaAutodromos(aut:Autodromos){
     if (aut.nombreAutodromo != " "){
-      this.autServicio.crearAutodromos(aut).subscribe((dato: {id:number;nombreAutodromo: string}) =>this.traerAutodromo());
+      this.autServicio.crearAutodromos(aut).subscribe((dato: {idAutodromo:number;nombreAutodromo: string}) =>this.traerAutodromo());
     }else{
       alert("El nombre no puede estar en blanco")
     }

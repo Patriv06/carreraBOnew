@@ -21,7 +21,7 @@ export class CategoriasComponent implements OnInit {
     this.traerCategorias();}
 
   cat = {
-    id:1,
+    idCat:1,
     idCategoria:'',
     nombreCategoria:'',
     ponderadorCategoria: 0,
@@ -46,7 +46,7 @@ export class CategoriasComponent implements OnInit {
 
   public altaCategorias(cate:Categorias){
     if (cate.idCategoria != " "){
-      this.categServicio.crearCategorias(cate).subscribe((dato: {id:number; idCategoria: string; nombreCategoria: string; ponderadorCategoria: number; linkCategoria: string}) =>this.traerCategorias());
+      this.categServicio.crearCategorias(cate).subscribe((dato: {idCat:number; idCategoria: string; nombreCategoria: string; ponderadorCategoria: number; linkCategoria: string}) =>this.traerCategorias());
     }else{
       alert("El nombre no puede estar en blanco")
     }

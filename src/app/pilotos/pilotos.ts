@@ -1,5 +1,5 @@
 export class Pilotos {
-  public id!:number;
+  public idPiloto!:number;
   public nombrePiloto!:string;
   public apellidoPiloto!:string;
   public urlImgPiloto!:string;

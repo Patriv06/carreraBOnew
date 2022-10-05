@@ -19,13 +19,12 @@ export class PilotosService {
   private altaURL="http://localhost:8080/pilotos"  */
 
   pilot = {
-     id:1,
+    idPiloto:1,
     nombrePiloto:" ",
     apellidoPiloto:" ",
-     urlImgPiloto:" ",
-     puntajeAntPiloto:1,
-     puntajeActPiloto:1
-
+    urlImgPiloto:" ",
+    puntajeAntPiloto:1,
+    puntajeActPiloto:1
   }
 
   constructor(private httpClient :HttpClient) { }
@@ -34,12 +33,12 @@ export class PilotosService {
     return this.httpClient.get<Pilotos[]>(`${this.baseURL}`);
   }
 
-  modificarPilotos( pilotos:Pilotos) {
+  modificarPilotos(pilotos:Pilotos) {
   return this.httpClient.put<Pilotos>(`${this.modifURL}`, pilotos)
   }
 
   borrarPilotos(pilotos:Pilotos){
-  return this.httpClient.delete<Pilotos>(this.delURL+ pilotos.id)
+  return this.httpClient.delete<Pilotos>(this.delURL+ pilotos.idPiloto)
   }
 
   crearPilotos(pilotos:Pilotos){

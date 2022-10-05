@@ -13,7 +13,7 @@ export class AutodromosService {
   private altaURL="https://back-ranking.herokuapp.com/autodromos";
 
   aut = {
-    id:1,
+    idAutodromo:1,
     nombreAutodromo:" ",
   }
 
@@ -22,12 +22,12 @@ export class AutodromosService {
     return this.httpClient.get<Autodromos[]>(`${this.baseURL}`);
   }
 
-  modificarAutodromos( autodromos:Autodromos) {
+  modificarAutodromos(autodromos:Autodromos) {
    return this.httpClient.put<Autodromos>(`${this.modifURL}`, autodromos)
   }
 
   borrarAutodromos(autodromos:Autodromos){
-   return this.httpClient.delete<Autodromos>(this.delURL+ autodromos.id)
+   return this.httpClient.delete<Autodromos>(this.delURL+ autodromos.idAutodromo)
   }
   crearAutodromos(autodromos:Autodromos){
     return this.httpClient.post<Autodromos>(`${this.altaURL}`, autodromos)
