@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AutodromosComponent } from './autodromos/autodromos.component';
+import { CarrerasComponent } from './carreras/carreras.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:'autodromos', component:AutodromosComponent},
   {path:'noticias', component:NoticiasComponent},
   {path:'pilotos', component:PilotosComponent},
+  {path:'carreras', component:CarrerasComponent},
   {path:'home', component:HomeComponent},
   {path:'', redirectTo:'home', pathMatch:'full'}
 ];

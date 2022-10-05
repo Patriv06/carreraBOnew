@@ -1,0 +1,70 @@
+
+
+                   <div class="div1">
+
+                         <p>  Temporada:
+
+                           <input id="temporada" type="string" [(ngModel)]="carr.temporadaCarrera">
+                     </p>
+                        <p>
+                             Cantidad de autos:
+
+                           <input id="cantPilotos" type="string" [(ngModel)]="carr.cantPilCarrera" class="nombreCateg">
+                     </p>
+                       <p>
+                             Multipliocador:
+
+                           <input id="mu" type ="float" [(ngModel)]="carr.multiplCarrera">
+                     </p>
+                       <p><input id="fe" type ="date" [(ngModel)]="carr.fechaCarrera"></p>
+                         <p>
+                            <select name="miselect" [(ngModel)]="seleccionado">
+
+                            <option [ngValue]="categ" *ngFor="let categ of cate">{{categ.idCategoria}}</option>
+                            </select>
+                            </p>
+
+<pre>{{ seleccionado | json}}</pre>
+
+                       <!--  <p>Seleccionado: {{seleccionado.nombreCategoria}} id:{{seleccionado.ponderadorCategoria}}</p>  -->
+                       <p>
+                       <select name="miselect" [(ngModel)]="selecAut">
+
+                            <option [ngValue]="autod" *ngFor="let autod of aut">{{autod.nombreAutodromo}}</option>
+                            </select>
+                            </p>
+
+                            <pre>{{ selecAut | json}}</pre>                           <div class="div3">
+                                   <button (click)="altaCarreras(carr)" class="alta">
+                                     Confirmar alta
+                                   </button>
+                               </div>
+
+                               <table class="categorias1">
+                                   <tr *ngFor="let car of carre  | paginate: { itemsPerPage: 6, currentPage: pages }">
+                                          <p>  Temporada:
+
+                                                 {{car.temporadaCarrera}}
+                                           </p>
+                                              <p>
+                                                   Cantidad de autos:
+
+                                                 {{car.cantPilCarrera}}
+                                           </p>
+                                           <p>Fecha: {{car.fechaCarrera}}</p>
+                                             <p>
+                                                   Multiplicador:
+
+                                                {{car.multiplCarrera}}
+                                           </p>
+                                               <p>
+                                                 Categoría : {{car.categorias.idCategoria}}      </p>
+                                                 <p>Autódromo : {{car.autodromo.nombreAutodromo}}</p>
+                                          </table>
+
+
+
+
+
+                               <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+                              </div>

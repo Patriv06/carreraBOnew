@@ -12,6 +12,10 @@ export class AutodromosService {
   private delURL="https://back-ranking.herokuapp.com/delete/autodromos/";
   private altaURL="https://back-ranking.herokuapp.com/autodromos";
 
+/*   private baseURL="http://localhost:8080/ver/autodromos";
+  private modifURL ="http://localhost:8080/modif/autodromos";
+  private delURL="http://localhost:8080/delete/autodromos/";
+  private altaURL="http://localhost:8080/autodromos"; */
   aut = {
     idAutodromo:1,
     nombreAutodromo:" ",
