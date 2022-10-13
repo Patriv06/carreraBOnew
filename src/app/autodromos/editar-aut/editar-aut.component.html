@@ -1,0 +1,40 @@
+
+
+
+
+
+
+
+
+         <div  *ngFor="let aut of listaAut ">
+
+            <p>
+              <input id="mu" type ="float" [(ngModel)]="aut.data.nombreAutodromo">
+
+
+
+            <button (click)="modifAutodromo(aut.data)" class="modif">
+
+              Confirmar
+            </button>
+</p>
+              </div>
+
+             <!--  <div class="listado">
+
+
+                <table class="autodromos">
+                  <tr  *ngFor="let aut of listaAut">
+                    <td class="nomAut">
+                      <input id="mu" type ="float" [(ngModel)]="aut.data.nombreAutodromo">
+                    </td>
+                    <td>
+
+                      <button (click)="modifAutodromo(aut.data)" class="modif">
+
+                        Modificar
+                      </button>
+                    </td>
+
+                  </tr>
+                  </table> -->

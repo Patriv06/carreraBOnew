@@ -12,7 +12,7 @@
         </h5>
       </div>
 
-      <div class="carga_datos">
+      <div class="carga_datos" >
           <label for="nombre_aut">Nombre:</label>
           <input id="nombre_aut" type="string" [(ngModel)]="aut.nombreAutodromo">
           <button (click)="altaAutodromos(aut)" class="alta">
@@ -25,32 +25,24 @@
         <legend>Autódromo</legend>
 
         <table class="autodromos">
-          <tr *ngFor="let aut of auto | paginate: { itemsPerPage: 6, currentPage: pages }">
+          <tr  *ngFor="let autod of auto | paginate: { itemsPerPage: 6, currentPage: pages }">
             <td class="nomAut">
-                {{aut.nombreAutodromo}}
+                {{autod.nombreAutodromo}}
             </td>
             <td>
-                <button (click)="modifAutodromo(aut)" class="modif">
-                  Modificar
-                </button>
+
+              <button (click)=" modifAutodromo(autod)" class="modif">
+
+                Modificar
+              </button>
             </td>
             <td>
-                <button (click)="delAutodromo(aut)" class="delete">
+                <button (click)="delAutodromo(autod)" class="delete">
                   Borrar
                 </button>
             </td>
           </tr>
-
         </table>
-
-      </div>
-
-
-        <!-- <input type="string" [(ngModel)]="aut.nombreAutodromo"> -->
-    </div>
-  <div class="div10">
-    <pagination-controls (pageChange)="pages = $event"></pagination-controls>
-  </div>
-</div>
-
+ <br>
+<app-editar-aut ></app-editar-aut>
 

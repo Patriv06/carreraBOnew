@@ -1,3 +1,5 @@
+import { EditarAutComponent } from './editar-aut/editar-aut.component';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Autodromos } from './autodromos';
 import { AutodromosService } from './autodromos.service';
@@ -10,19 +12,14 @@ import { AutodromosService } from './autodromos.service';
 
 export class AutodromosComponent implements OnInit {
   pages: number = 1;
+
+
   auto: Autodromos[] = [
-    {
-      idAutodromo:1,
-      nombreAutodromo: 'cocho lopez'
-    },
-    {
-      idAutodromo:2,
-      nombreAutodromo: 'juan de los palotes'
-    }
+
   ];
 
-  constructor(private autServicio:AutodromosService ) { }
-
+  constructor(private autServicio:AutodromosService, private router:Router ) { }
+  public mostrar: boolean = true;
   ngOnInit(): void {
     this.traerAutodromo();
   }
@@ -37,13 +34,11 @@ export class AutodromosComponent implements OnInit {
   }
 
   public modifAutodromo(aut:Autodromos){
-    if (aut.nombreAutodromo != " ") {
-      this.autServicio.modificarAutodromos(aut).subscribe(
-        ()=>this.traerAutodromo()
-      )
-    }else{
-      alert("El nombre no puede estar en blanco")
-    }
+  // this.mostrar=false
+ this.autServicio.mandaParaModificar.emit({data:aut})
+ // localStorage.setItem("id", aut.idAutodromo.toString())
+
+   // this.router.navigate(["editarAut"])
   }
 
   public delAutodromo(autodromos:Autodromos):void{

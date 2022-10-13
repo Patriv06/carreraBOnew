@@ -1,3 +1,4 @@
+import { EditarAutComponent } from './autodromos/editar-aut/editar-aut.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AutodromosComponent } from './autodromos/autodromos.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'categorias', component:CategoriasComponent},
   {path:'sponsors', component:SponsorsComponent},
   {path:'autodromos', component:AutodromosComponent},
+  {path:'editarAut', component:EditarAutComponent},
   {path:'noticias', component:NoticiasComponent},
   {path:'pilotos', component:PilotosComponent},
   {path:'carreras', component:CarrerasComponent},

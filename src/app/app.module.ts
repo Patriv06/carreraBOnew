@@ -19,6 +19,7 @@ import { MenuComponent } from './menu/menu.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { PilotosComponent } from './pilotos/pilotos.component';
 import { CarrerasComponent } from './carreras/carreras.component';
+import { EditarAutComponent } from './autodromos/editar-aut/editar-aut.component';
 
 
 
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path:'categorias', component:CategoriasComponent},
   {path:'sponsors', component:SponsorsComponent},
   {path:'autodromos', component:AutodromosComponent},
+  {path:'editarAut', component:EditarAutComponent},
   {path:'noticias', component:NoticiasComponent},
   {path:'pilotos', component:PilotosComponent},
   {path:'carreras', component:CarrerasComponent},
@@ -43,10 +45,8 @@ const routes: Routes = [
     MenuComponent,
     NoticiasComponent,
     PilotosComponent,
-<<<<<<< HEAD
-    CarrerasComponent
-=======
->>>>>>> b7f423756b18a51aad96b399ba4b6fd8c98b48a2
+    CarrerasComponent,
+    EditarAutComponent
   ],
   imports: [
     BrowserModule,

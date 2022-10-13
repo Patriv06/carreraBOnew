@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Autodromos } from './autodromos';
 
@@ -22,7 +22,15 @@ export class AutodromosService {
   }
 
   constructor(private httpClient:HttpClient) { }
-    obtenerAutodromos():Observable<Autodromos[]>{
+
+  @Output() mandaParaModificar: EventEmitter<any>= new EventEmitter()
+
+
+
+  obtenerAutodromoPorId(id:number){
+    return this.httpClient.get<Autodromos>(`${this.baseURL}`+"/" + id);
+  }
+  obtenerAutodromos():Observable<Autodromos[]>{
     return this.httpClient.get<Autodromos[]>(`${this.baseURL}`);
   }
 
