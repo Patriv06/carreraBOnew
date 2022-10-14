@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Autodromos } from './autodromos';
 import { AutodromosService } from './autodromos.service';
+import { MatDialog } from '@angular/material/dialog'
 
 @Component({
   selector: 'app-autodromos',
@@ -18,7 +19,7 @@ export class AutodromosComponent implements OnInit {
 
   ];
 
-  constructor(private autServicio:AutodromosService, private router:Router ) { }
+  constructor(private autServicio:AutodromosService, private router:Router,private matDialog:MatDialog ) { }
   public mostrar: boolean = true;
   ngOnInit(): void {
     this.traerAutodromo();
@@ -34,15 +35,27 @@ export class AutodromosComponent implements OnInit {
   }
 
   public modifAutodromo(aut:Autodromos){
-  // this.mostrar=false
- this.autServicio.mandaParaModificar.emit({data:aut})
- // localStorage.setItem("id", aut.idAutodromo.toString())
 
-   // this.router.navigate(["editarAut"])
+
+ let dialogRef = this.matDialog.open(EditarAutComponent, {
+
+  data:aut,
+  width:"700px",
+  disableClose:true
+
+});
+
+dialogRef.afterClosed().subscribe(result => {this.recargar()
+
+});
+
   }
 
+
+
+
   public delAutodromo(autodromos:Autodromos):void{
-    this.autServicio.borrarAutodromos(autodromos).subscribe(()=>this.traerAutodromo());
+    this.autServicio.borrarAutodromos(autodromos).subscribe();
   }
 
   public altaAutodromos(aut:Autodromos){

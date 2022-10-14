@@ -3,7 +3,8 @@ import { Categorias } from './categorias';
 import { CategoriasService } from './categorias.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Router } from '@angular/router';
-
+import { MatDialog } from '@angular/material/dialog'
+import { EditarCategComponent } from './editar-categ/editar-categ.component';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class CategoriasComponent implements OnInit {
   pages: number = 1;
   cate: Categorias[] = []
 
-  constructor(private categServicio:CategoriasService, private router:Router ) { }
+  constructor(private categServicio:CategoriasService, private router:Router ,private matDialog:MatDialog) { }
 
   ngOnInit(): void {
     this.traerCategorias();}
@@ -31,17 +32,25 @@ export class CategoriasComponent implements OnInit {
   public traerCategorias(){
     this.categServicio.obtenerCategorias().subscribe(dato =>{this.cate = dato});
   }
-
   public modifCategorias(cat:Categorias){
-    if (cat.idCategoria != " "){
-      this.categServicio.modificarCategorias(cat).subscribe(()=>this.traerCategorias())
-    }else{
-      alert("El nombre no puede estar en blanco")
-    }
+
+
+    let dialogRef = this.matDialog.open(EditarCategComponent, {
+
+     data:cat,
+     width:"800px",
+     disableClose:true
+
+   });
+
+   dialogRef.afterClosed().subscribe(result => {this.recargar()});
+
   }
 
+
+
   public delCategorias(categorias:Categorias):void{
-    this.categServicio.borrarCategorias(categorias).subscribe(()=>this.traerCategorias());
+    this.categServicio.borrarCategorias(categorias).subscribe(()=>this.recargar());
   }
 
   public altaCategorias(cate:Categorias){

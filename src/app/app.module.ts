@@ -20,6 +20,9 @@ import { NoticiasComponent } from './noticias/noticias.component';
 import { PilotosComponent } from './pilotos/pilotos.component';
 import { CarrerasComponent } from './carreras/carreras.component';
 import { EditarAutComponent } from './autodromos/editar-aut/editar-aut.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { EditarCategComponent } from './categorias/editar-categ/editar-categ.component';
 
 
 
@@ -46,6 +49,10 @@ const routes: Routes = [
     NoticiasComponent,
     PilotosComponent,
     CarrerasComponent,
+    EditarAutComponent,
+    EditarCategComponent
+  ],
+  entryComponents:[
     EditarAutComponent
   ],
   imports: [
@@ -56,10 +63,11 @@ const routes: Routes = [
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-
     CommonModule,
-         provideFirebaseApp(() => initializeApp(environment.firebase)),
-         provideStorage(() => getStorage()),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage()),
+         BrowserAnimationsModule,
+         MatDialogModule
 
   ],
   providers: [],

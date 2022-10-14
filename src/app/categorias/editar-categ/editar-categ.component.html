@@ -1,0 +1,39 @@
+<div class="div1">
+  <br>
+<button (click)="cerrarMat()" class="modif">
+          cerrar
+        </button>
+        <br>
+  <pre> <h2>       Categoría</h2></pre>
+
+
+
+
+  <table class="autodromos">
+    <td class="idCateg1">
+      <input id="mu" type ="float" [(ngModel)]="this.data.idCategoria">
+    </td>
+
+      <td class="nombreCateg1">
+        <input id="mu" type ="float" [(ngModel)]="this.data.nombreCategoria">
+      </td>
+      <td class="pondera1">
+        <input id="mu" type ="float" [(ngModel)]="this.data.ponderadorCategoria">
+      </td>
+      <td class="link1">
+        <input id="mu" type ="float" [(ngModel)]="this.data.linkCategoria">
+      </td>
+      <td>
+
+        <button (click)="modifCategorias(data)" class="modif">
+
+          Modificar
+        </button>
+
+      </td>
+
+
+    </table>
+
+  </div>
+

@@ -1,4 +1,8 @@
-
+.div1 {
+  border: 2px solid #E87867;
+  border-radius: 10px;
+  background-color: #3E3D3D;
+}
 .modif, .delete{
   float:right;
   color: #fff;
@@ -10,4 +14,30 @@
   margin: 0 1em;
   cursor:pointer;
 }
+.autodromos li{
+  display: block;
+  margin-left: 1em;
+  width: 600px;
+  background-color: gray;
+  border: solid 3px #E87867;
+}
+table{
+  margin-left: 20em;
+}
 
+tr{
+  display: table-row;
+}
+
+td{
+  display: table-cell;
+  vertical-align: middle;
+  padding: 4px;
+  font-size: 18px;
+}
+
+.nomAut{
+  width: 30vw;
+  text-align: left;
+  border: solid #E87867 2px;
+}

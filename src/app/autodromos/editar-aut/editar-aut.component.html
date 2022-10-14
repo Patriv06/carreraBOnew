@@ -1,40 +1,29 @@
+<div class="div1">
+<br>
+
+<pre> <h2>       Autódromo</h2></pre>
+<button (click)="cerrarMat()" class="modif">
+        cerrar
+      </button>
 
 
 
+<table class="autodromos">
+
+    <td class="nomAut">
+      <input id="mu" type ="float" [(ngModel)]="this.data.nombreAutodromo">
+    </td>
+    <td>
+
+      <button (click)="modifAutodromo(data)" class="modif">
+
+        Modificar
+      </button>
+
+    </td>
 
 
+  </table>
 
+</div>
 
-
-         <div  *ngFor="let aut of listaAut ">
-
-            <p>
-              <input id="mu" type ="float" [(ngModel)]="aut.data.nombreAutodromo">
-
-
-
-            <button (click)="modifAutodromo(aut.data)" class="modif">
-
-              Confirmar
-            </button>
-</p>
-              </div>
-
-             <!--  <div class="listado">
-
-
-                <table class="autodromos">
-                  <tr  *ngFor="let aut of listaAut">
-                    <td class="nomAut">
-                      <input id="mu" type ="float" [(ngModel)]="aut.data.nombreAutodromo">
-                    </td>
-                    <td>
-
-                      <button (click)="modifAutodromo(aut.data)" class="modif">
-
-                        Modificar
-                      </button>
-                    </td>
-
-                  </tr>
-                  </table> -->
