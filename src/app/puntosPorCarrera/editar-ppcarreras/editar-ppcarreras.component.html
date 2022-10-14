@@ -1,0 +1,30 @@
+
+  <div class="div1">
+    <br>
+
+    <pre> <h2>       Tabla Puntos</h2></pre>
+    <button (click)="cerrarMat()" class="modif">
+            cerrar
+          </button>
+<table class="pilotos">
+  <td>
+  <label for="nombre_aut">Puesto:</label>
+
+        <input id="nombre_aut" type="number" [(ngModel)]="data.puestoPPCarrera"></td>
+     <td>  <label for="nombre_aut">Autos:</label>
+        <input id="nombre_aut" type="number" [(ngModel)]="data.autosPPCarreras"></td>
+      <td><label for="nombre_aut">Puntos:</label>
+        <input id="nombre_aut" type="number" [(ngModel)]="data.puntosPPCarreras"></td>
+<td>
+      <button (click)="modifPPCarreras(data)" class="modif">
+
+        Modificar
+      </button>
+
+    </td>
+
+
+  </table>
+
+</div>
+

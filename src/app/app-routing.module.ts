@@ -1,3 +1,4 @@
+
 import { EditarAutComponent } from './autodromos/editar-aut/editar-aut.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -9,6 +10,7 @@ import { MenuComponent } from './menu/menu.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { PilotosComponent } from './pilotos/pilotos.component';
 import { SponsorsComponent } from './sponsors/sponsors.component';
+import { PuntosPorCarreraComponent } from './puntosPorCarrera/puntos-por-carrera.component';
 
 const routes: Routes = [
   {path:'menu', component:MenuComponent},
@@ -19,6 +21,7 @@ const routes: Routes = [
   {path:'noticias', component:NoticiasComponent},
   {path:'pilotos', component:PilotosComponent},
   {path:'carreras', component:CarrerasComponent},
+  {path:'PPCarreras', component:PuntosPorCarreraComponent},
   {path:'home', component:HomeComponent},
   {path:'', redirectTo:'home', pathMatch:'full'}
 ];

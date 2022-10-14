@@ -1,0 +1,59 @@
+<div class="div1">
+  <div class="div2">
+    <app-menu></app-menu>
+
+    <h2>Ranking Nacional de Pilotos / ABM Tabla Puntos</h2>
+
+    <div>
+      <h5>
+        <strong>
+          Información para el Alta de Tabla Puntos
+        </strong>
+      </h5>
+    </div>
+
+    <div class="carga_datos" >
+        <label for="nombre_aut">Puesto:</label>
+        <input id="nombre_aut" type="number" [(ngModel)]="ppcarr.puestoPPCarrera">
+        <label for="nombre_aut">Autos:</label>
+        <input id="nombre_aut" type="number" [(ngModel)]="ppcarr.autosPPCarreras">
+        <label for="nombre_aut">Puntos:</label>
+        <input id="nombre_aut" type="number" [(ngModel)]="ppcarr.puntosPPCarreras">
+        <button (click)="altaPPCarreras(ppcarr)" class="alta">
+          Confirmar Alta
+        </button>
+    </div>
+
+
+    <div class="listado">
+      <legend>Tabla de puntos</legend>
+
+      <table class="autodromos">
+        <tr  *ngFor="let ppCar of ppCarreras | paginate: { itemsPerPage: 6, currentPage: pages }">
+          <td class="nomAut">
+              {{ppCar.puestoPPCarrera}}
+          </td>
+          <td class="nomAut">
+            {{ppCar.autosPPCarreras}}
+        </td>
+        <td class="nomAut">
+          {{ppCar.puntosPPCarreras}}
+      </td>
+          <td>
+
+            <button (click)=" modifPPCarreras(ppCar)" class="modif">
+
+              Modificar
+            </button>
+          </td>
+          <td>
+              <button (click)="delPPCarreras(ppCar)" class="delete">
+                Borrar
+              </button>
+          </td>
+        </tr>
+      </table>
+<!--  <br>
+<app-editar-aut ></app-editar-aut> -->
+
+

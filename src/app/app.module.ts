@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -26,6 +27,9 @@ import { EditarCategComponent } from './categorias/editar-categ/editar-categ.com
 import { EditaPilotoComponent } from './pilotos/edita-piloto/edita-piloto.component';
 import { EditaNotComponent } from './noticias/edita-not/edita-not.component';
 import { EditaSponComponent } from './sponsors/edita-spon/edita-spon.component';
+import { PuntosPorCarreraComponent } from './puntosPorCarrera/puntos-por-carrera.component';
+import { EditarPPCarrerasComponent } from './puntosPorCarrera/editar-ppcarreras/editar-ppcarreras.component';
+
 
 
 
@@ -38,6 +42,7 @@ const routes: Routes = [
   {path:'noticias', component:NoticiasComponent},
   {path:'pilotos', component:PilotosComponent},
   {path:'carreras', component:CarrerasComponent},
+  {path:'PPCarreras', component:PuntosPorCarreraComponent},
   {path:'home', component:HomeComponent},
   {path:'', redirectTo:'Home', pathMatch:'full'}
 ];
@@ -56,7 +61,9 @@ const routes: Routes = [
     EditarCategComponent,
     EditaPilotoComponent,
     EditaNotComponent,
-    EditaSponComponent
+    EditaSponComponent,
+    PuntosPorCarreraComponent,
+    EditarPPCarrerasComponent,
   ],
   entryComponents:[
     EditarAutComponent

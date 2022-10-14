@@ -1,7 +1,7 @@
 
 
                    <div class="div1">
-
+                    <app-menu></app-menu>
                          <p>  Temporada:
 
                            <input id="temporada" type="string" [(ngModel)]="carr.temporadaCarrera">
@@ -24,7 +24,7 @@
                             </select>
                             </p>
 
-<pre>{{ seleccionado | json}}</pre>
+
 
                        <!--  <p>Seleccionado: {{seleccionado.nombreCategoria}} id:{{seleccionado.ponderadorCategoria}}</p>  -->
                        <p>
@@ -34,7 +34,7 @@
                             </select>
                             </p>
 
-                            <pre>{{ selecAut | json}}</pre>                           <div class="div3">
+                                               <div class="div3">
                                    <button (click)="altaCarreras(carr)" class="alta">
                                      Confirmar alta
                                    </button>
