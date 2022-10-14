@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Sponsors } from './sponsors';
 import { SponsorsService } from './sponsors.service';
-
+import { MatDialog } from '@angular/material/dialog'
 import { Storage, ref, uploadBytes, listAll, getDownloadURL } from '@angular/fire/storage';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { EditaSponComponent } from './edita-spon/edita-spon.component';
 
 @Component({
   selector: 'app-sponsors',
@@ -20,10 +21,10 @@ export class SponsorsComponent implements OnInit {
     nombreSponsor:'',
     linkSponsor:'',
     espacioSponsor:'',
-    urlimgSponsor:''
+    logoSponsor:''
   }
 
-  constructor(private sponServicio:SponsorsService ) { }
+  constructor(private sponServicio:SponsorsService,private matDialog:MatDialog ) { }
 
  ngOnInit(): void {
    this.traerSponsors();
@@ -34,15 +35,25 @@ this.sponServicio.obtenerSponsors().subscribe(dato =>{this.spo = dato});
 
 }
 public modifSponsors(spo:Sponsors){
-if (spo.nombreSponsor != " "){
 
- this.sponServicio.modificarSponsors(spo).subscribe(()=>this.traerSponsors())
+
+  let dialogRef = this.matDialog.open(EditaSponComponent, {
+
+   data:spo,
+   width:"800px",
+   disableClose:true
+
+ });
+
+ dialogRef.afterClosed().subscribe(result => {this.recargar()});
+
 }
 
 
-else{  alert("El nombre no puede estar en blanco")}
 
-}
+
+
+
 public delSponsors(sponsors:Sponsors):void{
  this.sponServicio.borrarSponsors(sponsors).subscribe(()=>this.traerSponsors());
 
@@ -51,7 +62,7 @@ public delSponsors(sponsors:Sponsors):void{
 public altaSponsors(spo:Sponsors){
 if (spo.nombreSponsor != " "){
 
-this.sponServicio.crearSponsors(spo).subscribe((dato: {id:number;nombreSponsor: string; linkSponsor: string; espacioSponsor:string; urlimgSponsor:string}) =>this.traerSponsors());
+this.sponServicio.crearSponsors(spo).subscribe((dato: {id:number;nombreSponsor: string; linkSponsor: string; espacioSponsor:string; logoSponsor:string}) =>this.traerSponsors());
 
 
 }

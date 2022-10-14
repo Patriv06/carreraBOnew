@@ -1,0 +1,38 @@
+<div class="div1">
+  <br>
+<button (click)="cerrarMat()" class="modif">
+          cerrar
+        </button>
+        <br>
+  <pre> <h2>       Noticias</h2></pre>
+
+
+
+
+  <table class="sponsors">
+    <td class="nombreSponsors1">
+      <input id="mu" type ="string" [(ngModel)]="this.data.nombreSponsor">
+    </td>
+
+      <td class="linkSponsor1">
+        <input id="mu" type ="string" [(ngModel)]="this.data.linkSponsor">
+      </td>
+      <td class="espacioSponsor1">
+        <input id="mu" type ="string" [(ngModel)]="this.data.espacioSponsor">
+      </td>
+      <td class="logoSponsor1">
+        <input id="mu" type ="string" [(ngModel)]="this.data.logoSponsor">
+      </td>
+      <td>
+
+        <button (click)="modifSponsors(data)" class="modif">
+
+          Modificar
+        </button>
+
+      </td>
+
+
+    </table>
+
+  </div>

@@ -1,0 +1,35 @@
+<div class="div1">
+  <br>
+<button (click)="cerrarMat()" class="modif">
+          cerrar
+        </button>
+        <br>
+  <pre> <h2>       Noticias</h2></pre>
+
+
+
+
+  <table class="noticias">
+    <td class="fechaNoticias1">
+      <input id="mu" type ="date" [(ngModel)]="this.data.fechaNoticia">
+    </td>
+
+      <td class="cuerpoNoticias1">
+        <input id="mu" type ="string" [(ngModel)]="this.data.cuerpoNoticia">
+      </td>
+
+
+      <td>
+
+        <button (click)="modifNoticias(data)" class="modif">
+
+          Modificar
+        </button>
+
+      </td>
+
+
+    </table>
+
+  </div>
+

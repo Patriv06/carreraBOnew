@@ -1,13 +1,132 @@
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background: red;
+  color: white;
+}
+
+body{
+  background-color: black;
+}
+
+h2{
+  padding: 10px;
+}
+
+div{
+  text-align: center;
+  padding: 10px;
+  color: white;
+}
+
 .div1 {
-    border: 2px solid #E87867;
-    border-radius: 10px;
-    background-color: #3E3D3D;
-    height: 98vh;
-    width: 95vw;
-    margin:1vh 2.5vw;
-    overflow: hidden;
-    position: relative;
-    z-index: 0;
-    background-image: url("/assets/imagenes/Pilotos_Carreras.jpg");
-    background-repeat: no-repeat;
-  }
+  overflow: hidden;
+  height: 98vh;
+  width: 95vw;
+  margin: 1vh 2.5vw;
+  border: 2px solid #e87867;
+  border-radius: 10px;
+  background-color: #3e3d3d;
+  background-repeat: no-repeat;
+  background-attachment:inherit;
+  position: relative;
+  background-image: url("/assets/imagenes/Pilotos_Carreras.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment:inherit;
+  z-index: 0;
+}
+
+.div2 {
+  color: white;
+  text-align: center;
+}
+
+.div3{
+  margin-top: 8px;
+}
+
+.sponsors{
+  margin-left: 22vw;
+  margin-top: 3vw;
+  font-size: 1.2em;
+}
+
+.sponsors td{
+  text-align: right;
+  padding-right: 10px;
+}
+
+.listado{
+  width: 100%;
+}
+
+.sponsors1{
+  margin-left: 15vw;
+  margin-top: 2vh;
+  width: 70vw;
+}
+
+label{
+  margin-top: 2px;
+}
+
+.alta:hover{
+  color: white;
+  background-color: #9C4335;
+  border-color: #E87867;
+  border-radius: 10px;
+  padding: 8px 15px;
+  font-size: 1.1em;
+}
+
+.alta{
+  color: #fff;
+  background-color: #E87867;
+  border-color: #E87867;
+  border-radius: 10px;
+  padding: 8px 15px;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+.modif, .delete{
+  float:right;
+  color: #fff;
+  background-color: gray;
+  border: solid 3px #E87867;
+  padding: 0px 8px;
+  cursor: pointer;
+}
+
+.nombreSponsor, .espacio {
+  border: solid #E87867 2px;
+  text-align: left;
+  padding: 0 6px;
+}
+
+.link, .url1 {
+  border: solid #E87867 2px;
+  padding-left: 0.8em;
+  text-align: left;
+  font-size: 15px;
+}
+
+#nombre, #espacio{
+  width: 10em;
+  background-color: transparent;
+  border: #e87867 solid 3px;
+  border-radius: 5px;
+  color: white;
+}
+
+#urlImg, #url{
+  width: 25em;
+  background-color: transparent;
+  border: #e87867 solid 3px;
+  border-radius: 5px;
+  color: white
+}
+
+.div10 {
+  text-align: center;
+  margin-top: 13vh;
+}

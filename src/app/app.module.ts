@@ -23,6 +23,9 @@ import { EditarAutComponent } from './autodromos/editar-aut/editar-aut.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditarCategComponent } from './categorias/editar-categ/editar-categ.component';
+import { EditaPilotoComponent } from './pilotos/edita-piloto/edita-piloto.component';
+import { EditaNotComponent } from './noticias/edita-not/edita-not.component';
+import { EditaSponComponent } from './sponsors/edita-spon/edita-spon.component';
 
 
 
@@ -50,7 +53,10 @@ const routes: Routes = [
     PilotosComponent,
     CarrerasComponent,
     EditarAutComponent,
-    EditarCategComponent
+    EditarCategComponent,
+    EditaPilotoComponent,
+    EditaNotComponent,
+    EditaSponComponent
   ],
   entryComponents:[
     EditarAutComponent

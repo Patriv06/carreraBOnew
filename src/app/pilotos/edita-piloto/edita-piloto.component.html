@@ -1,0 +1,36 @@
+<div class="div1">
+  <br>
+<button (click)="cerrarMat()" class="modif">
+          cerrar
+        </button>
+        <br>
+  <pre> <h2>       Pilotos</h2></pre>
+
+
+
+
+  <table class="pilotos">
+    <td class="nombrepiloto1">
+      <input id="mu" type ="string" [(ngModel)]="this.data.nombrePiloto">
+    </td>
+
+      <td class="apellidoPiloto1">
+        <input id="mu" type ="string" [(ngModel)]="this.data.apellidoPiloto">
+      </td>
+      <td class="urlImgpiloto1">
+        <input id="mu" type ="string" [(ngModel)]="this.data.urlImgPiloto">
+      </td>
+
+      <td>
+
+        <button (click)="modifPilotos(data)" class="modif">
+
+          Modificar
+        </button>
+
+      </td>
+
+
+    </table>
+
+  </div>

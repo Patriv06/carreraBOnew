@@ -5,6 +5,6 @@ export class Sponsors {
     nombreSponsor!: string;
     linkSponsor!: string;
     espacioSponsor!: string;
-    urlimgSponsor!: string;
+    logoSponsor!: string;
 
 }

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Noticias } from './noticias';
 import { NoticiasService } from './noticias.service';
-
+import { MatDialog } from '@angular/material/dialog'
+import { EditaNotComponent } from './edita-not/edita-not.component';
 @Component({
   selector: 'app-noticias',
   templateUrl: './noticias.component.html',
@@ -24,7 +25,7 @@ export class NoticiasComponent implements OnInit {
     // }
   ]
 
-  constructor(private notiServicio:NoticiasService, private router:Router ) { }
+  constructor(private notiServicio:NoticiasService, private router:Router,private matDialog:MatDialog ) { }
 
   ngOnInit(): void {
     this.traerNoticias();
@@ -41,12 +42,25 @@ export class NoticiasComponent implements OnInit {
   }
 
   public modifNoticias(not:Noticias){
-    if (not.cuerpoNoticia != " "){
-      this.notiServicio.modificarNoticias(not).subscribe(()=>this.traerNoticias())
-    }else{
-      alert("El nombre no puede estar en blanco")
-    }
+
+
+    let dialogRef = this.matDialog.open(EditaNotComponent, {
+
+     data:not,
+     width:"800px",
+     disableClose:true
+
+   });
+
+   dialogRef.afterClosed().subscribe(result => {this.recargar()});
+
   }
+
+
+
+
+
+
 
   public delNoticias(noticias:Noticias):void{
   this.notiServicio.borrarNoticias(noticias).subscribe(()=>this.traerNoticias());
