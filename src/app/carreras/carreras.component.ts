@@ -16,13 +16,17 @@ export class CarrerasComponent implements OnInit {
   pages: number = 1;
   carre: Carreras[] = [];
 
-  constructor(private carServicio:CarrerasService, private categServicio:CategoriasService, private autServicio:AutodromosService ) { }
+  constructor(
+    private carServicio:CarrerasService,
+    private categServicio:CategoriasService,
+    private autServicio:AutodromosService ) { }
 
   ngOnInit(): void {
     this.traerCarreras();
     this.traerCateg();
     this.traerAutod();
   }
+
   cate: Categorias[] = []
 
   seleccionado:Categorias=new Categorias();
@@ -41,24 +45,20 @@ export class CarrerasComponent implements OnInit {
     categorias : new Categorias(),
   }
 
-
   public traerCarreras(){
     this.carServicio.obtenerCarreras().subscribe(dato =>{this.carre = dato});
   }
+
   public traerCateg(){
     this.categServicio.obtenerCategorias().subscribe(dato =>{this.cate = dato});
-
   }
+
   public traerAutod(){
     this.autServicio.obtenerAutodromos().subscribe(dato =>{this.aut = dato});
-
   }
 
   public modifCarreras(car:Carreras){
-
-      this.carServicio.modificarCarreras(car).subscribe(
-        ()=>this.traerCarreras()
-      )
+      this.carServicio.modificarCarreras(car).subscribe(()=>this.traerCarreras());
     }
 
   public delCarreras(carreras:Carreras):void{
@@ -66,17 +66,28 @@ export class CarrerasComponent implements OnInit {
   }
 
   public altaCarreras(car:Carreras){
-      car.categorias=this.seleccionado
-     JSON.stringify(car.categorias)
-       car.autodromo=this.selecAut
-       JSON.stringify(car.autodromo)
-       console.log("carreras desde carr", this.carr)
-       console.log("carreras desde car", car)
-      this.carServicio.crearCarreras(car).subscribe((dato: {idCarreras:number;temporadaCarrera:string;cantPilCarrera:number;
-                                                      multiplCarrera:number; fechaCarrera:Date;autodromo:Autodromos;categorias:Categorias}) =>console.log("hola"));
 
-                                                      console.log("car despuésn", car)
-                                                    }
+    car.categorias=this.seleccionado
+    JSON.stringify(car.categorias)
+
+    car.autodromo=this.selecAut
+    JSON.stringify(car.autodromo)
+
+    console.log("carreras desde carr", this.carr)
+    console.log("carreras desde car", car)
+
+      this.carServicio.crearCarreras(car).subscribe((dato: {
+        idCarreras:number;
+        temporadaCarrera:string;
+        cantPilCarrera:number;
+        multiplCarrera:number;
+        fechaCarrera:Date;
+        autodromo:Autodromos;
+        categorias:Categorias
+      }) =>console.log("hola"));
+
+      console.log("car después", car)
+  }
 
   recargar(): void {
     window.location.reload();

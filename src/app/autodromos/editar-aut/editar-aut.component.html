@@ -1,29 +1,19 @@
 <div class="div1">
-<br>
+  <pre><h2>Autódromo</h2></pre>
+  <button (click)="cerrarMat()" class="modif">
+    Cerrar
+  </button>
 
-<pre> <h2>       Autódromo</h2></pre>
-<button (click)="cerrarMat()" class="modif">
-        cerrar
-      </button>
-
-
-
-<table class="autodromos">
-
+  <table class="autodromos">
     <td class="nomAut">
       <input id="mu" type ="string" [(ngModel)]="this.data.nombreAutodromo">
     </td>
+
     <td>
-
       <button (click)="modifAutodromo(data)" class="modif">
-
         Modificar
       </button>
-
     </td>
-
-
   </table>
-
 </div>
 

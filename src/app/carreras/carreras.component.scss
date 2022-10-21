@@ -1,14 +1,5 @@
-.my-pagination ::ng-deep .ngx-pagination .current {
-  background: red;
-  color: white;
-}
-
 body{
   background-color: black;
-}
-
-h2{
-  padding: 10px;
 }
 
 div{
@@ -25,13 +16,11 @@ div{
   border: 2px solid #e87867;
   border-radius: 10px;
   background-color: #3e3d3d;
+  background-size: cover;
+  background-image: url("/assets/imagenes/Pilotos_Carreras.jpg");
   background-repeat: no-repeat;
   background-attachment:inherit;
   position: relative;
-  background-image: url("/assets/imagenes/Pilotos_Carreras.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment:inherit;
   z-index: 0;
 }
 
@@ -40,35 +29,67 @@ div{
   text-align: center;
 }
 
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background: red;
+  color: white;
+}
+
+h2{
+  padding: 10px;
+}
+
 .div3{
   margin-top: 8px;
 }
 
-.sponsors{
-  margin-left: 22vw;
+label{
+  padding: 0 6px;
+}
+
+.carreras {
+  margin-left: 20vw;
   margin-top: 3vw;
   font-size: 1.2em;
 }
 
-.sponsors td{
-  text-align: right;
-  padding-right: 10px;
+#temporada, #cantPilotos, #mu {
+  width: 7em;
+  background-color: transparent;
+  border: #e87867 solid 3px;
+  border-radius: 5px;
+  color: white
+}
+
+select, #fe {
+  width: 7em;
+  border: #e87867 solid 3px;
+  border-radius: 5px;
+}
+
+#fe, #temporada {
+  width: 8em;;
+}
+
+#mu, #cantPilotos {
+  text-align: center;
 }
 
 .listado{
   width: 100%;
+  margin-left: 5vw;
 }
 
-.sponsors1{
+.categorias1{
+  font-size: 16px;
   margin-left: 15vw;
   margin-top: 2vh;
-  width: 70vw;
+  width: 60vw;
 }
 
-label{
-  margin-top: 2px;
+.tempo, .fecha, .categ, .cantidad, .multi, .auto {
+  border-radius: 5px;
+  border: #e87867 solid 2px;
 }
-
 .alta:hover{
   color: white;
   background-color: #9C4335;
@@ -97,33 +118,12 @@ label{
   cursor: pointer;
 }
 
-.nombreSponsor, .espacio {
-  border: solid #E87867 2px;
-  text-align: left;
-  padding: 0 6px;
-}
-
-.link, .url1 {
-  border: solid #E87867 2px;
-  padding-left: 0.8em;
-  text-align: left;
-  font-size: 15px;
-}
-
 #nombre, #espacio{
   width: 10em;
   background-color: transparent;
   border: #e87867 solid 3px;
   border-radius: 5px;
   color: white;
-}
-
-#urlImg, #url{
-  width: 25em;
-  background-color: transparent;
-  border: #e87867 solid 3px;
-  border-radius: 5px;
-  color: white
 }
 
 .div10 {
