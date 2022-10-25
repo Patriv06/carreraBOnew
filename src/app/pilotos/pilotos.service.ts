@@ -8,15 +8,15 @@ import { Pilotos } from './pilotos';
 })
 export class PilotosService {
 
-  private baseURL="https://back-ranking.herokuapp.com/ver/pilotos";
+   private baseURL="https://back-ranking.herokuapp.com/ver/pilotos";
   private modifURL ="https://back-ranking.herokuapp.com/modif/pilotos";
   private delURL="https://back-ranking.herokuapp.com/delete/pilotos/";
   private altaURL="https://back-ranking.herokuapp.com/pilotos";
 
-  /* private baseURL="http://localhost:8080/ver/pilotos";
-  private modifURL ="http://localhost:8080/modif/pilotos";
-  private delURL="http://localhost:8080/delete/pilotos/";
-  private altaURL="http://localhost:8080/pilotos"  */
+  // private baseURL="http://localhost:8080/ver/pilotos";
+  // private modifURL ="http://localhost:8080/modif/pilotos";
+  // private delURL="http://localhost:8080/delete/pilotos/";
+  // private altaURL="http://localhost:8080/pilotos"
 
   pilot = {
     idPiloto:1,

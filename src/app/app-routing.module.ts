@@ -10,6 +10,7 @@ import { MenuComponent } from './menu/menu.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { PilotosComponent } from './pilotos/pilotos.component';
 import { SponsorsComponent } from './sponsors/sponsors.component';
+import { CargaExcelComponent } from './carrera-piloto/carga-excel/carga-excel.component';
 import { PuntosPorCarreraComponent } from './puntosPorCarrera/puntos-por-carrera.component';
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path:'pilotos', component:PilotosComponent},
   {path:'carreras', component:CarrerasComponent},
   {path:'PPCarreras', component:PuntosPorCarreraComponent},
+  {path:'CargaExcel', component:CargaExcelComponent},
   {path:'home', component:HomeComponent},
   {path:'', redirectTo:'home', pathMatch:'full'}
 ];

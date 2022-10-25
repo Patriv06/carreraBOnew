@@ -29,6 +29,9 @@ import { EditaNotComponent } from './noticias/edita-not/edita-not.component';
 import { EditaSponComponent } from './sponsors/edita-spon/edita-spon.component';
 import { PuntosPorCarreraComponent } from './puntosPorCarrera/puntos-por-carrera.component';
 import { EditarPPCarrerasComponent } from './puntosPorCarrera/editar-ppcarreras/editar-ppcarreras.component';
+import { CarreraPilotoComponent } from './carrera-piloto/carrera-piloto.component';
+import { CargaExcelComponent } from './carrera-piloto/carga-excel/carga-excel.component';
+import { EditarCarrerapilotoComponent } from './carrera-piloto/editar-carrerapiloto/editar-carrerapiloto.component';
 
 
 
@@ -43,6 +46,7 @@ const routes: Routes = [
   {path:'pilotos', component:PilotosComponent},
   {path:'carreras', component:CarrerasComponent},
   {path:'PPCarreras', component:PuntosPorCarreraComponent},
+  {path:'CargaExcel', component:CargaExcelComponent},
   {path:'home', component:HomeComponent},
   {path:'', redirectTo:'Home', pathMatch:'full'}
 ];
@@ -64,6 +68,9 @@ const routes: Routes = [
     EditaSponComponent,
     PuntosPorCarreraComponent,
     EditarPPCarrerasComponent,
+    CarreraPilotoComponent,
+    CargaExcelComponent,
+    EditarCarrerapilotoComponent,
   ],
   entryComponents:[
     EditarAutComponent

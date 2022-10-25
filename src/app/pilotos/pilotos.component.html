@@ -57,7 +57,7 @@
       <table class="pilotos1">
         <tr *ngFor="let pil of pilot  | paginate: { itemsPerPage: 6, currentPage: pages }">
           <td class="nombre">
-            {{pil.nombrePiloto}} {{pil.apellidoPiloto}}
+            {{pil.nombrePiloto}}
           </td>
           <td class="apellido">
             {{pil.apellidoPiloto}}
