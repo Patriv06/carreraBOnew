@@ -11,6 +11,7 @@ import { Carreras } from './carreras';
 export class CarrerasService {
 
   private baseURL="https://back-ranking.herokuapp.com/ver/carreras";
+  private baseURLORDENADA="https://back-ranking.herokuapp.com/ver/carrerasOrdenadas";
   private modifURL ="https://back-ranking.herokuapp.com/modif/carreras";
   private delURL="https://back-ranking.herokuapp.com/delete/carreras/";
   private altaURL="https://back-ranking.herokuapp.com/carreras";
@@ -30,10 +31,13 @@ export class CarrerasService {
   }
 
   constructor(private httpClient:HttpClient) { }
-    obtenerCarreras():Observable<Carreras[]>{
+
+  obtenerCarreras():Observable<Carreras[]>{
     return this.httpClient.get<Carreras[]>(`${this.baseURL}`);
   }
-
+  obtenerCarrerasOrdenadas():Observable<Carreras[]>{
+    return this.httpClient.get<Carreras[]>(`${this.baseURLORDENADA}`);
+  }
   modificarCarreras( carreras:Carreras) {
    return this.httpClient.put<Carreras>(`${this.modifURL}`, carreras)
   }

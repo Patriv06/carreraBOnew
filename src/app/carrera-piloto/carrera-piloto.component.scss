@@ -1,0 +1,132 @@
+body{
+  background-color: black;
+}
+
+div{
+  text-align: center;
+  padding: 10px;
+  color: white;
+}
+
+.div1 {
+  overflow: hidden;
+  height: 98vh;
+  width: 95vw;
+  margin: 1vh 2.5vw;
+  border: 2px solid #e87867;
+  border-radius: 10px;
+  background-color: #3e3d3d;
+  background-size: cover;
+  background-image: url("/assets/imagenes/Pilotos_Carreras.jpg");
+  background-repeat: no-repeat;
+  background-attachment:inherit;
+  position: relative;
+  z-index: 0;
+}
+
+.div2 {
+  color: white;
+  text-align: center;
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background: red;
+  color: white;
+}
+
+h2{
+  padding: 10px;
+}
+
+.div3{
+  margin-top: 8px;
+}
+
+label{
+  padding: 0 6px;
+}
+
+.carreras {
+  margin-left: 20vw;
+  margin-top: 3vw;
+  font-size: 1.2em;
+}
+
+#temporada, #cantPilotos, #mu {
+  width: 7em;
+  background-color: transparent;
+  border: #e87867 solid 3px;
+  border-radius: 5px;
+  color: white
+}
+
+select, #fe {
+  width: 7em;
+  border: #e87867 solid 3px;
+  border-radius: 5px;
+}
+
+#fe, #temporada {
+  width: 8em;;
+}
+
+#mu, #cantPilotos {
+  text-align: center;
+}
+
+.listado{
+  width: 100%;
+  margin-left: 5vw;
+}
+
+.categorias1{
+  font-size: 16px;
+  margin-left: 15vw;
+  margin-top: 2vh;
+  width: 60vw;
+}
+
+.tempo, .fecha, .categ, .cantidad, .multi, .auto {
+  border-radius: 5px;
+  border: #e87867 solid 2px;
+}
+.alta:hover{
+  color: white;
+  background-color: #9C4335;
+  border-color: #E87867;
+  border-radius: 10px;
+  padding: 8px 15px;
+  font-size: 1.1em;
+}
+
+.alta{
+  color: #fff;
+  background-color: #E87867;
+  border-color: #E87867;
+  border-radius: 10px;
+  padding: 8px 15px;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+.modif, .delete{
+  float:right;
+  color: #fff;
+  background-color: gray;
+  border: solid 3px #E87867;
+  padding: 0px 8px;
+  cursor: pointer;
+}
+
+#nombre, #espacio{
+  width: 10em;
+  background-color: transparent;
+  border: #e87867 solid 3px;
+  border-radius: 5px;
+  color: white;
+}
+
+.div10 {
+  text-align: center;
+  margin-top: 13vh;
+}

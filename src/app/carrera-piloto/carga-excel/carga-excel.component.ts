@@ -5,7 +5,6 @@ import { PilotosService } from 'src/app/pilotos/pilotos.service';
 import { Carreras } from 'src/app/carreras/carreras';
 import { CarrerasService } from 'src/app/carreras/carreras.service';
 
-
 @Component({
   selector: 'app-carga-excel',
   templateUrl: './carga-excel.component.html',
@@ -18,7 +17,10 @@ export class CargaExcelComponent implements OnInit {
 
   }
 
-  constructor(private pilotServicio: PilotosService,private carServicio:CarrerasService ) {}
+  constructor(
+    private pilotServicio: PilotosService,
+    private carServicio: CarrerasService
+  ) {}
   resultadosCarrera: any;
   resultadosCarrera2: any;
   carre: Carreras[] = [];
@@ -83,13 +85,15 @@ export class CargaExcelComponent implements OnInit {
       this.pilot = dato;
     });
   }
- public traerCarreras(){
-    this.carServicio.obtenerCarreras().subscribe(dato =>{this.carre = dato});
+  public traerCarreras() {
+    this.carServicio.obtenerCarreras().subscribe((dato) => {
+      this.carre = dato;
+    });
   }
   public recorrerPilotos() {
     for (let posicion of this.resultadosCarrera2) {
       this.encontro = false;
-     /*  console.log('Encontro |', this.encontro);
+      /*  console.log('Encontro |', this.encontro);
 
 
       console.log(
@@ -100,7 +104,6 @@ export class CargaExcelComponent implements OnInit {
       );
       console.log(this.pilot) */
       for (let pil of this.pilot) {
-
         /* console.log( "excel length:",
           posicion.Piloto.length )
           console.log("Piloto lenght", pil.nombrePiloto.length)
@@ -111,20 +114,15 @@ export class CargaExcelComponent implements OnInit {
           console.log('Estoy iterando en Pilotos'
         ); */
         if (posicion.Piloto == pil.nombrePiloto) {
-          console.log(
-
-            'entro en el if'
-          );
+          console.log('entro en el if');
           this.encontro = true;
           console.log('encontro 2: ', this.encontro);
           this.pil2 = pil;
           this.calcularPuntos();
         }
-
       }
       if (!this.encontro) {
         alert(posicion.Piloto + ' no existe como nombre de Piloto');
-
       }
     }
   }

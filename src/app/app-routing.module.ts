@@ -1,3 +1,4 @@
+import { CarreraPilotoComponent } from './carrera-piloto/carrera-piloto.component';
 
 import { EditarAutComponent } from './autodromos/editar-aut/editar-aut.component';
 import { NgModule } from '@angular/core';
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path:'carreras', component:CarrerasComponent},
   {path:'PPCarreras', component:PuntosPorCarreraComponent},
   {path:'CargaExcel', component:CargaExcelComponent},
+  {path:'CarreraPiloto', component:CarreraPilotoComponent},
   {path:'home', component:HomeComponent},
   {path:'', redirectTo:'home', pathMatch:'full'}
 ];

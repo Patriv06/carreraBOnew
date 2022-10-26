@@ -65,11 +65,11 @@
     <table class="categorias1">
       <tr>
         <th class="tempo">Temporada</th>
-        <th class="fecha">Fecha</th>
-        <th class="categ">Categoria</th>
-        <th class="cantidad">Cantidad de Autos</th>
-        <th class="multi">Multiplicador</th>
-        <th class="auto">Autódromo</th>
+      <th class="fecha">Fecha</th>
+      <th class="cantidad">Cantidad de Autos</th>
+      <th class="categ">Categoria</th>
+      <th class="multi">Multiplicador</th>
+      <th class="auto">Autódromo</th>
       </tr>
       <tr *ngFor="let car of carre  | paginate: { itemsPerPage: 6, currentPage: pages }">
         <td class="tempo">{{car.temporadaCarrera}}</td>
@@ -79,12 +79,12 @@
         <td class="multi">{{car.multiplCarrera}}</td>
         <td class="auto">{{car.autodromo.nombreAutodromo}}</td>
         <td>
-          <button (click)="modifCarreras(carr)" class="modif">
+          <button (click)="modifCarreras(car)" class="modif">
             Modificar
           </button>
         </td>
         <td>
-          <button (click)="delCarreras(carr)" class="delete">
+          <button (click)="delCarreras(car)" class="delete">
             Borrar
           </button>
         </td>
@@ -95,3 +95,4 @@
 
     <pagination-controls (pageChange)="pages = $event"></pagination-controls>
 </div>
+

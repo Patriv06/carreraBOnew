@@ -1,1 +1,52 @@
-<p>carrera-piloto works!</p>
+<div class="listado">
+  <table class="categorias1">
+    <tr>
+      <th class="tempo">Temporada</th>
+      <th class="fecha">Fecha</th>
+      <th class="cantidad">Cantidad de Autos</th>
+      <th class="categ">Categoria</th>
+      <th class="multi">Multiplicador</th>
+      <th class="auto">Autódromo</th>
+    </tr>
+    <tr *ngFor="let car of carre ">
+      <td class="tempo">{{car.temporadaCarrera}}</td>
+      <td class="fecha">{{car.fechaCarrera}}</td>
+      <td class="cantidad">{{car.cantPilCarrera}}</td>
+      <td class="categ">{{car.categorias.idCategoria}}</td>
+      <td class="multi">{{car.multiplCarrera}}</td>
+      <td class="auto">{{car.autodromo.nombreAutodromo}}</td>
+      <td>
+        <button (click)="elegir(car)" class="modif">
+          Elegir
+        </button>
+      </td>
+      <td>
+
+      </td>
+    </tr>
+  </table>
+</div>
+<app-carga-excel>C</app-carga-excel>
+<br>
+
+<div class="listado">
+
+  <table class="categorias1">
+    <tr>
+      <th class="tempo">Temporada</th>
+      <th class="fecha">Fecha</th>
+      <th class="cantidad">Cantidad de Autos</th>
+      <th class="categ">Categoria</th>
+      <th class="multi">Multiplicador</th>
+      <th class="auto">Autódromo</th>
+    </tr>
+    <tr >
+      <td class="tempo">{{carr.temporadaCarrera}}</td>
+      <td class="fecha">{{carr.fechaCarrera}}</td>
+      <td class="cantidad">{{carr.cantPilCarrera}}</td>
+      <td class="categ">{{carr.categorias.idCategoria}}</td>
+      <td class="multi">{{carr.multiplCarrera}}</td>
+      <td class="auto">{{carr.autodromo.nombreAutodromo}}</td>
+    </tr>
+</table>
+

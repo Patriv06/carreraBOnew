@@ -47,6 +47,7 @@ const routes: Routes = [
   {path:'carreras', component:CarrerasComponent},
   {path:'PPCarreras', component:PuntosPorCarreraComponent},
   {path:'CargaExcel', component:CargaExcelComponent},
+  {path:'CarreraPiloto', component:CarreraPilotoComponent},
   {path:'home', component:HomeComponent},
   {path:'', redirectTo:'Home', pathMatch:'full'}
 ];
