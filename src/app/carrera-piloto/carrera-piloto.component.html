@@ -8,7 +8,7 @@
       <th class="multi">Multiplicador</th>
       <th class="auto">Autódromo</th>
     </tr>
-    <tr *ngFor="let car of carre ">
+    <tr *ngFor="let car of carre   | paginate: { itemsPerPage: 6, currentPage: pages }">
       <td class="tempo">{{car.temporadaCarrera}}</td>
       <td class="fecha">{{car.fechaCarrera}}</td>
       <td class="cantidad">{{car.cantPilCarrera}}</td>
@@ -26,7 +26,8 @@
     </tr>
   </table>
 </div>
-<app-carga-excel>C</app-carga-excel>
+<pagination-controls (pageChange)="pages = $event"></pagination-controls>
+
 <br>
 
 <div class="listado">
@@ -49,4 +50,9 @@
       <td class="auto">{{carr.autodromo.nombreAutodromo}}</td>
     </tr>
 </table>
+<br>
+
+<div *ngIf ="ver">
+<app-carga-excel [datoCarrera]="carr"></app-carga-excel>
+</div>
 

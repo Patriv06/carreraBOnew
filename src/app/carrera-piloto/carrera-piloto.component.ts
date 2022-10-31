@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Autodromos } from '../autodromos/autodromos';
 import { Carreras } from '../carreras/carreras';
 import { CarrerasService } from '../carreras/carreras.service';
@@ -9,9 +9,9 @@ import { Categorias } from '../categorias/categorias';
   templateUrl: './carrera-piloto.component.html',
   styleUrls: ['./carrera-piloto.component.scss']
 })
-export class CarreraPilotoComponent implements OnInit {
-  carre: Carreras[] = [];
-
+export class CarreraPilotoComponent implements  OnChanges, OnInit, OnDestroy {
+  ver:boolean=false;
+  pages: number = 1;
   carr = {
     idCarreras: 1,
     temporadaCarrera:" ",
@@ -20,10 +20,17 @@ export class CarreraPilotoComponent implements OnInit {
     fechaCarrera: new Date(),
     autodromo: new Autodromos(),
     categorias : new Categorias(),
-  }
-
+  };
+ carre: Carreras[] = [];
   constructor(private carServicio:CarrerasService,) { }
+ngOnChanges(changes: SimpleChanges): void {
+   console.log("Changes--->", changes);
+}
+ngOnDestroy(): void {
+  //Called once, before the instance is destroyed.
+  //Add 'implements OnDestroy' to the class.
 
+}
   ngOnInit(): void {
     this.traerCarreras();
   }
@@ -40,5 +47,7 @@ export class CarreraPilotoComponent implements OnInit {
     this.carr.fechaCarrera = car.fechaCarrera
     this.carr.multiplCarrera = car.multiplCarrera
     this.carr.temporadaCarrera = car.temporadaCarrera
+    const datoCarrera = this.carr;
+    this.ver = true;
   };
 }

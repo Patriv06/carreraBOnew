@@ -10,21 +10,21 @@ import { Observable } from 'rxjs';
 })
 export class CarreraPilotoService {
 
-  private baseURL="https://back-ranking.herokuapp.com/ver/carreraPilotos";
-  private modifURL ="https://back-ranking.herokuapp.com/modif/carreraPilotos";
-  private delURL="https://back-ranking.herokuapp.com/delete/carreraPilotos/";
-  private altaURL="https://back-ranking.herokuapp.com/carreraPilotos";
+  private baseURL="https://back-ranking.herokuapp.com/ver/carreraPiloto";
+  private modifURL ="https://back-ranking.herokuapp.com/modif/carreraPiloto";
+  private delURL="https://back-ranking.herokuapp.com/delete/carreraPiloto/";
+  private altaURL="https://back-ranking.herokuapp.com/carreraPiloto";
 
-  /* private baseURL="http://localhost:8080/ver/carreraPilotos";
-  private modifURL ="http://localhost:8080/modif/carreraPilotos";
-  private delURL="http://localhost:8080/delete/carreraPilotos/";
-  private altaURL="http://localhost:8080/carreraPilotos"; */
+  /* private baseURL="http://localhost:8080/ver/carreraPiloto";
+  private modifURL ="http://localhost:8080/modif/carreraPiloto";
+  private delURL="http://localhost:8080/delete/carreraPiloto/";
+  private altaURL="http://localhost:8080/carreraPiloto"; */
   carr = {
     id: 1,
     temporadaCarrera:" ",
     puestoCarreraPiloto: 1,
-    piloto: new Pilotos(),
-    carrera: new Carreras(),
+    pilotos: new Pilotos(),
+    carreras: new Carreras(),
   }
 
   constructor(private httpClient:HttpClient) { }

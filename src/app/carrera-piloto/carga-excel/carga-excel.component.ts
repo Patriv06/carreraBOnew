@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { PilCatPuntService } from './../pil-cat-punt.service';
+import { CarreraPilotoService } from './../carrera-piloto.service';
+import { CarreraPiloto } from './../carrera-piloto';
+import { Component, Input, OnInit } from '@angular/core';
 import * as XLSX from 'xlsx';
 import { Pilotos } from 'src/app/pilotos/pilotos';
 import { PilotosService } from 'src/app/pilotos/pilotos.service';
 import { Carreras } from 'src/app/carreras/carreras';
 import { CarrerasService } from 'src/app/carreras/carreras.service';
+
 
 @Component({
   selector: 'app-carga-excel',
@@ -11,19 +15,27 @@ import { CarrerasService } from 'src/app/carreras/carreras.service';
   styleUrls: ['./carga-excel.component.scss'],
 })
 export class CargaExcelComponent implements OnInit {
+
+
+  @Input() datoCarrera: any ;
+  carr:Carreras[]=[];
   ngOnInit(): void {
     this.traerPilotos();
-    this.traerCarreras();
+
 
   }
 
   constructor(
     private pilotServicio: PilotosService,
-    private carServicio: CarrerasService
+    private carServicio: CarrerasService,
+    private carPilServicio: CarreraPilotoService,
+    private pilCPServicio: PilCatPuntService
   ) {}
+  posicion : any;
+  posicion2 : any;
   resultadosCarrera: any;
   resultadosCarrera2: any;
-  carre: Carreras[] = [];
+
   pilot: Pilotos[] = [];
   numero: number = 0;
   pilo: Pilotos[] = [
@@ -36,7 +48,16 @@ export class CargaExcelComponent implements OnInit {
       puntajeActPiloto: 1,
     },
   ];
-  pil = {
+/*   pil = {
+    idPiloto: 1,
+    nombrePiloto: ' ',
+    apellidoPiloto: ' ',
+    urlImgPiloto: ' ',
+    puntajeAntPiloto: 1,
+    puntajeActPiloto: 1,
+  }; */
+
+   pil2 = {
     idPiloto: 1,
     nombrePiloto: ' ',
     apellidoPiloto: ' ',
@@ -45,18 +66,19 @@ export class CargaExcelComponent implements OnInit {
     puntajeActPiloto: 1,
   };
 
-  pil2 = {
-    idPiloto: 1,
-    nombrePiloto: ' ',
-    apellidoPiloto: ' ',
-    urlImgPiloto: ' ',
-    puntajeAntPiloto: 1,
-    puntajeActPiloto: 1,
-  };
   variable1?: String;
   variable2?: String;
 
+  carPil:CarreraPiloto={
+     id: 1,
+     puestoCarreraPiloto:1,
+     pilotos:new  Pilotos,
+     carreras: new Carreras
+  }
+
   encontro: boolean = false;
+
+
 
   fileUpload(Event: any) {
     let selectedFile = Event.target.files[0];
@@ -71,7 +93,6 @@ export class CargaExcelComponent implements OnInit {
         workbook.Sheets[sheetNames[0]]
       );
 
-      // console.log(XLSX.utils.sheet_to_json(workbook.Sheets[sheetNames[0]]));
       this.resultadosCarrera2 = XLSX.utils.sheet_to_json(
         workbook.Sheets[sheetNames[0]]
       );
@@ -80,43 +101,23 @@ export class CargaExcelComponent implements OnInit {
     };
   }
 
-  public traerPilotos() {
+   traerPilotos() {
     this.pilotServicio.obtenerPilotos().subscribe((dato: Pilotos[]) => {
       this.pilot = dato;
     });
   }
-  public traerCarreras() {
-    this.carServicio.obtenerCarreras().subscribe((dato) => {
-      this.carre = dato;
-    });
-  }
-  public recorrerPilotos() {
+
+   recorrerPilotos() {
     for (let posicion of this.resultadosCarrera2) {
       this.encontro = false;
-      /*  console.log('Encontro |', this.encontro);
 
-
-      console.log(
-        'excel:',
-       posicion.Piloto.length,
-        posicion.Piloto,
-        'estoy iterando en excel'
-      );
-      console.log(this.pilot) */
       for (let pil of this.pilot) {
-        /* console.log( "excel length:",
-          posicion.Piloto.length )
-          console.log("Piloto lenght", pil.nombrePiloto.length)
-          console.log("Archivo: ", pil.nombrePiloto)
 
-          console.log("Excel: ", posicion.Piloto)
-
-          console.log('Estoy iterando en Pilotos'
-        ); */
         if (posicion.Piloto == pil.nombrePiloto) {
           console.log('entro en el if');
           this.encontro = true;
-          console.log('encontro 2: ', this.encontro);
+          console.log('encontro 2: ', this.encontro, " Posición Piloto ", posicion.Pos );
+          this.posicion2 = posicion;
           this.pil2 = pil;
           this.calcularPuntos();
         }
@@ -128,6 +129,16 @@ export class CargaExcelComponent implements OnInit {
   }
 
   calcularPuntos() {
+
+    this.carPil.pilotos = this.pil2;
+    JSON.stringify(this.carPil.pilotos)
+    this.carPil.carreras = this.datoCarrera;
+    JSON.stringify(this.carPil.carreras)
+    this.carPil.puestoCarreraPiloto = this.posicion2.Pos;
     console.log('Estoy en calcular Puntos', this.pil2.nombrePiloto);
+    console.log("Estoy en calcular puntos y muestro carreras", this.datoCarrera)
+    console.log("CarPil :", this.carPil);
+    this.carPilServicio.crearCarreraPiloto(this.carPil).subscribe((dato: {id:number; puestoCarreraPiloto:number;pilotos:Pilotos; carreras:Carreras }) =>console.log("Listo:", this.carPil));
+
   }
 }
