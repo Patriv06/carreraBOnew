@@ -7,6 +7,8 @@ import { Pilotos } from 'src/app/pilotos/pilotos';
 import { PilotosService } from 'src/app/pilotos/pilotos.service';
 import { Carreras } from 'src/app/carreras/carreras';
 import { CarrerasService } from 'src/app/carreras/carreras.service';
+import { outputAst } from '@angular/compiler';
+import { PilCatPunt } from '../pil-cat-punt';
 
 
 @Component({
@@ -31,6 +33,7 @@ export class CargaExcelComponent implements OnInit {
     private carPilServicio: CarreraPilotoService,
     private pilCPServicio: PilCatPuntService
   ) {}
+  ver:boolean=true;
   posicion : any;
   posicion2 : any;
   resultadosCarrera: any;
@@ -48,14 +51,14 @@ export class CargaExcelComponent implements OnInit {
       puntajeActPiloto: 1,
     },
   ];
-/*   pil = {
-    idPiloto: 1,
-    nombrePiloto: ' ',
-    apellidoPiloto: ' ',
-    urlImgPiloto: ' ',
-    puntajeAntPiloto: 1,
-    puntajeActPiloto: 1,
-  }; */
+  pilCatPunt!: PilCatPunt/* [] = [
+   {
+    idPilCatPunt:1,
+    nombrePilotoPilCatPunt:" ",
+    idCategoriaPilCatPunt:" ",
+    puntosAntPilCantPunt:1,
+    puntosActPilCantPunt:1
+  }];  */
 
    pil2 = {
     idPiloto: 1,
@@ -96,7 +99,7 @@ export class CargaExcelComponent implements OnInit {
       this.resultadosCarrera2 = XLSX.utils.sheet_to_json(
         workbook.Sheets[sheetNames[0]]
       );
-
+      this.ver =false;
       this.recorrerPilotos();
     };
   }
@@ -104,6 +107,13 @@ export class CargaExcelComponent implements OnInit {
    traerPilotos() {
     this.pilotServicio.obtenerPilotos().subscribe((dato: Pilotos[]) => {
       this.pilot = dato;
+    });
+  }
+
+  traerPilCatPunt( pil:String, cat:String) {
+
+    this.pilCPServicio.obtenerpilCatPuntPorPilyCat(pil, cat).subscribe((dato : PilCatPunt) => {this.pilCatPunt= dato;
+      console.log("Leyó pilCatPunt: ", this.pilCatPunt);
     });
   }
 
@@ -139,6 +149,10 @@ export class CargaExcelComponent implements OnInit {
     console.log("Estoy en calcular puntos y muestro carreras", this.datoCarrera)
     console.log("CarPil :", this.carPil);
     this.carPilServicio.crearCarreraPiloto(this.carPil).subscribe((dato: {id:number; puestoCarreraPiloto:number;pilotos:Pilotos; carreras:Carreras }) =>console.log("Listo:", this.carPil));
-
+    var pil= (this.pil2.nombrePiloto);
+    var pil4=pil.trim();
+    var cat=this.carPil.carreras.categorias.nombreCategoria;
+    console.log ("pil:", pil4," cat:", cat )
+    this.traerPilCatPunt(pil4, cat);
   }
 }

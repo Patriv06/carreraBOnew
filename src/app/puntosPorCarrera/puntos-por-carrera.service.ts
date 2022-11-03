@@ -12,6 +12,7 @@ export class PuntosPorCarreraService {
   private modifURL ="https://back-ranking.herokuapp.com/modif/puntPorCarrera";
   private delURL="https://back-ranking.herokuapp.com/delete/puntPorCarreras/";
   private altaURL="https://back-ranking.herokuapp.com/puntPorCarrera";
+  private buscaPpCarUrl = "https://back-ranking.herokuapp.com/ver/puntPorCarrXQ/";
 
   /* private baseURL="http://localhost:8080/ver/puntPorCarr";
   private modifURL ="http://localhost:8080/modif/puntPorCarrera";
@@ -39,4 +40,10 @@ export class PuntosPorCarreraService {
   crearPPCarreras(ppcarreras:PuntosPorCarrera){
     return this.httpClient.post<PuntosPorCarrera>(`${this.altaURL}`, ppcarreras)
   }
+
+  obtenerPPCarrerasPorQAutos(qautos:number):Observable<PuntosPorCarrera>{
+    return this.httpClient.get<PuntosPorCarrera>(`${this.buscaPpCarUrl}`+"/" + qautos);
+  }
+
+
 }

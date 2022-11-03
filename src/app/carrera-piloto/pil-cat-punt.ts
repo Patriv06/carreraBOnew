@@ -1,5 +1,5 @@
 export class PilCatPunt {
-   idPilCatPunt!:number;
+    idPilCatPunt!:number;
     nombrePilotoPilCatPunt!:String;
     idCategoriaPilCatPunt!:String;
     puntosAntPilCantPunt!:number;
