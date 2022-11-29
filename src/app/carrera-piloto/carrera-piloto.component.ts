@@ -11,6 +11,7 @@ import { Categorias } from '../categorias/categorias';
 })
 export class CarreraPilotoComponent implements  OnChanges, OnInit, OnDestroy {
   ver:boolean=false;
+  eligio:boolean=true;
   pages: number = 1;
   carr = {
     idCarreras: 1,
@@ -49,5 +50,6 @@ ngOnDestroy(): void {
     this.carr.temporadaCarrera = car.temporadaCarrera
     const datoCarrera = this.carr;
     this.ver = true;
+    this.eligio=false
   };
 }

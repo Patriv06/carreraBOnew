@@ -12,6 +12,7 @@ export class PilotosService {
   private modifURL ="https://back-ranking.herokuapp.com/modif/pilotos";
   private delURL="https://back-ranking.herokuapp.com/delete/pilotos/";
   private altaURL="https://back-ranking.herokuapp.com/pilotos";
+  private buscaPilXnoml ="https://back-ranking.herokuapp.com/ver/pilotosXnombre"
 
   // private baseURL="http://localhost:8080/ver/pilotos";
   // private modifURL ="http://localhost:8080/modif/pilotos";
@@ -43,6 +44,10 @@ export class PilotosService {
 
   crearPilotos(pilotos:Pilotos){
     return this.httpClient.post<Pilotos>(`${this.altaURL}`, pilotos)
+  }
+
+  obtenerPilotosXnombre(nom:String):Observable<Pilotos>{
+    return this.httpClient.get<Pilotos>(`${this.buscaPilXnoml}`+"/" + nom);
   }
 }
 

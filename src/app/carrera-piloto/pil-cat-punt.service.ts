@@ -28,12 +28,12 @@ export class PilCatPuntService {
     return this.httpClient.get<PilCatPunt>(`${this.baseURL}`+"/" + id);
   }
 
-  obtenerpilCatPuntPorPil(nombrePil:String):Observable<PilCatPunt>{
-    return this.httpClient.get<PilCatPunt>(`${this.buscaPilUrl}`+"/" + nombrePil);
+  obtenerpilCatPuntPorPil(nombrePil:String):Observable<PilCatPunt[]>{
+    return this.httpClient.get<PilCatPunt[]>(`${this.buscaPilUrl}`+ nombrePil);
   }
 
-  obtenerpilCatPuntPorPilyCat(nombrePil:String, nombreCat:String):Observable<PilCatPunt>{
-    return this.httpClient.get<PilCatPunt>(`${this.buscaPilYCatURL}`+"?nombrePilotoPilCatPunt=" + nombrePil +"&"+"idCategoriaPilCatPunt=" + nombreCat);
+  obtenerpilCatPuntPorPilyCat(nombrePil:String, nombreCat:String):Observable<PilCatPunt[]>{
+    return this.httpClient.get<PilCatPunt[]>(`${this.buscaPilYCatURL}`+"?nombrePilotoPilCatPunt=" + nombrePil +"&"+"idCategoriaPilCatPunt=" + nombreCat);
 
   }
 

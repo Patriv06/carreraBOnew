@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { Categorias } from './categorias';
+import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class CategoriasService {
   private modifURL ="https://back-ranking.herokuapp.com/modif/categorias";
   private delURL="https://back-ranking.herokuapp.com/delete/categorias/";
   private altaURL="https://back-ranking.herokuapp.com/categorias";
+  private buscaURL = "https://back-ranking.herokuapp.com/ver/catXIdCat";
 
 /*    private baseURL="http://localhost:8080/ver/categorias";
   private modifURL ="http://localhost:8080/modif/categorias";
@@ -43,6 +45,12 @@ export class CategoriasService {
   crearCategorias(categorias:Categorias){
     return this.httpClient.post<Categorias>(`${this.altaURL}`, categorias)
   }
+  buscaCategorias(idCat:String):Observable<Categorias>{
+    return this.httpClient.get<Categorias>(`${this.buscaURL}`+"?idCategoria="+ idCat);
+  }
+
+
+
 }
 
 

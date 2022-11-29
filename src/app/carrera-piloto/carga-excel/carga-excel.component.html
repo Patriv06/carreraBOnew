@@ -1,5 +1,5 @@
 
-<div>
+<div *ngIf="ver !=false">
 <!-- Upload  -->
 <form id="file-upload-form" class="uploader">
   <input id="file-upload" type="file" (change)="fileUpload($event); " name="fileUpload" accept=".xls,.xlsx" />
@@ -21,14 +21,4 @@
   </label>
 </form>
 </div>
-<!-- <div class="container">
- <tr *ngFor=" let data of resultadosCarrera">
 
-  <td>{{data.Piloto}}</td>
- </tr>
-</div> -->
-<!-- <div class="container">
-  <tr *ngFor=" let pil of pilot">
-    <td>{{pil.nombrePiloto}}</td>
-  </tr>
-</div> -->
