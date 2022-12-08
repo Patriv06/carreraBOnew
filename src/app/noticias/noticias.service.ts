@@ -7,10 +7,10 @@ import { Noticias } from './noticias';
   providedIn: 'root'
 })
 export class NoticiasService {
-  private baseURL="https://back-ranking.herokuapp.com/ver/noticiasOrdenadas";
-  private modifURL ="https://back-ranking.herokuapp.com/modif/noticias";
-  private delURL="https://back-ranking.herokuapp.com/delete/noticias/";
-  private altaURL="https://back-ranking.herokuapp.com/noticias";
+  private baseURL="https://complete-audry-privas06.koyeb.app/ver/noticiasOrdenadas";
+  private modifURL ="https://complete-audry-privas06.koyeb.app/modif/noticias";
+  private delURL="https://complete-audry-privas06.koyeb.app/delete/noticias/";
+  private altaURL="https://complete-audry-privas06.koyeb.app/noticias";
 
   /* private baseURL="http://localhost:8080/ver/noticiasOrdenadas";
   private modifURL ="http://localhost:8080/modif/noticias";

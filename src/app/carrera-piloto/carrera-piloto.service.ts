@@ -10,10 +10,10 @@ import { Observable } from 'rxjs';
 })
 export class CarreraPilotoService {
 
-  private baseURL="https://back-ranking.herokuapp.com/ver/carreraPiloto";
-  private modifURL ="https://back-ranking.herokuapp.com/modif/carreraPiloto";
-  private delURL="https://back-ranking.herokuapp.com/delete/carreraPiloto/";
-  private altaURL="https://back-ranking.herokuapp.com/carreraPiloto";
+  private baseURL="https://complete-audry-privas06.koyeb.app/ver/carreraPiloto";
+  private modifURL ="https://complete-audry-privas06.koyeb.app/modif/carreraPiloto";
+  private delURL="https://complete-audry-privas06.koyeb.app/delete/carreraPiloto/";
+  private altaURL="https://complete-audry-privas06.koyeb.app/carreraPiloto";
 
   /* private baseURL="http://localhost:8080/ver/carreraPiloto";
   private modifURL ="http://localhost:8080/modif/carreraPiloto";

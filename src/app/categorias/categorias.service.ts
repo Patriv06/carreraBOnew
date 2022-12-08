@@ -9,11 +9,11 @@ import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 })
 export class CategoriasService {
 
-   private baseURL="https://back-ranking.herokuapp.com/ver/categorias";
-  private modifURL ="https://back-ranking.herokuapp.com/modif/categorias";
-  private delURL="https://back-ranking.herokuapp.com/delete/categorias/";
-  private altaURL="https://back-ranking.herokuapp.com/categorias";
-  private buscaURL = "https://back-ranking.herokuapp.com/ver/catXIdCat";
+   private baseURL="https://complete-audry-privas06.koyeb.app/ver/categorias";
+  private modifURL ="https://complete-audry-privas06.koyeb.app/modif/categorias";
+  private delURL="https://complete-audry-privas06.koyeb.app/delete/categorias/";
+  private altaURL="https://complete-audry-privas06.koyeb.app/categorias";
+  private buscaURL = "https://complete-audry-privas06.koyeb.app/ver/catXIdCat";
 
 /*    private baseURL="http://localhost:8080/ver/categorias";
   private modifURL ="http://localhost:8080/modif/categorias";

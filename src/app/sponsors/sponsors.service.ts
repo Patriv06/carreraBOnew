@@ -8,10 +8,10 @@ import { Sponsors } from './sponsors';
   providedIn: 'root'
 })
 export class SponsorsService {
-  private baseURL="https://back-ranking.herokuapp.com/ver/sponsors";
-  private modifURL ="https://back-ranking.herokuapp.com/modif/sponsors";
-  private delURL="https://back-ranking.herokuapp.com/delete/sponsors/";
-  private altaURL="https://back-ranking.herokuapp.com/sponsors";
+  private baseURL="https://complete-audry-privas06.koyeb.app/ver/sponsors";
+  private modifURL ="https://complete-audry-privas06.koyeb.app/modif/sponsors";
+  private delURL="https://complete-audry-privas06.koyeb.app/delete/sponsors/";
+  private altaURL="https://complete-audry-privas06.koyeb.app/sponsors";
 
 
   /* private baseURL="http://localhost:8080/ver/sponsors";

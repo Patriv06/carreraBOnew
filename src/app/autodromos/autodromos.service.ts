@@ -9,10 +9,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AutodromosService {
-  private baseURL="https://back-ranking.herokuapp.com/ver/autodromos";
-  private modifURL ="https://back-ranking.herokuapp.com/modif/autodromos";
-  private delURL="https://back-ranking.herokuapp.com/delete/autodromos/";
-  private altaURL="https://back-ranking.herokuapp.com/autodromos";
+  private baseURL="https://complete-audry-privas06.koyeb.app/ver/autodromos";
+  private modifURL ="https://complete-audry-privas06.koyeb.app/modif/autodromos";
+  private delURL="https://complete-audry-privas06.koyeb.app/delete/autodromos/";
+  private altaURL="https://complete-audry-privas06.koyeb.app/autodromos";
 
 /*   private baseURL="http://localhost:8080/ver/autodromos";
   private modifURL ="http://localhost:8080/modif/autodromos";

@@ -8,11 +8,11 @@ import { Observable } from 'rxjs';
 })
 export class PuntosPorCarreraService {
 
-   private baseURL="https://back-ranking.herokuapp.com/ver/puntPorCarr";
-  private modifURL ="https://back-ranking.herokuapp.com/modif/puntPorCarrera";
-  private delURL="https://back-ranking.herokuapp.com/delete/puntPorCarreras/";
-  private altaURL="https://back-ranking.herokuapp.com/puntPorCarrera";
-  private buscaPpCarUrl = "https://back-ranking.herokuapp.com/ver/puntPorCarrXQYPos";
+   private baseURL="https://complete-audry-privas06.koyeb.app/ver/puntPorCarr";
+  private modifURL ="https://complete-audry-privas06.koyeb.app/modif/puntPorCarrera";
+  private delURL="https://complete-audry-privas06.koyeb.app/delete/puntPorCarreras/";
+  private altaURL="https://complete-audry-privas06.koyeb.app/puntPorCarrera";
+  private buscaPpCarUrl = "https://complete-audry-privas06.koyeb.app/ver/puntPorCarrXQYPos";
 
   /*  private baseURL="http://localhost:8080/ver/puntPorCarr";
   private modifURL ="http://localhost:8080/modif/puntPorCarrera";

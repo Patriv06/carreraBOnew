@@ -8,11 +8,11 @@ import { Pilotos } from './pilotos';
 })
 export class PilotosService {
 
-   private baseURL="https://back-ranking.herokuapp.com/ver/pilotos";
-  private modifURL ="https://back-ranking.herokuapp.com/modif/pilotos";
-  private delURL="https://back-ranking.herokuapp.com/delete/pilotos/";
-  private altaURL="https://back-ranking.herokuapp.com/pilotos";
-  private buscaPilXnoml ="https://back-ranking.herokuapp.com/ver/pilotosXnombre"
+   private baseURL="https://complete-audry-privas06.koyeb.app/ver/pilotos";
+  private modifURL ="https://complete-audry-privas06.koyeb.app/modif/pilotos";
+  private delURL="https://complete-audry-privas06.koyeb.app/delete/pilotos/";
+  private altaURL="https://complete-audry-privas06.koyeb.app/pilotos";
+  private buscaPilXnoml ="https://complete-audry-privas06.koyeb.app/ver/pilotosXnombre"
 
   // private baseURL="http://localhost:8080/ver/pilotos";
   // private modifURL ="http://localhost:8080/modif/pilotos";

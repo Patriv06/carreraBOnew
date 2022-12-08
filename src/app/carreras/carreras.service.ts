@@ -10,11 +10,11 @@ import { Carreras } from './carreras';
 })
 export class CarrerasService {
 
-  private baseURL="https://back-ranking.herokuapp.com/ver/carreras";
-  private baseURLORDENADA="https://back-ranking.herokuapp.com/ver/carrerasOrdenadas";
-  private modifURL ="https://back-ranking.herokuapp.com/modif/carreras";
-  private delURL="https://back-ranking.herokuapp.com/delete/carreras/";
-  private altaURL="https://back-ranking.herokuapp.com/carreras";
+  private baseURL="https://complete-audry-privas06.koyeb.app/ver/carreras";
+  private baseURLORDENADA="https://complete-audry-privas06.koyeb.app/ver/carrerasOrdenadas";
+  private modifURL ="https://complete-audry-privas06.koyeb.app/modif/carreras";
+  private delURL="https://complete-audry-privas06.koyeb.app/delete/carreras/";
+  private altaURL="https://complete-audry-privas06.koyeb.app/carreras";
 
   /* private baseURL="http://localhost:8080/ver/carreras";
   private modifURL ="http://localhost:8080/modif/carreras";

@@ -8,12 +8,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PilCatPuntService {
-  private baseURL="https://back-ranking.herokuapp.com/ver/pilCatPunt";
-  private modifURL ="https://back-ranking.herokuapp.com/modif/pilCatPunt";
-  private delURL="https://back-ranking.herokuapp.com/delete/pilCatPunt/";
-  private altaURL="https://back-ranking.herokuapp.com/pilCatPunt";
-  private buscaPilUrl = "https://back-ranking.herokuapp.com/ver/pilCatPuntXPiloto/";
-  private buscaPilYCatURL = "https://back-ranking.herokuapp.com/ver/pilCatPuntXPilotoYXCategoria";
+  private baseURL="https://complete-audry-privas06.koyeb.app/ver/pilCatPunt";
+  private modifURL ="https://complete-audry-privas06.koyeb.app/modif/pilCatPunt";
+  private delURL="https://complete-audry-privas06.koyeb.app/delete/pilCatPunt/";
+  private altaURL="https://complete-audry-privas06.koyeb.app/pilCatPunt";
+  private buscaPilUrl = "https://complete-audry-privas06.koyeb.app/ver/pilCatPuntXPiloto/";
+  private buscaPilYCatURL = "https://complete-audry-privas06.koyeb.app/ver/pilCatPuntXPilotoYXCategoria";
 
 /*   private baseURL="http://localhost:8080/ver/pilCatPunt";
   private modifURL ="http://localhost:8080/modif/pilCatPunt";
