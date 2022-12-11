@@ -10,6 +10,7 @@ import { PilotosService } from 'src/app/pilotos/pilotos.service';
 import { Carreras } from 'src/app/carreras/carreras';
 import { PilCatPunt } from '../pil-cat-punt';
 import { PuntosPorCarrera } from 'src/app/puntosPorCarrera/puntos-por-carrera';
+import { firstValueFrom } from 'rxjs';
 
 
 
@@ -187,6 +188,7 @@ export class CargaExcelComponent implements OnInit {
         this.piloto2=pil.nombrePiloto.trim();
 
         if (this.piloto1 == this.piloto2) {
+          console.log("son iguales:", this.piloto1)
 
           this.encontro = true;
 
@@ -223,6 +225,8 @@ export class CargaExcelComponent implements OnInit {
 
     this.carPil.puestoCarreraPiloto = this.posicion2;
 
+    await this.grabaCarreraPiloto(this.carPil);
+
     //this.carPilServicio.crearCarreraPiloto(this.carPil).subscribe((dato: {id:number; puestoCarreraPiloto:number;pilotos:Pilotos; carreras:Carreras }) =>{return  this.carPil});
 
     var pil= (this.pil2.nombrePiloto);
@@ -238,6 +242,8 @@ export class CargaExcelComponent implements OnInit {
     await this.traerPPCarr(this.qautos, this.posicion2)
 
     await this.grabaPilCatPunt(this.pcp)
+
+    await this.grabaPiloto(this.pil2)
 
 
 
@@ -257,20 +263,27 @@ export class CargaExcelComponent implements OnInit {
 
     this.poneEnCeroPilCantPunt(pil,cat)
 
-   this.pilCPServicio.obtenerpilCatPuntPorPilyCat(pil, cat).subscribe((dato: PilCatPunt[]) => {
-     this.pilCatPunt = dato;
-     console.log("PilCatPunt de traerPilCatPunt:", this.pilCatPunt[0]);
-     this.pcp = this.pilCatPunt[0];
+    var dato:PilCatPunt[] = await firstValueFrom(this.pilCPServicio.obtenerpilCatPuntPorPilyCat(pil,cat));
+    console.log("muestro dato:",dato[0])
+    if (dato[0] !=undefined){
+    this.pilCatPunt = dato;}
+    console.log("PilCatPunt de traerPilCatPunt:", this.pilCatPunt[0]);
+    this.pcp = this.pilCatPunt[0];
+  // this.pilCPServicio.obtenerpilCatPuntPorPilyCat(pil, cat).subscribe((dato: PilCatPunt[]) => {
+    // this.pilCatPunt = dato;
+   //  console.log("PilCatPunt de traerPilCatPunt:", this.pilCatPunt[0]);
+    // this.pcp = this.pilCatPunt[0];
 
 
 
-   });
+ //  });
 
   }
 
   /////// Pone en cero PilCantPunt de ese Piloto y Categoría*************
 
   poneEnCeroPilCantPunt(pil: String, cat: String){
+    console.log("estoy en pone en cero pcp")
     this.pcp.idCategoriaPilCatPunt = cat;
     this.pcp.nombrePilotoPilCatPunt = pil;
     this.pcp.idPilCatPunt = 1;
@@ -287,20 +300,19 @@ async traerPPCarr(qa:number, pos:number){
 
   console.log("estoy en traerPPCarr: ", qa, pos)
 
-  this.ppCarrServicio.obtenerPPCarrerasPorQAutos(qa,pos).subscribe((dato: PuntosPorCarrera[]) => {
-             this.ppCarr = dato;
-             this.puntoXCarrera= this.ppCarr[0].puntosPPCarreras;
-             this.puntoXCarrera = this.puntoXCarrera * this.pondera * this.multiplicador;
+  var dato = await firstValueFrom(this.ppCarrServicio.obtenerPPCarrerasPorQAutos(qa,pos));
+  this.ppCarr = dato;
+  this.puntoXCarrera= this.ppCarr[0].puntosPPCarreras;
+  this.puntoXCarrera = this.puntoXCarrera * this.pondera * this.multiplicador;
+  this.pcp.idPilCatPunt = this.pilCatPunt[0].idPilCatPunt;
+  this.pcp.puntosAntPilCantPunt = this.pilCatPunt[0].puntosActPilCantPunt;
+  this.pcp.puntosActPilCantPunt = this.pilCatPunt[0].puntosActPilCantPunt + this.puntoXCarrera;
+  console.log("puntos por puesto:", this.ppCarr[0], "  ",this.puntoXCarrera);
+  console.log("PCP  :", this.pcp);
 
-          //   this.pcp.idPilCatPunt = this.pilCatPunt[0].idPilCatPunt;
-             this.pcp.puntosAntPilCantPunt = this.pilCatPunt[0].puntosActPilCantPunt;
+// acá armé todo y voy a grabar
 
-            this.pcp.puntosActPilCantPunt = this.pilCatPunt[0].puntosActPilCantPunt + this.puntoXCarrera;
-            console.log("puntos por puesto:", this.ppCarr[0], "  ",this.puntoXCarrera);
-            console.log("PCP  :", this.pcp);
-// acá armétodo y voy a grabar
-
-  })
+ // })
 
 }
 
@@ -310,13 +322,27 @@ async traerPPCarr(qa:number, pos:number){
 async grabaPilCatPunt(pcp:PilCatPunt){
 
   console.log("Estoy en grabaPilCatPunt", pcp)
- this.pilCPServicio.crearPilCatPunt(this.pcp)
-  .subscribe
-  ((dato: {idPilCatPunt:number;nombrePilotoPilCatPunt: String;idCategoriaPilCatPunt: String;puntosAntPilCantPunt:number;puntosActPilCantPunt:number}) =>
-  console.log("creó PilCatPunt", this.pcp, dato));
+  const dato = await firstValueFrom(this.pilCPServicio.crearPilCatPunt(this.pcp))
+    //.subscribe((dato: { idPilCatPunt: number; nombrePilotoPilCatPunt: String; idCategoriaPilCatPunt: String; puntosAntPilCantPunt: number; puntosActPilCantPunt: number; }) => console.log("creó PilCatPunt", this.pcp, dato));
 
   }
 
+  //**************************************************GRABA PILOTO ****************** */
+  // Calcula los puntos totales del piloto sumando todas las categorias donde tiene puntos
+  async grabaPiloto(pil:Pilotos){
+    console.log("Estoy en grabaPiloto", pil)
+    pil.puntajeAntPiloto = pil.puntajeActPiloto;
+    pil.puntajeActPiloto = pil.puntajeActPiloto + this.puntoXCarrera;
+    const dato = await firstValueFrom(this.pilotServicio.crearPilotos(pil))
+  }
+
+  //**************************************************GRABA PILOTO ****************** */
+  // Calcula los puntos totales del piloto sumando todas las categorias donde tiene puntos
+  async grabaCarreraPiloto(carp:CarreraPiloto){
+    console.log("Estoy en grabaCarreraPiloto", carp)
+
+    const dato = await firstValueFrom(this.carPilServicio.crearCarreraPiloto(carp))
+  }
 }
 
 

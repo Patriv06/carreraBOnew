@@ -25,8 +25,8 @@ export class PilotosComponent implements OnInit {
     nombrePiloto:" ",
     apellidoPiloto:" ",
     urlImgPiloto:" ",
-    puntajeAntPiloto:1,
-    puntajeActPiloto:1
+    puntajeAntPiloto:0,
+    puntajeActPiloto:0
  }
 
   public traerPilotos(){
@@ -55,7 +55,7 @@ export class PilotosComponent implements OnInit {
   }
 
   public altaPilotos(pil:Pilotos){
-    if (pil.apellidoPiloto!= " "){
+    if (pil.nombrePiloto!= " "){
       this.pilotServicio.crearPilotos(pil).subscribe((dato: {idPiloto:number; nombrePiloto:string; apellidoPiloto:string; urlImgPiloto:string; puntajeAntPiloto:number; puntajeActPiloto:number}) =>this.traerPilotos());
     }else{
       alert("El nombre no puede estar en blanco")

@@ -20,11 +20,11 @@ export class EditaPilotoComponent implements OnInit {
   }
 
   public modifPilotos(pil:Pilotos){
-    if (pil.apellidoPiloto!= " "){
+    if (pil.nombrePiloto!= " "){
       this.pilotServicio.modificarPilotos(pil).subscribe(()=>this.mostrarOcultar())
       this.mostrarOcultar()
     }else{
-      alert("El apellido no puede estar en blanco")
+      alert("El Nombre no puede estar en blanco")
     }
   }
   public cerrarMat(){
