@@ -12,7 +12,9 @@ export class PilotosService {
   private modifURL ="https://complete-audry-privas06.koyeb.app/modif/pilotos";
   private delURL="https://complete-audry-privas06.koyeb.app/delete/pilotos/";
   private altaURL="https://complete-audry-privas06.koyeb.app/pilotos";
-  private buscaPilXnoml ="https://complete-audry-privas06.koyeb.app/ver/pilotosXnombre"
+  private buscaPilXnom ="https://complete-audry-privas06.koyeb.app/ver/pilotosXnombre"
+  private buscaPilXPuntAct ="https://complete-audry-privas06.koyeb.app/ver/pilOrdenPunAct"
+  private buscaPilXPuntAnt ="https://complete-audry-privas06.koyeb.app/ver/pilOrdenPunAnt"
 
   // private baseURL="http://localhost:8080/ver/pilotos";
   // private modifURL ="http://localhost:8080/modif/pilotos";
@@ -47,8 +49,18 @@ export class PilotosService {
   }
 
   obtenerPilotosXnombre(nom:String):Observable<Pilotos>{
-    return this.httpClient.get<Pilotos>(`${this.buscaPilXnoml}`+"/" + nom);
+    return this.httpClient.get<Pilotos>(`${this.buscaPilXnom}`+"/" + nom);
   }
+
+
+  obtenerPilotosOrdenadosXPAct():Observable<Pilotos[]>{
+    return this.httpClient.get<Pilotos[]>(`${this.buscaPilXPuntAct}`);
+  }
+
+  obtenerPilotosOrdenadosXPAnt():Observable<Pilotos[]>{
+    return this.httpClient.get<Pilotos[]>(`${this.buscaPilXPuntAnt}`);
+  }
+
 }
 
 

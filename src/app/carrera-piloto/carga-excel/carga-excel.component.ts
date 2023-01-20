@@ -32,12 +32,35 @@ export class CargaExcelComponent implements OnInit {
 
   }
 
+  datoPil: PilCatPunt[] = [];
+
   constructor(
     private pilotServicio: PilotosService,
     private carPilServicio: CarreraPilotoService,
     private pilCPServicio: PilCatPuntService,
     private ppCarrServicio: PuntosPorCarreraService
   ) {}
+// Para Paginación
+ obj = [
+  { number: "Number 1"},
+  { number: "Number 2"},
+  { number: "Number 3"},
+  { number: "Number 4"},
+  { number: "Number 5"},
+  { number: "Number 6"},
+  { number: "Number 7"},
+  { number: "Number 8"},
+  { number: "Number 9"},
+  { number: "Number 10"},
+  { number: "Number 11"},
+  { number: "Number 12"},
+  { number: "Number 13"},
+  { number: "Number 14"},
+  { number: "Number 15"}
+  ];
+   current_page = 1;
+  obj_per_page = 3;
+  page=1;
 
   ver:boolean=true;
   irA:boolean=false
@@ -60,6 +83,8 @@ export class CargaExcelComponent implements OnInit {
   ];
   pilCatPunt :PilCatPunt[]=[ {
     idPilCatPunt:1,
+    posActPCP:0,
+    posAntPCP:0,
     nombrePilotoPilCatPunt:"",
     idCategoriaPilCatPunt:"",
     puntosAntPilCantPunt:1,
@@ -67,6 +92,8 @@ export class CargaExcelComponent implements OnInit {
   }];
   pcp:PilCatPunt ={
     idPilCatPunt:1,
+    posActPCP:0,
+    posAntPCP:0,
     nombrePilotoPilCatPunt:"",
     idCategoriaPilCatPunt:"",
     puntosAntPilCantPunt:1,
@@ -85,6 +112,8 @@ export class CargaExcelComponent implements OnInit {
   variable2?: String;
   varPil?:void;
   varQa?:void;
+  avance:number=0
+  termino:string=" "
 
   carPil:CarreraPiloto={
      id: 1,
@@ -106,9 +135,69 @@ export class CargaExcelComponent implements OnInit {
       autosPPCarreras:1,
      puntosPPCarreras:1}]
   puntoXCarrera!: any;
-//**************************************************BUSCA PPCARR */
 
-//Acá en buscaPPCarr, genera uno de las claves para buscar en la tabla que tiene los puntos de acuerdo a la cantidad de autos por carrera y la posición en la que salió.
+
+  x: Pilotos= {
+    idPiloto: 1,
+    nombrePiloto: ' ',
+    apellidoPiloto: ' ',
+    urlImgPiloto: ' ',
+    puntajeAntPiloto: 1,
+    puntajeActPiloto: 1
+  }
+ // todas las funciones para paginar
+  totNumPages()
+ {
+     return Math.ceil(this.obj.length / this.obj_per_page);
+ }
+
+ prevPage()
+ {
+     if (this.current_page > 1) {
+         this.current_page--;
+         this.change(this.current_page);
+     }
+ }
+ nextPage()
+ {
+     if (this.current_page < this.totNumPages()) {
+         this.current_page++;
+         this.change(this.current_page);
+     }
+ }
+ change(page:number)
+ {
+     var btn_next = document.getElementById("btn_next");
+     var btn_prev = document.getElementById("btn_prev");
+     var listing_table = document.getElementById("TableList");
+     var page_span = document.getElementById("page");
+     if (page < 1) page = 1;
+     if (page > this.totNumPages()) page = this.totNumPages();
+     listing_table!.innerHTML = "";
+     for (var i = (page-1) * this.obj_per_page; i < (page * this.obj_per_page); i++) {
+         listing_table!.innerHTML += this.obj[i].number + "<br>";
+     }
+    page_span!.innerHTML = page.toString()
+     if (page == 1) {
+         btn_prev!.style.visibility = "hidden";
+     } else {
+         btn_prev!.style.visibility = "visible";
+     }
+     if (page == this.totNumPages()) {
+         btn_next!.style.visibility = "hidden";
+     } else {
+         btn_next!.style.visibility = "visible";
+     }
+ }
+ /*  $window.onload=
+     change(1); */
+
+
+
+
+
+  //Acá en buscaPPCarr, genera uno de las claves para buscar en la tabla que tiene los puntos de acuerdo a la cantidad de autos por carrera y la posición en la que salió.
+
   buscaPPCarr(){
 
     console.log("Estoy en buscaPPCarr");
@@ -179,7 +268,7 @@ export class CargaExcelComponent implements OnInit {
 
     console.log("Estoy en recorrerPilotos")
     for (let posicion of this.resultadosCarrera2) {
-
+      this.avance = this.avance + 1;
       this.encontro = false;
 
       for (let pil of this.pilot) {
@@ -196,16 +285,20 @@ export class CargaExcelComponent implements OnInit {
           this.posicion2 = posicion.Pos;
           this.pil2 = pil;
           await this.calcularPuntos();
+          this.avance = this.avance + 1;
 
         }
       }
       if (!this.encontro) {
 
         alert(posicion.Piloto + ' no existe como nombre de Piloto');
+        this.avance = this.avance + 1;
       }
-      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+      this.avance = this.avance + 1;
     }
     console.log ("Terminé de ejecutar todo!!!!!")
+    this.termino= "Finalizó la carga"
   }
 
 //**************************************CALCULAR PUNTOS**************************************** */
@@ -263,10 +356,10 @@ export class CargaExcelComponent implements OnInit {
 
     this.poneEnCeroPilCantPunt(pil,cat)
 
-    var dato:PilCatPunt[] = await firstValueFrom(this.pilCPServicio.obtenerpilCatPuntPorPilyCat(pil,cat));
-    console.log("muestro dato:",dato[0])
-    if (dato[0] !=undefined){
-    this.pilCatPunt = dato;}
+    var datoPil:PilCatPunt[] = await firstValueFrom(this.pilCPServicio.obtenerpilCatPuntPorPilyCat(pil,cat));
+    console.log("muestro dato:",datoPil[0])
+    if (datoPil[0] !=undefined){
+    this.pilCatPunt = datoPil;}
     console.log("PilCatPunt de traerPilCatPunt:", this.pilCatPunt[0]);
     this.pcp = this.pilCatPunt[0];
   // this.pilCPServicio.obtenerpilCatPuntPorPilyCat(pil, cat).subscribe((dato: PilCatPunt[]) => {
@@ -334,6 +427,21 @@ async grabaPilCatPunt(pcp:PilCatPunt){
     pil.puntajeAntPiloto = pil.puntajeActPiloto;
     pil.puntajeActPiloto = pil.puntajeActPiloto + this.puntoXCarrera;
     const dato = await firstValueFrom(this.pilotServicio.crearPilotos(pil))
+    this.numero = this.numero + 1;
+    this.x = dato
+    console.log("Esto es x", this.x)
+
+
+
+    const div = document.createElement("div");  // <div></div>
+    div.textContent = "Nombre Piloto: "+ JSON.stringify(pil.nombrePiloto) + "|   Puntaje Actual Piloto: " + JSON.stringify(pil.puntajeActPiloto)
+
+
+const app = document.querySelector("#app"); // <div id="app">App</div>
+
+
+app?.insertAdjacentElement("beforebegin", div);
+
   }
 
   //**************************************************GRABA PILOTO ****************** */
@@ -343,6 +451,7 @@ async grabaPilCatPunt(pcp:PilCatPunt){
 
     const dato = await firstValueFrom(this.carPilServicio.crearCarreraPiloto(carp))
   }
+
 }
 
 

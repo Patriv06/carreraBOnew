@@ -9,7 +9,7 @@ import { Categorias } from '../categorias/categorias';
   templateUrl: './carrera-piloto.component.html',
   styleUrls: ['./carrera-piloto.component.scss']
 })
-export class CarreraPilotoComponent implements  OnChanges, OnInit, OnDestroy {
+export class CarreraPilotoComponent implements   OnInit{
   ver:boolean=false;
   eligio:boolean=true;
   pages: number = 1;
@@ -24,14 +24,7 @@ export class CarreraPilotoComponent implements  OnChanges, OnInit, OnDestroy {
   };
  carre: Carreras[] = [];
   constructor(private carServicio:CarrerasService,) { }
-ngOnChanges(changes: SimpleChanges): void {
-   console.log("Changes--->", changes);
-}
-ngOnDestroy(): void {
-  //Called once, before the instance is destroyed.
-  //Add 'implements OnDestroy' to the class.
 
-}
   ngOnInit(): void {
     this.traerCarreras();
   }

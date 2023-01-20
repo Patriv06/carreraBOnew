@@ -1,0 +1,20 @@
+<div class="div1">
+  <div class="div2">
+    <app-menu></app-menu>
+    <h1></h1>
+    <h1></h1>
+    <h1>Este proceso va a llevar a cero los puntos de los Pilotos en cada categoría</h1>
+    <h1></h1>
+    <h3>Continúa?</h3>
+    <button (click)="poneEnCero()"> SI</button> &nbsp; &nbsp; &nbsp;
+    <button (click)="vaAHome()"> NO</button>
+    <br><br><br>
+    <div *ngIf="ver==true">
+      <p>Cargando Pilotos y Categorías con Puntajes en cero...</p>
+      <p>{{numero}}</p>
+    </div>
+   <div *ngIf="numero==99999999999">
+    <button (click)="vaAHome()"> Vuelve a Home</button>
+   </div>
+    </div>
+    </div>

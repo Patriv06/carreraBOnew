@@ -58,6 +58,7 @@ dialogRef.afterClosed().subscribe(result => {this.recargar()
     this.autServicio.borrarAutodromos(autodromos).subscribe();
   }
 
+
   public altaAutodromos(aut:Autodromos){
     if (aut.nombreAutodromo != " "){
       this.autServicio.crearAutodromos(aut).subscribe((dato: {idAutodromo:number;nombreAutodromo: string}) =>this.traerAutodromo());
@@ -65,7 +66,6 @@ dialogRef.afterClosed().subscribe(result => {this.recargar()
       alert("El nombre no puede estar en blanco")
     }
   }
-
   recargar(): void {
     window.location.reload();
   }

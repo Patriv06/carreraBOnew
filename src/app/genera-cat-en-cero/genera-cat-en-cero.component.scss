@@ -1,0 +1,35 @@
+
+body{
+  background-color: black;
+}
+
+div{
+  text-align: center;
+  padding: 10px;
+  color: white;
+}
+
+.div1 {
+  overflow: hidden;
+  height: 98vh;
+  width: 95vw;
+  margin: 1vh 2.5vw;
+  border: 2px solid #e87867;
+  border-radius: 10px;
+  background-color: #3e3d3d;
+  position: relative;
+  background-image: url("/assets/imagenes/Pilotos_Carreras.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment:inherit;
+  z-index: 0;
+}
+
+
+.div2 {
+  color: white;
+  text-align: center;}
+
+
+
+

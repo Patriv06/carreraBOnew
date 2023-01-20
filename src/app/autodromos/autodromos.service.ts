@@ -1,9 +1,10 @@
 import { Autodromos } from 'src/app/autodromos/autodromos';
 
-import { HttpClient } from '@angular/common/http';
-import { EventEmitter, Injectable, Output } from '@angular/core';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, catchError } from 'rxjs';
 
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,23 +20,25 @@ export class AutodromosService {
   private delURL="http://localhost:8080/delete/autodromos/";
   private altaURL="http://localhost:8080/autodromos"; */
 
-
   constructor(private httpClient:HttpClient) { }
+  manejoDeErrores(error: HttpErrorResponse){
 
+    return error.message
+  }
 
   obtenerAutodromosPorId(id:number){
-    return this.httpClient.get<Autodromos>(`${this.baseURL}`+"/" + id);
+    return this.httpClient.get<Autodromos>(`${this.baseURL}`+"/" + id).pipe(catchError(this.manejoDeErrores));
   }
   obtenerAutodromos():Observable<Autodromos[]>{
     return this.httpClient.get<Autodromos[]>(`${this.baseURL}`);
   }
 
   modificarAutodromos(Autodromos:Autodromos) {
-   return this.httpClient.put<Autodromos>(`${this.modifURL}`, Autodromos)
+   return this.httpClient.put<Autodromos>(`${this.modifURL}`, Autodromos).pipe(catchError(this.manejoDeErrores))
   }
 
   borrarAutodromos(Autodromos:Autodromos){
-   return this.httpClient.delete<Autodromos>(this.delURL+ Autodromos.idAutodromo)
+   return this.httpClient.delete<Autodromos>(this.delURL+ Autodromos.idAutodromo).pipe(catchError(this.manejoDeErrores))
   }
   crearAutodromos(Autodromos:Autodromos){
     return this.httpClient.post<Autodromos>(`${this.altaURL}`, Autodromos)

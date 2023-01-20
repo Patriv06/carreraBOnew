@@ -14,6 +14,9 @@ export class PilCatPuntService {
   private altaURL="https://complete-audry-privas06.koyeb.app/pilCatPunt";
   private buscaPilUrl = "https://complete-audry-privas06.koyeb.app/ver/pilCatPuntXPiloto/";
   private buscaPilYCatURL = "https://complete-audry-privas06.koyeb.app/ver/pilCatPuntXPilotoYXCategoria";
+  private buscaPCPXPuntAct = "https://complete-audry-privas06.koyeb.app/ver/pcpOrdenadoXPuntAct";
+  private buscaPCPXPuntAnt = "https://complete-audry-privas06.koyeb.app/ver/pcpOrdenadoXPuntAnt";
+
 
 /*   private baseURL="http://localhost:8080/ver/pilCatPunt";
   private modifURL ="http://localhost:8080/modif/pilCatPunt";
@@ -28,6 +31,7 @@ export class PilCatPuntService {
     return this.httpClient.get<PilCatPunt>(`${this.baseURL}`+"/" + id);
   }
 
+
   obtenerpilCatPuntPorPil(nombrePil:String):Observable<PilCatPunt[]>{
     return this.httpClient.get<PilCatPunt[]>(`${this.buscaPilUrl}`+ nombrePil);
   }
@@ -41,15 +45,23 @@ export class PilCatPuntService {
     return this.httpClient.get<PilCatPunt[]>(`${this.baseURL}`);
   }
 
-  modificarPilCatPunt(PilCatPunt:PilCatPunt){
-   return this.httpClient.put<PilCatPunt>(`${this.modifURL}`, PilCatPunt)
+  obtenerPCPXPuntact():Observable<PilCatPunt[]>{
+    return this.httpClient.get<PilCatPunt[]>(`${this.buscaPCPXPuntAct}`);
   }
 
-  borrarPilCatPunt(PilCatPunt:PilCatPunt){
-   return this.httpClient.delete<PilCatPunt>(this.delURL+ PilCatPunt.idPilCatPunt)
+  obtenerPCPXPuntant():Observable<PilCatPunt[]>{
+    return this.httpClient.get<PilCatPunt[]>(`${this.buscaPCPXPuntAnt}`);
   }
-  crearPilCatPunt(PilCatPunt:PilCatPunt){
-    return this.httpClient.post<PilCatPunt>(`${this.altaURL}`, PilCatPunt)
+
+  modificarPilCatPunt(pilCatPunt:PilCatPunt){
+   return this.httpClient.put<PilCatPunt>(`${this.modifURL}`, pilCatPunt)
+  }
+
+  borrarPilCatPunt(pilCatPunt:PilCatPunt){
+   return this.httpClient.delete<PilCatPunt>(this.delURL+ pilCatPunt.idPilCatPunt)
+  }
+  crearPilCatPunt(pilCatPunt:PilCatPunt){
+    return this.httpClient.post<PilCatPunt>(`${this.altaURL}`, pilCatPunt)
   }
 }
 

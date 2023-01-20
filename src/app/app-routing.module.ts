@@ -1,3 +1,5 @@
+import { CalculaPosicionesComponent } from './calcula-posiciones/calcula-posiciones.component';
+import { GeneraCatEnCeroComponent } from './genera-cat-en-cero/genera-cat-en-cero.component';
 import { CarreraPilotoComponent } from './carrera-piloto/carrera-piloto.component';
 
 import { EditarAutComponent } from './autodromos/editar-aut/editar-aut.component';
@@ -26,6 +28,8 @@ const routes: Routes = [
   {path:'PPCarreras', component:PuntosPorCarreraComponent},
   {path:'CargaExcel', component:CargaExcelComponent},
   {path:'CarreraPiloto', component:CarreraPilotoComponent},
+  {path:'GeneraCatEnCero', component:GeneraCatEnCeroComponent},
+  {path:'CalculaPosiciones', component:CalculaPosicionesComponent},
   {path:'home', component:HomeComponent},
   {path:'', redirectTo:'home', pathMatch:'full'}
 ];
