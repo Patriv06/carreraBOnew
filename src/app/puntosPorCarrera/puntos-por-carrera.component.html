@@ -29,7 +29,7 @@
       <legend>Tabla de puntos</legend>
 
       <table class="autodromos">
-        <tr  *ngFor="let ppCar of ppCarreras | paginate: { itemsPerPage: 6, currentPage: pages }">
+        <tr  *ngFor="let ppCar of ppCarreras | paginate: { itemsPerPage: 5, currentPage: pages }">
           <td class="nomAut">
               {{ppCar.puestoPPCarrera}}
           </td>
@@ -53,7 +53,12 @@
           </td>
         </tr>
       </table>
-<!--  <br>
-<app-editar-aut ></app-editar-aut> -->
+  <div class="div10">
+    <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+  </div>
+
+</div>
+</div>
+</div>
 
 

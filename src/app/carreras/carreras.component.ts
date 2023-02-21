@@ -87,6 +87,7 @@ export class CarrerasComponent implements OnInit {
       }) =>console.log("hola"));
 
       console.log("car después", car)
+      this.recargar()
   }
 
   recargar(): void {

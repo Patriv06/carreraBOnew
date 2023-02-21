@@ -47,6 +47,8 @@ export class GeneraCatEnCeroComponent implements OnInit {
   public traerPilCatPunt(){
     this.pcpServicio.obtenerPilCatPunt().subscribe(dato =>{this.pcp = dato});
   }
+
+
   public async poneEnCero(){
     this.ver = true
     this.numero = this.numero + 1
@@ -54,7 +56,11 @@ export class GeneraCatEnCeroComponent implements OnInit {
     for (let pil of this.pcp){
       this.pcpServicio.borrarPilCatPunt(pil).subscribe(()=>console.log("borrando", pil))
     }
-
+    for (let pil of this.pilot){
+      pil.puntajeActPiloto=0;
+      pil.puntajeAntPiloto=0
+      await this.grabaPilotosEnCero(pil)
+    }
     for (let pil of this.pilot){
 
         this.pilCatPunt.posActPCP = 0;
@@ -82,10 +88,18 @@ export class GeneraCatEnCeroComponent implements OnInit {
       this.pilCatPunt.idCategoriaPilCatPunt = "Total";
       await this.grabaPilCatPunt(this.pilCatPunt)
     }
+
     this.pcp.sort()
     console.log (this.pcp)
+
      this.numero = 99999999999
   }
+  async grabaPilotosEnCero(pil: Pilotos){
+
+      this.numero = this.numero + 1
+   const dato= await firstValueFrom(this.pilotServicio.modificarPilotos(pil))}
+
+
   async grabaPilCatPunt(PilCatPunt:PilCatPunt){
 
     console.log("Estoy en grabaPilCatPunt", this.pilCatPunt)

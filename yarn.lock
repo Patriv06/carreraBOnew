@@ -5117,10 +5117,10 @@
   "resolved" "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   "version" "2.6.2"
 
-"ngx-pagination@^6.0.2":
-  "integrity" "sha512-7N4FA244ls7h/977EqvcDXuyB/U5rPJI+FD0Zj9orrXb+kX2SOX0WP+yQw50Gm/Dy9aPOE91FkgoYzGyRSPY0A=="
-  "resolved" "https://registry.npmjs.org/ngx-pagination/-/ngx-pagination-6.0.2.tgz"
-  "version" "6.0.2"
+"ngx-pagination@^6.0.3":
+  "integrity" "sha512-lONjTQ7hFPh1SyhwDrRd5ZwM4NMGQ7bNR6vLrs6mrU0Z8Q1zCcWbf/pvyp4DOlGyd9uyZxRy2wUsSZLeIPjbAw=="
+  "resolved" "https://registry.npmjs.org/ngx-pagination/-/ngx-pagination-6.0.3.tgz"
+  "version" "6.0.3"
   dependencies:
     "tslib" "^2.3.0"
 

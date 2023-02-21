@@ -60,13 +60,15 @@ public async calcula(){
   this.ver=true
   for (let piloto of this.pilo){
     console.log("aca estoy cargando los puntos: ", piloto)
-    var pila= (piloto.nombrePiloto);
-    var pilo=pila.trim();
+  /*   var pila= (piloto.nombrePiloto);
+    var pilo=pila.trim(); */
+    var pilo = piloto.nombrePiloto
     var cat='Puntaje'
     this.pil=piloto
     await this.traePilCatPunt(pilo, cat)
-    var pila= (piloto.nombrePiloto);
-    var pilo=pila.trim();
+    /* var pila= (piloto.nombrePiloto);
+    var pilo=pila.trim(); */
+    var pilo = piloto.nombrePiloto
     var cat='Total'
 
     await this.traePilCatPunt(pilo, cat)
